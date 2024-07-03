@@ -16,7 +16,7 @@ return {
   require 'minhhoccode.plugins.bufferline',
   require 'minhhoccode.plugins.comment',
   require 'minhhoccode.plugins.conform',
-  require 'minhhoccode.plugins.context',
+  -- require 'minhhoccode.plugins.context',
   require 'minhhoccode.plugins.gitsigns',
   require 'minhhoccode.plugins.lspconfig',
   require 'minhhoccode.plugins.markdownpreview',
