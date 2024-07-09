@@ -12,17 +12,30 @@ return {
       mode = '',
       desc = '[F]ormat Code',
     },
+    {
+      '<leader>tf',
+      function()
+        vim.g.format_on_save_enabled = not vim.g.format_on_save_enabled
+        print('Format on save: ' .. (vim.g.format_on_save_enabled and 'enabled' or 'disabled'))
+      end,
+      mode = '',
+      desc = '[T]oggle [F]ormat on Save',
+    },
   },
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
+      -- Check global toggle state
+      if not vim.g.format_on_save_enabled then
+        return false
+      end
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
       -- Manually edit code style CS50
       -- but we still be able to manually <leader>F to format
       local disable_filetypes = {
-        c = true,
+        -- c = true,
         -- cpp = true,
         --
         -- markdown = true,
@@ -60,4 +73,8 @@ return {
       c = { { 'clang-format', 'ast_grep' } },
     },
   },
+  init = function()
+    -- Initialize the format on save toggle state to true by default
+    vim.g.format_on_save_enabled = true
+  end,
 }
