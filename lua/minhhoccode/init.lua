@@ -14,6 +14,7 @@ return {
   require 'minhhoccode.plugins.autopairs',
   require 'minhhoccode.plugins.autotag',
   require 'minhhoccode.plugins.bufferline',
+  require 'minhhoccode.plugins.colorschemes',
   require 'minhhoccode.plugins.comment',
   require 'minhhoccode.plugins.conform',
   -- require 'minhhoccode.plugins.context',
@@ -28,7 +29,6 @@ return {
   require 'minhhoccode.plugins.tailwind',
   require 'minhhoccode.plugins.telescope',
   require 'minhhoccode.plugins.term',
-  require 'minhhoccode.plugins.tokyonight',
   require 'minhhoccode.plugins.treesitter',
   require 'minhhoccode.plugins.whichkey',
 }
