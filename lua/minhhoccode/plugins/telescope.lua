@@ -91,7 +91,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     map('n', '<leader>fo', builtin.oldfiles, { desc = '[F]ind [O]ld (Opened) Files' })
     map('n', '<leader>fb', builtin.buffers, { desc = '[F]ind Current [B]uffers' })
     map('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
-    map('n', '<leader>fc', builtin.git_commits, { desc = '[F]ind Git [C]ommits' })
+    map('n', '<leader>fc', builtin.git_commits, { desc = '[F]ind Git [c]ommits' })
     map('n', '<leader>fs', builtin.git_status, { desc = '[F]ind Git [S]tatus' })
     map('n', '<c-p>', builtin.resume, { desc = '[F]ind [R]esume' })
     map('n', '<leader>fa', function()
@@ -133,7 +133,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Shortcut for searching my /cs dir
     map('n', '<leader>fC', function()
       builtin.fd { cwd = '~/cs', hidden = true, no_ignore = true }
-    end, { desc = '[F]ind [c]s dir' })
+    end, { desc = '[F]ind [C]S dir' })
 
     -- Shortcut for searching my /web dir
     map('n', '<leader>fW', function()
