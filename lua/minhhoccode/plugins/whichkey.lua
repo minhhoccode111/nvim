@@ -20,20 +20,46 @@ return { -- Useful plugin to show you pending keybinds.
     require('which-key').setup()
 
     -- Document existing key chains
-    require('which-key').register {
-      ['<leader>a'] = { name = '[A]PIs', _ = 'which_key_ignore' },
-      ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]iagnostic', _ = 'which_key_ignore' },
-      ['<leader>D'] = { name = '[D]ebug', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'Gitsign [H]unk', _ = 'which_key_ignore' },
-      ['<leader>l'] = { name = '[L]SP', _ = 'which_key_ignore' },
-      ['<leader>m'] = { name = '[M]anagers', _ = 'which_key_ignore' },
-      ['<leader>n'] = { name = '[N]eotree', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]eplace', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]erminal | [T]oggle', _ = 'which_key_ignore' },
-      ['<leader>x'] = { name = '[X]Close', _ = 'which_key_ignore' },
-
-      ['<leader>ls'] = { name = '[L]SP [S]ymbols', _ = 'which_key_ignore' },
+    -- require('which-key').register {
+    --   ['<leader>a'] = { name = '[A]PIs', _ = 'which_key_ignore' },
+    --   ['<leader>f'] = { name = '[F]ind', _ = 'which_key_ignore' },
+    --   ['<leader>d'] = { name = '[D]iagnostic', _ = 'which_key_ignore' },
+    --   ['<leader>D'] = { name = '[D]ebug', _ = 'which_key_ignore' },
+    --   ['<leader>h'] = { name = 'Gitsign [H]unk', _ = 'which_key_ignore' },
+    --   ['<leader>l'] = { name = '[L]SP', _ = 'which_key_ignore' },
+    --   ['<leader>m'] = { name = '[M]anagers', _ = 'which_key_ignore' },
+    --   ['<leader>n'] = { name = '[N]eotree', _ = 'which_key_ignore' },
+    --   ['<leader>r'] = { name = '[R]eplace', _ = 'which_key_ignore' },
+    --   ['<leader>t'] = { name = '[T]erminal | [T]oggle', _ = 'which_key_ignore' },
+    --   ['<leader>x'] = { name = '[X]Close', _ = 'which_key_ignore' },
+    --
+    --   ['<leader>ls'] = { name = '[L]SP [S]ymbols', _ = 'which_key_ignore' },
+    -- }
+    require('which-key').add {
+      { '<leader>D', group = '[D]ebug' },
+      { '<leader>D_', hidden = true },
+      { '<leader>a', group = '[A]PIs' },
+      { '<leader>a_', hidden = true },
+      { '<leader>d', group = '[D]iagnostic' },
+      { '<leader>d_', hidden = true },
+      { '<leader>f', group = '[F]ind' },
+      { '<leader>f_', hidden = true },
+      { '<leader>h', group = 'Gitsign [H]unk' },
+      { '<leader>h_', hidden = true },
+      { '<leader>l', group = '[L]SP' },
+      { '<leader>l_', hidden = true },
+      { '<leader>ls', group = '[L]SP [S]ymbols' },
+      { '<leader>ls_', hidden = true },
+      { '<leader>m', group = '[M]anagers' },
+      { '<leader>m_', hidden = true },
+      { '<leader>n', group = '[N]eotree' },
+      { '<leader>n_', hidden = true },
+      { '<leader>r', group = '[R]eplace' },
+      { '<leader>r_', hidden = true },
+      { '<leader>t', group = '[T]erminal | [T]oggle' },
+      { '<leader>t_', hidden = true },
+      { '<leader>x', group = '[X]Close' },
+      { '<leader>x_', hidden = true },
     }
   end,
 }

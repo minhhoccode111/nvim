@@ -43,7 +43,7 @@ return {
       map('t', 'jj', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
       -- Open terminals -- In new buffer to will be displayed like tab on bufferline to quick navigate
-      map('n', '<leader>tt', '<cmd> ter <cr>', { desc = '[T]erminal New Buffer' })
+      map('n', '<leader>tt', '<cmd> ter <cr>', { desc = '[T]oggle [T]erminal New Buffer' })
 
       -- Togglable fast, 'i' since it's closest
       map({ 'n', 't' }, '<a-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle Float Terminal' })
@@ -56,7 +56,7 @@ return {
       -- map({ 'n', 't' }, '<leader>tl', '<cmd>lua require("nvterm.terminal").new "vertical"<cr>', { desc = '[T]erminal New [l]Right' })
 
       -- Open New Vertical terminal and run `test` script
-      map({ 'n', 't' }, '<leader>ts', function()
+      map('n', '<leader>ts', function()
         require('nvterm.terminal').send('npm run test', 'vertical')
       end, { desc = '[T]erminal Run [S]cript' })
 
