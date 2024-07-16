@@ -35,6 +35,7 @@ return { -- Useful plugin to show you pending keybinds.
     --
     --   ['<leader>ls'] = { name = '[L]SP [S]ymbols', _ = 'which_key_ignore' },
     -- }
+
     require('which-key').add {
       { '<leader>D', group = '[D]ebug' },
       { '<leader>D_', hidden = true },
@@ -56,10 +57,15 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>n_', hidden = true },
       { '<leader>r', group = '[R]eplace' },
       { '<leader>r_', hidden = true },
-      { '<leader>t', group = '[T]erminal | [T]oggle' },
+      { '<leader>t', group = '[T]oggle' },
       { '<leader>t_', hidden = true },
       { '<leader>x', group = '[X]Close' },
       { '<leader>x_', hidden = true },
     }
+
+    -- require('which-key').show {
+    --   keys = 's',
+    --   loop = true, -- this will keep the popup open until you hit <esc>
+    -- }
   end,
 }

@@ -148,5 +148,6 @@ map('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open [D]iagnostic [Q
 -- Managers
 map('n', '<leader>mm', '<cmd>Mason<cr>', { desc = '[M]anager [M]ason' })
 map('n', '<leader>ml', '<cmd>Lazy<cr>', { desc = '[M]anager [L]azy' })
+map('n', '<leader>mh', '<cmd>checkhealth<cr>', { desc = '[M]anager check [H]ealth' })
 
 return {}
