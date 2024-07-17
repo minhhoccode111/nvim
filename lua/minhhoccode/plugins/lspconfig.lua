@@ -174,7 +174,7 @@ return { -- LSP Configuration & Plugins
       --
       -- because we setup with this approach, we don't also manually set up servers directly via lspconfig as this will cause servers to setup more than once
       -- require('lspconfig')[server_name].setup(server)
-      -- gopls = {}, -- linux debian don't have go installed properly
+      gopls = {}, -- linux debian don't have go installed properly
       pyright = {},
       -- rust_analyzer = {},
 
@@ -186,6 +186,7 @@ return { -- LSP Configuration & Plugins
       html = {},
       tailwindcss = {},
       tsserver = {},
+      omnisharp = {},
 
       lua_ls = {
         -- cmd = {...},
@@ -226,8 +227,9 @@ return { -- LSP Configuration & Plugins
       'ts-standard',
 
       -- Low level
-      -- 'ast_grep',
+      'ast_grep',
       'clang-format',
+      'csharpier',
     })
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }

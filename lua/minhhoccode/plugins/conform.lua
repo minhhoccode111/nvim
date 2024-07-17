@@ -67,10 +67,11 @@ return {
       css = { { 'prettierd', 'prettier' } },
       json = { { 'prettierd', 'prettier' } },
       markdown = { { 'prettierd', 'prettier' } },
-      -- go = { 'ast_grep' },
+      go = { 'golines' },
 
       -- low level
-      c = { { 'clang-format', 'ast_grep' } },
+      cs = { { 'csharpier', 'clang-format' } },
+      c = { { 'clang-format' } },
     },
   },
   init = function()
