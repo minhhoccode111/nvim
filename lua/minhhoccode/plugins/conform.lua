@@ -1,4 +1,4 @@
--- Autoformat
+-- Formatters: add spaces, semi-colon, etc. so code have consistent format
 
 return {
   'stevearc/conform.nvim',
@@ -47,31 +47,29 @@ return {
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
-    formatters_by_ft = { -- <leader>F to add like ';' to js, ts
-      lua = { 'stylua' },
-      -- Conform can also run multiple formatters sequentially
-      --
+    formatters_by_ft = {
+      -- <leader>F to add like ';' to js, ts
+      -- Conform can also run multiple formatters sequentially. { 'something' }
       -- You can use a sub-list to tell conform to run *until* a formatter
-      -- is found.
-      -- javascript = { { "prettierd", "prettier" } },
+      -- is found. { { 'something', 'somethingelse' } }
 
-      python = { { 'isort', 'black' } },
-      -- web
-      javascript = { { 'prettierd', 'prettier', 'standardjs' } },
-      typescript = { { 'prettierd', 'prettier' } },
-      -- jsx = { { 'prettierd', 'prettier', 'standardjs' } },
-      -- tsx = { { 'prettierd', 'prettier', 'standardjs' } },
-      javascriptreact = { { 'prettierd', 'prettier', 'standardjs' } },
-      typescriptreact = { { 'prettierd', 'prettier', 'standardjs' } },
-      html = { { 'prettierd', 'prettier' } },
-      css = { { 'prettierd', 'prettier' } },
-      json = { { 'prettierd', 'prettier' } },
-      markdown = { { 'prettierd', 'prettier' } },
+      -- other
+      lua = { 'stylua' },
       go = { 'golines' },
+      cs = { 'csharpier' },
+      c = { 'clang-format' },
+      python = { { 'isort', 'black' } },
 
-      -- low level
-      cs = { { 'csharpier', 'clang-format' } },
-      c = { { 'clang-format' } },
+      -- web
+      typescript = { { 'prettierd', 'prettier' } },
+      javascript = { { 'prettierd', 'prettier' } },
+      javascriptreact = { { 'prettierd', 'prettier' } },
+      typescriptreact = { { 'prettierd', 'prettier' } },
+
+      json = { 'jq' },
+      markdown = { 'markdownlint' },
+      css = { { 'prettierd', 'prettier' } },
+      html = { { 'prettierd', 'prettier' } },
     },
   },
   init = function()

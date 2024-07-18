@@ -94,8 +94,12 @@ return { -- LSP Configuration & Plugins
 
         -- Opens a popup that displays documentation about the word under your cursor
         -- Calling the function twice will jump to the docs window
-        --  See `:help K` for why this keymap.
+        -- See `:help K` for why this keymap.
+        -- functionality provides information about the symbol under the cursor
         map('<leader>lk', vim.lsp.buf.hover, '[K]eyword Documentation')
+
+        -- functionality provides information about the signature of a function or method as you are typing its parameters
+        map('<leader>lS', vim.lsp.buf.signature_help, '[S]ignature Help')
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header.
@@ -174,20 +178,24 @@ return { -- LSP Configuration & Plugins
       --
       -- because we setup with this approach, we don't also manually set up servers directly via lspconfig as this will cause servers to setup more than once
       -- require('lspconfig')[server_name].setup(server)
-      gopls = {}, -- linux debian don't have go installed properly
-      pyright = {},
-      -- rust_analyzer = {},
 
-      ast_grep = {},
-      clangd = {},
-      cssls = {},
-      emmet_language_server = {},
-      eslint = {},
+      -- web
       html = {},
-      tailwindcss = {},
+      cssls = {},
       tsserver = {},
-      omnisharp = {},
+      tailwindcss = {},
+      emmet_language_server = {},
 
+      -- other
+      gopls = {},
+      clangd = {},
+      pyright = {},
+      ast_grep = {},
+      omnisharp = {},
+      -- csharp_ls = {},
+      rust_analyzer = {},
+
+      -- example
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -217,19 +225,20 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       -- Other
-      'stylua', -- Used to format Lua code
+      'jq',
+      'stylua',
+      'markdownlint',
 
       -- Web dev
-      'markdownlint',
       'prettier',
       'prettierd',
-      'standardjs',
-      'ts-standard',
 
-      -- Low level
-      'ast_grep',
-      'clang-format',
+      -- other
+      'isort',
+      'black',
+      'golines',
       'csharpier',
+      'clang-format',
     })
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
