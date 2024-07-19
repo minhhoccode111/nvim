@@ -66,10 +66,10 @@ return {
       javascriptreact = { { 'prettierd', 'prettier' } },
       typescriptreact = { { 'prettierd', 'prettier' } },
 
-      json = { 'jq' },
-      markdown = { 'markdownlint' },
       css = { { 'prettierd', 'prettier' } },
       html = { { 'prettierd', 'prettier' } },
+      json = { 'jq', 'prettierd', 'prettier' },
+      markdown = { 'markdownlint', 'prettierd', 'prettier' },
     },
   },
   init = function()
