@@ -187,11 +187,12 @@ return { -- LSP Configuration & Plugins
       emmet_language_server = {},
 
       -- other
+      bashls = {},
       -- gopls = {},
+      omnisharp = {},
       -- clangd = {},
       -- pyright = {},
       -- ast_grep = {},
-      omnisharp = {},
       -- csharp_ls = {},
       -- rust_analyzer = {},
 

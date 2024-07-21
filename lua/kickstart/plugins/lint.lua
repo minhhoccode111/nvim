@@ -10,8 +10,9 @@ return {
       cs = { 'trivy' },
       c = { 'cpplint' },
       text = { 'vale' },
-      lua = { 'luacheck' },
       python = { 'pylint' },
+      bash = { 'shellcheck' },
+      -- lua = { 'luacheck' },
       go = { 'golangci-lint' },
 
       -- web
