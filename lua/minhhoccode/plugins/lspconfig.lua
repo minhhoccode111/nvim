@@ -187,13 +187,13 @@ return { -- LSP Configuration & Plugins
       emmet_language_server = {},
 
       -- other
-      gopls = {},
-      clangd = {},
-      pyright = {},
-      ast_grep = {},
+      -- gopls = {},
+      -- clangd = {},
+      -- pyright = {},
+      -- ast_grep = {},
       omnisharp = {},
       -- csharp_ls = {},
-      rust_analyzer = {},
+      -- rust_analyzer = {},
 
       -- example
       lua_ls = {
@@ -224,6 +224,8 @@ return { -- LSP Configuration & Plugins
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
+      -- Should be linters because errors occur if linters is set but not
+      -- installed
       -- Other
       'jq',
       'stylua',

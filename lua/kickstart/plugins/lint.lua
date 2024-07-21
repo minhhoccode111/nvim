@@ -7,20 +7,20 @@ return {
     local lint = require 'lint'
     lint.linters_by_ft = {
       -- other
-      -- cs = { 'trivy' },
-      -- c = { 'cpplint' },
-      -- text = { 'vale' },
-      -- lua = { 'luacheck' },
-      -- python = { 'pylint' },
-      -- go = { 'golangci-lint' },
+      cs = { 'trivy' },
+      c = { 'cpplint' },
+      text = { 'vale' },
+      lua = { 'luacheck' },
+      python = { 'pylint' },
+      go = { 'golangci-lint' },
 
       -- web
-      -- css = { 'stylelint' },
-      -- html = { 'htmlhint' },
-      -- json = { 'jsonlint' },
+      css = { 'stylelint' },
+      html = { 'htmlhint' },
+      json = { 'jsonlint' },
       markdown = { 'markdownlint' },
-      -- javascript = { 'standardjs' },
-      -- typescript = { 'ts-standard' },
+      javascript = { 'standardjs' },
+      typescript = { 'ts-standard' },
     }
 
     -- To allow other plugins to add linters to require('lint').linters_by_ft,
