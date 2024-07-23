@@ -141,6 +141,7 @@ return { -- LSP Configuration & Plugins
         if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
           map('<leader>lh', function()
             -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            ---@diagnostic disable-next-line: missing-parameter
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end, 'Toggle Inlay [H]ints')
         end
@@ -242,6 +243,11 @@ return { -- LSP Configuration & Plugins
       'golines',
       'csharpier',
       'clang-format',
+
+      -- debugger
+      'chrome-debug-adapter',
+      'delve',
+      'netcoredbg',
     })
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
