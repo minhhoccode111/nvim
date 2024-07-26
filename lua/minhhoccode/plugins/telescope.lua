@@ -155,6 +155,19 @@ return { -- Fuzzy Finder (files, lsp, etc)
       builtin.fd { cwd = '~/Documents', hidden = true, no_ignore = true }
     end, { desc = '[F]ind [D]ocuments dir' })
 
+    -- Add a dir to [T]emporary variable to search
+    local cwd_dir = ''
+    map('n', '<leader>fT', function()
+      -- if the cwd_dir local variable is not yet init, then the first time we
+      -- use this keymaps will prompt us to add the dir to assign to the string
+      if cwd_dir == '' then
+        cwd_dir = vim.fn.input 'Add Dir Path For Next Use (~/): '
+      else
+        -- next time will find that dir
+        builtin.fd { cwd = '~/' .. cwd_dir, hidden = true, no_ignore = true }
+      end
+    end, { desc = '[F]ind [T]emp Dir' })
+
     -- Custom search when you get prompted to options to search
     map('n', '<leader>f?', function()
       local cwd_s = vim.fn.input 'Path (~/): '
