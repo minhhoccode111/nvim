@@ -57,7 +57,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>n_', hidden = true },
       { '<leader>r', group = '[R]eplace' },
       { '<leader>r_', hidden = true },
-      { '<leader>t', group = '[T]oggle' },
+      { '<leader>t', group = '[T]oggle | [T]erminal' },
       { '<leader>t_', hidden = true },
       { '<leader>x', group = '[X]Close' },
       { '<leader>x_', hidden = true },

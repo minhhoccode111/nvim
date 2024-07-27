@@ -23,7 +23,7 @@ return {
 
       -- default
       -- ['('] = { output = { left = '( ', right = ' )' } },
-      -- remove extra space
+      -- manually set because don't want 1 extra space ' '
       custom_surroundings = {
         ['('] = { output = { left = '(', right = ')' } },
         ['{'] = { output = { left = '{', right = '}' } },

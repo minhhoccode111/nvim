@@ -28,7 +28,7 @@ return {
   require 'minhhoccode.plugins.rest',
   require 'minhhoccode.plugins.tailwind',
   require 'minhhoccode.plugins.telescope',
-  require 'minhhoccode.plugins.term',
+  require 'minhhoccode.plugins.termimal',
   require 'minhhoccode.plugins.treesitter',
   require 'minhhoccode.plugins.whichkey',
 }

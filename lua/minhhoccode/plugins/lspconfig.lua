@@ -228,21 +228,17 @@ return { -- LSP Configuration & Plugins
     vim.list_extend(ensure_installed, {
       -- Should be linters because errors occur if linters is set but not
       -- installed
-      -- Other
       'jq',
       'stylua',
       'markdownlint',
-
-      -- Web dev
       'prettier',
       'prettierd',
-
-      -- other
-      'isort',
-      'black',
-      'golines',
-      'csharpier',
+      -- 'isort',
+      -- 'black',
+      -- 'golines',
       'clang-format',
+      'csharpier',
+      'trivy',
 
       -- debugger
       'chrome-debug-adapter',

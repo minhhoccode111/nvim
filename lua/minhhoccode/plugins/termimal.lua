@@ -29,7 +29,7 @@ return {
           -- close_on_exit = true,
           -- this also make the buffer terminal auto focus
           -- not cool when we navigate between buffers
-          auto_insert = false,
+          auto_insert = true,
         },
       }
 
@@ -43,27 +43,32 @@ return {
       map('t', 'jj', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
       -- Open terminals -- In new buffer to will be displayed like tab on bufferline to quick navigate
-      map('n', '<leader>tt', '<cmd> ter <cr>', { desc = '[T]oggle [T]erminal New Buffer' })
+      map('n', '<leader>tt', '<cmd> ter <cr>', { desc = 'New [T]erminal Buffer' })
 
       -- Togglable fast, 'i' since it's closest
-      map({ 'n', 't' }, '<a-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle Float Terminal' })
-      map({ 'n', 't' }, '<a-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = 'Toggle [H]orizontal Terminal' })
-      map({ 'n', 't' }, '<a-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle [V]ertical Terminal' })
+      map({ 'n', 't' }, '<a-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = '[T]erminal [F]loat' })
+      map({ 'n', 't' }, '<a-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = '[T]erminal [H]orizontal' })
+      map({ 'n', 't' }, '<a-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = '[T]erminal [V]ertical' })
 
       -- New with <leader> -- No need since we just exit the terminal with <c-d> and toggle new terminal again
-      -- map({ 'n', 't' }, '<leader>ti', '<cmd>lua require("nvterm.terminal").new "float"<cr>', { desc = '[T]erminal New [i]Float' })
-      -- map({ 'n', 't' }, '<leader>tj', '<cmd>lua require("nvterm.terminal").new "horizontal"<cr>', { desc = '[T]erminal New [j]Bottom' })
-      -- map({ 'n', 't' }, '<leader>tl', '<cmd>lua require("nvterm.terminal").new "vertical"<cr>', { desc = '[T]erminal New [l]Right' })
+      map({ 'n', 't' }, '<leader>ti', '<cmd>lua require("nvterm.terminal").new "float"<cr>', { desc = '[T]erminal [i]Float' })
+      map({ 'n', 't' }, '<leader>th', '<cmd>lua require("nvterm.terminal").new "horizontal"<cr>', { desc = '[T]erminal [H]orizontal' })
+      map({ 'n', 't' }, '<leader>tv', '<cmd>lua require("nvterm.terminal").new "vertical"<cr>', { desc = '[T]erminal [V]ertical' })
 
       -- Open New Vertical terminal and run `test` script
-      map('n', '<leader>ts', function()
-        require('nvterm.terminal').send('npm run test', 'vertical')
-      end, { desc = '[T]erminal Run [S]cript' })
+      map('n', '<leader>tS', function()
+        require('nvterm.terminal').send('npm run test', 'float')
+      end, { desc = '[T]erminal Run Test [S]cript' })
 
       -- Send a command to the opened Terminal
       -- require('nvterm.terminal').send(' your command ', 'horizontal|vertical|float') -- the 2nd argument i.e direction is optional
-      -- Example run `node test` in a float terminal
-      -- map({ 'n', 't' }, '<a-i>', '<cmd>lua require("nvterm.terminal").send("node test", "float")<cr>', { desc = 'Toggle Float Terminal' })
+      -- Example prompt user to type a command and send to a float terminal
+      map(
+        { 'n', 't' },
+        '<leader>ts',
+        '<cmd>lua require("nvterm.terminal").send(vim.fn.input"Your command: ", "float")<cr>',
+        { desc = '[T]erminal [A]sk Command To Run' }
+      )
     end,
   },
 }
