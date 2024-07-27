@@ -22,7 +22,7 @@ return {
         },
         behavior = {
           autoclose_on_quit = {
-            -- This free a port when terminal close? Myth
+            -- This free a port when terminal close and prevent us from crash memory
             enabled = true,
             confirm = false,
           },

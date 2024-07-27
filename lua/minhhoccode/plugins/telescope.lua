@@ -84,7 +84,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     map('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
     map('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
     map('n', '<leader>ff', builtin.fd, { desc = '[F]ind [F]iles' })
-    map('n', '<leader>ft', builtin.builtin, { desc = '[F]ind Select [T]elescope' })
+    map('n', '<leader>fS', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
     map('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind Current [W]ord' })
     map('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind [G]rep String' })
     map('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
@@ -157,7 +157,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Add a dir to [T]emporary variable to search
     local cwd_dir = ''
-    map('n', '<leader>fT', function()
+    map('n', '<leader>ft', function()
       -- if the cwd_dir local variable is not yet init, then the first time we
       -- use this keymaps will prompt us to add the dir to assign to the string
       if cwd_dir == '' then
@@ -166,7 +166,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         -- next time will find that dir
         builtin.fd { cwd = '~/' .. cwd_dir, hidden = true, no_ignore = true }
       end
-    end, { desc = '[F]ind [T]emp Dir' })
+    end, { desc = '[F]ind [T]emporay Dir' })
 
     -- Custom search when you get prompted to options to search
     map('n', '<leader>f?', function()
