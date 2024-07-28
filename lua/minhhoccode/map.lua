@@ -113,8 +113,8 @@ map('n', '<leader>xx', '<cmd> q <cr>', { desc = '[X]Close w/ :q' })
 map('n', '<leader>xa', '<cmd> qa <cr>', { desc = '[X]Close w/ :q[a]' })
 
 -- Change window Width
-map('n', '<c-,>', '<c-w><', { desc = 'Decrease Window Width' })
-map('n', '<c-.>', '<c-w>>', { desc = 'Increase Window Width' })
+map('n', '<a-,>', '<c-w><', { desc = 'Decrease Window Width' })
+map('n', '<a-.>', '<c-w>>', { desc = 'Increase Window Width' })
 
 -- Split window
 map('n', '<leader>_', '<cmd> sp <cr>', { desc = 'New [_]Horizon Window' })

@@ -150,61 +150,33 @@ return { -- Fuzzy Finder (files, lsp, etc)
       builtin.fd { cwd = '~/project', hidden = true, no_ignore = false } -- so many node_modules
     end, { desc = '[F]ind [p]roject dir' })
 
-    -- Shortcut for searching my /Documents dir
-    map('n', '<leader>fD', function()
-      builtin.fd { cwd = '~/Documents', hidden = true, no_ignore = true }
-    end, { desc = '[F]ind [D]ocuments dir' })
+    -- Shortcut for searching my /Documents/current-obsidian dir
+    map('n', '<leader>fO', function()
+      builtin.fd { cwd = '~/Documents/current-obsidian/', hidden = true, no_ignore = true }
+    end, { desc = '[F]ind [o]bsidian dir' })
 
-    -- Add a dir to [T]emporary variable to search
-    local cwd_dir = ''
-    map('n', '<leader>ft', function()
-      -- if the cwd_dir local variable is not yet init, then the first time we
-      -- use this keymaps will prompt us to add the dir to assign to the string
-      if cwd_dir == '' then
-        cwd_dir = vim.fn.input 'Add Dir Path For Next Use (~/): '
-      else
-        -- next time will find that dir
-        builtin.fd { cwd = '~/' .. cwd_dir, hidden = true, no_ignore = true }
-      end
-    end, { desc = '[F]ind [T]emporay Dir' })
-
-    -- Custom search when you get prompted to options to search
+    -- prompt user to add a path to local variables
+    local current_cwd = nil
+    local current_hidden = true
+    local current_noignore = false
     map('n', '<leader>f?', function()
-      local cwd_s = vim.fn.input 'Path (~/): '
+      -- prompt
+      local cwd_s = vim.fn.input 'Path (./): '
       local hidden_c = vim.fn.input 'With hidden files? (Y/n) '
       local no_ignore_c = vim.fn.input 'Show files listed in .gitignore (node_modules)? (y/N) '
+      -- check and assign
+      current_cwd = cwd_s ~= '' and cwd_s or nil
+      current_hidden = (hidden_c == 'n' or hidden_c == 'N') and false or true
+      current_noignore = (no_ignore_c == 'y' or no_ignore_c == 'Y') and true or false
+    end, { desc = 'Add to [?] Path' })
 
-      -- if cwd not provide search in current dir
-      local cwd = cwd_s ~= '' and '~/' .. cwd_s or nil -- work like a?b:c in js
-
-      -- {hidden}           (boolean)         determines whether to show hidden
-      --                                      files or not (default: false)
-      local hidden
-      if hidden_c == 'n' or hidden_c == 'N' then
-        hidden = false
-      else
-        -- default include hidden files
-        hidden = true
-      end
-
-      -- {no_ignore}        (boolean)         show files ignored by .gitignore,
-      --                                      .ignore, etc. (default: false)
-      local no_ignore
-      if no_ignore_c == 'y' or no_ignore_c == 'Y' then
-        no_ignore = true
-      else
-        -- default not include files in .gitignore
-        no_ignore = false
-      end
-
+    -- find from local variables
+    map('n', '<leader>fR', function()
       builtin.fd {
-        -- this path is based on your system's files structure
-        cwd = cwd,
-        -- show hidden files
-        hidden = hidden, -- to search like .env etc
-        -- show file ignore by .gitignore (who search in /node_modules?)
-        no_ignore = no_ignore,
+        cwd = current_cwd,
+        hidden = current_hidden,
+        no_ignore = current_noignore,
       }
-    end, { desc = 'Prompt [F]ind from ~/[?]' })
+    end, { desc = '[F]ind [R]esume [?] Path' })
   end,
 }
