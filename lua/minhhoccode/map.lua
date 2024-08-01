@@ -116,6 +116,10 @@ map('n', '<leader>xa', '<cmd> qa <cr>', { desc = '[X]Close w/ :q[a]' })
 map('n', '<a-,>', '<c-w><', { desc = 'Decrease Window Width' })
 map('n', '<a-.>', '<c-w>>', { desc = 'Increase Window Width' })
 
+-- Change window Height
+map('n', '<a-->', '<c-w>-', { desc = 'Decrease Window Height' })
+map('n', '<a-=>', '<c-w>+', { desc = 'Increase Window Height' })
+
 -- Split window
 map('n', '<leader>_', '<cmd> sp <cr>', { desc = 'New [_]Horizon Window' })
 map('n', '<leader>|', '<cmd> vsp <cr>', { desc = 'New [|]Vertical Window' })

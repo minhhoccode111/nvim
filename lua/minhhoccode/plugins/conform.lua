@@ -43,7 +43,7 @@ return {
         -- md = true,
       }
       return {
-        timeout_ms = 500,
+        timeout_ms = 1500,
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
@@ -56,7 +56,7 @@ return {
       -- other
       lua = { 'stylua' },
       go = { 'golines' },
-      cs = { 'csharpier' },
+      cs = { 'csharpier', 'clang-format', 'ast_grep' },
       c = { 'clang-format' },
       python = { 'isort', 'black' },
 
