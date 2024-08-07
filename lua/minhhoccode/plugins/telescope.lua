@@ -130,10 +130,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
       builtin.fd { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[F]ind [N]eovim files' })
 
-    -- Shortcut for searching my /cs dir
-    map('n', '<leader>fC', function()
-      builtin.fd { cwd = '~/cs', hidden = true, no_ignore = true }
-    end, { desc = '[F]ind [C]S dir' })
+    -- -- Shortcut for searching my /cs dir
+    -- map('n', '<leader>fC', function()
+    --   builtin.fd { cwd = '~/cs', hidden = true, no_ignore = true }
+    -- end, { desc = '[F]ind [C]S dir' })
 
     -- Shortcut for searching my /web dir
     map('n', '<leader>fW', function()
@@ -150,10 +150,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
       builtin.fd { cwd = '~/project', hidden = true, no_ignore = false } -- so many node_modules
     end, { desc = '[F]ind [p]roject dir' })
 
-    -- Shortcut for searching my /Documents/current-obsidian dir
-    map('n', '<leader>fO', function()
-      builtin.fd { cwd = '~/Documents/current-obsidian/', hidden = true, no_ignore = true }
-    end, { desc = '[F]ind [o]bsidian dir' })
+    -- -- Shortcut for searching my /Documents/current-obsidian dir
+    -- map('n', '<leader>fO', function()
+    --   builtin.fd { cwd = '~/Documents/current-obsidian/', hidden = true, no_ignore = true }
+    -- end, { desc = '[F]ind [o]bsidian dir' })
 
     -- prompt user to add a path to local variables
     local current_cwd = nil
