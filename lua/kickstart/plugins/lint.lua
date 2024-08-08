@@ -8,18 +8,18 @@ return {
     lint.linters_by_ft = {
       -- other
       cs = { 'trivy' },
-      c = { 'cpplint' },
-      text = { 'vale' },
-      python = { 'pylint' },
+      -- c = { 'cpplint' },
+      -- text = { 'vale' },
+      -- python = { 'pylint' },
       bash = { 'shellcheck' },
       -- lua = { 'luacheck' },
-      go = { 'golangci-lint' },
+      -- go = { 'golangci-lint' },
 
       -- web
-      css = { 'stylelint' },
-      html = { 'htmlhint' },
-      json = { 'jsonlint' },
-      markdown = { 'markdownlint' },
+      -- css = { 'stylelint' },
+      -- html = { 'htmlhint' },
+      -- json = { 'jsonlint' },
+      -- markdown = { 'markdownlint' },
       javascript = { 'standardjs' },
       typescript = { 'ts-standard' },
     }

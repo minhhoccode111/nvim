@@ -28,8 +28,8 @@ return {
           },
           -- close_on_exit = true,
           -- this also make the buffer terminal auto focus
-          -- not cool when we navigate between buffers
-          auto_insert = true,
+          -- not cool when we navigate between buffers with <C-i> and <C-o>
+          auto_insert = false,
         },
       }
 
