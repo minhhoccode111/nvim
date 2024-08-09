@@ -50,10 +50,11 @@ return {
       map({ 'n', 't' }, '<a-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = '[T]erminal [H]orizontal' })
       map({ 'n', 't' }, '<a-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = '[T]erminal [V]ertical' })
 
-      -- New with <leader> -- No need since we just exit the terminal with <c-d> and toggle new terminal again
-      map({ 'n', 't' }, '<leader>ti', '<cmd>lua require("nvterm.terminal").new "float"<cr>', { desc = '[T]erminal [i]Float' })
-      map({ 'n', 't' }, '<leader>th', '<cmd>lua require("nvterm.terminal").new "horizontal"<cr>', { desc = '[T]erminal [H]orizontal' })
-      map({ 'n', 't' }, '<leader>tv', '<cmd>lua require("nvterm.terminal").new "vertical"<cr>', { desc = '[T]erminal [V]ertical' })
+      -- -- New with <leader> -- No need since we just exit the terminal with <c-d> and toggle new terminal again
+      -- -- NOTE: turn off because it's popup while I type in terminal
+      -- map({ 'n', 't' }, '<leader>ti', '<cmd>lua require("nvterm.terminal").new "float"<cr>', { desc = '[T]erminal [i]Float' })
+      -- map({ 'n', 't' }, '<leader>th', '<cmd>lua require("nvterm.terminal").new "horizontal"<cr>', { desc = '[T]erminal [H]orizontal' })
+      -- map({ 'n', 't' }, '<leader>tv', '<cmd>lua require("nvterm.terminal").new "vertical"<cr>', { desc = '[T]erminal [V]ertical' })
 
       -- Open New Vertical terminal and run `test` script
       map('n', '<leader>tS', function()
@@ -64,7 +65,7 @@ return {
       -- require('nvterm.terminal').send(' your command ', 'horizontal|vertical|float') -- the 2nd argument i.e direction is optional
       -- Example prompt user to type a command and send to a float terminal
       map(
-        { 'n', 't' },
+        'n',
         '<leader>ts',
         '<cmd>lua require("nvterm.terminal").send(vim.fn.input"Your command: ", "float")<cr>',
         { desc = '[T]erminal [A]sk Command To Run' }
