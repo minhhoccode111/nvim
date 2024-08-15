@@ -20,7 +20,7 @@ return {
       -- html = { 'htmlhint' },
       -- json = { 'jsonlint' },
       -- markdown = { 'markdownlint' },
-      javascript = { 'standardjs' },
+      -- javascript = { 'quick_lint_js' },
       typescript = { 'ts-standard' },
     }
 
