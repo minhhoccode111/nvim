@@ -168,7 +168,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
       current_cwd = cwd_s ~= '' and cwd_s or nil
       current_hidden = (hidden_c == 'n' or hidden_c == 'N') and false or true
       current_noignore = (no_ignore_c == 'y' or no_ignore_c == 'Y') and true or false
-    end, { desc = 'Add to [?] Path' })
+
+      builtin.fd {
+        cwd = current_cwd,
+        hidden = current_hidden,
+        no_ignore = current_noignore,
+      }
+    end, { desc = '[F]ind [?] Path' })
 
     -- find from local variables
     map('n', '<leader>fR', function()
