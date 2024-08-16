@@ -190,7 +190,7 @@ return { -- LSP Configuration & Plugins
       -- other
       bashls = {},
       -- gopls = {},
-      omnisharp = {},
+      -- omnisharp = {},
       -- clangd = {},
       -- pyright = {},
       -- ast_grep = {},
