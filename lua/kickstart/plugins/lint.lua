@@ -21,7 +21,7 @@ return {
       -- json = { 'jsonlint' },
       -- markdown = { 'markdownlint' },
       -- javascript = { 'quick_lint_js' },
-      typescript = { 'ts-standard' },
+      -- typescript = { 'ts-standard' },
     }
 
     -- To allow other plugins to add linters to require('lint').linters_by_ft,
