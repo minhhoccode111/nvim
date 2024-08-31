@@ -69,7 +69,7 @@ return {
         --  This will expand snippets if the LSP sent a snippet.
         ['<C-y>'] = cmp.mapping.confirm { select = true },
         -- Accept with <c-m>, <c-j>, and <enter>
-        ['<enter>'] = cmp.mapping.confirm { select = true },
+        -- ['<enter>'] = cmp.mapping.confirm { select = true },
         -- In cases you don't want to press Ctrl key
         ['<tab>'] = cmp.mapping.confirm { select = true },
 
