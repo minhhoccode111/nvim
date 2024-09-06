@@ -183,14 +183,14 @@ return { -- LSP Configuration & Plugins
       -- web
       html = {},
       cssls = {},
-      tsserver = {},
+      ts_ls = {},
       tailwindcss = {},
       emmet_language_server = {},
 
       -- other
       bashls = {},
       -- gopls = {},
-      -- omnisharp = {},
+      omnisharp = {},
       -- clangd = {},
       -- pyright = {},
       -- ast_grep = {},
