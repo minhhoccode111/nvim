@@ -183,7 +183,7 @@ return { -- LSP Configuration & Plugins
       -- web
       html = {},
       cssls = {},
-      ts_ls = {},
+      custom_elements_ls = {},
       tailwindcss = {},
       emmet_language_server = {},
 
