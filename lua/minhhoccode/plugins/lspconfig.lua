@@ -236,7 +236,7 @@ return { -- LSP Configuration & Plugins
       -- 'isort',
       -- 'black',
       -- 'golines',
-      'clang-format',
+      -- 'clang-format',
       'csharpier',
       'trivy',
 

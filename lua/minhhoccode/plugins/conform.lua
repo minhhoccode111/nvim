@@ -57,7 +57,7 @@ return {
       lua = { 'stylua' },
       go = { 'golines' },
       cs = { 'csharpier' },
-      c = { 'clang-format' },
+      -- c = { 'clang-format' },
       python = { 'isort', 'black' },
 
       -- web
