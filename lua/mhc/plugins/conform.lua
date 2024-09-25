@@ -23,7 +23,7 @@ return {
     },
   },
   opts = {
-    notify_on_error = false,
+    notify_on_error = true,
     format_on_save = function(bufnr)
       -- Check global toggle state
       if not vim.g.format_on_save_enabled then
