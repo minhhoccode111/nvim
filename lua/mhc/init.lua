@@ -22,7 +22,8 @@ return {
   require 'mhc.plugins.rest',
   require 'mhc.plugins.tailwind',
   require 'mhc.plugins.telescope',
-  require 'mhc.plugins.termimal',
+  -- require 'mhc.plugins.termimal', -- no need after added tmux
+  require 'mhc.plugins.todo_comment',
   require 'mhc.plugins.treesitter',
   require 'mhc.plugins.whichkey',
 }

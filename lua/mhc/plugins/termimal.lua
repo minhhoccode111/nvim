@@ -47,8 +47,9 @@ return {
 
       -- Togglable fast, 'i' since it's closest
       map({ 'n', 't' }, '<a-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = '[T]erminal [F]loat' })
-      map({ 'n', 't' }, '<a-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = '[T]erminal [H]orizontal' })
-      map({ 'n', 't' }, '<a-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = '[T]erminal [V]ertical' })
+
+      -- map({ 'n', 't' }, '<a-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = '[T]erminal [H]orizontal' })
+      -- map({ 'n', 't' }, '<a-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = '[T]erminal [V]ertical' })
 
       -- -- New with <leader> -- No need since we just exit the terminal with <c-d> and toggle new terminal again
       -- -- NOTE: turn off because it's popup while I type in terminal
