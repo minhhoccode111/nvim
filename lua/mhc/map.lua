@@ -24,8 +24,8 @@ map('n', 'J', 'mzJ`z', { desc = 'Join line below and keep cursor position the sa
 -- Center cursor after moving screen
 map('n', 'n', 'nzzzv', { desc = 'Center cursor after moving screen' })
 map('n', 'N', 'Nzzzv', { desc = 'Center cursor after moving screen' })
--- map('n', '<c-f>', '<c-f>zz', { desc = 'Center cursor after moving screen' })
--- map('n', '<c-b>', '<c-b>zz', { desc = 'Center cursor after moving screen' })
+map('n', '<c-f>', '<c-f>zz', { desc = 'Center cursor after moving screen' })
+map('n', '<c-b>', '<c-b>zz', { desc = 'Center cursor after moving screen' })
 -- map('n', '<c-d>', '<c-d>zz', { desc = 'Center cursor after moving screen' })
 -- map('n', '<c-u>', '<c-u>zz', { desc = 'Center cursor after moving screen' })
 -- map('n', '}', '}zz', { desc = 'Center cursor after moving screen' })
@@ -127,8 +127,8 @@ map('n', '<a-->', '<c-w>-', { desc = 'Decrease Window Height' })
 map('n', '<a-=>', '<c-w>+', { desc = 'Increase Window Height' })
 
 -- Split window
-map('n', '<leader>_', '<cmd> sp <cr>', { desc = 'New [_]Horizon Window' })
-map('n', '<leader>|', '<cmd> vsp <cr>', { desc = 'New [|]Vertical Window' })
+map('n', '<leader>_', '<cmd> sp <cr>', { desc = '[_]Horizon Window' })
+map('n', '<leader>|', '<cmd> vsp <cr>', { desc = '[|]Vertical Window' })
 
 -- Extra terminal keymaps in term.lua
 -- Extra markdown keymaps in markdownpreview.lua
