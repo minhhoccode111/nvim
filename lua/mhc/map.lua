@@ -24,8 +24,8 @@ map('n', 'J', 'mzJ`z', { desc = 'Join line below and keep cursor position the sa
 -- Center cursor after moving screen
 map('n', 'n', 'nzzzv', { desc = 'Center cursor after moving screen' })
 map('n', 'N', 'Nzzzv', { desc = 'Center cursor after moving screen' })
-map('n', '<c-f>', '<c-f>zz', { desc = 'Center cursor after moving screen' })
-map('n', '<c-b>', '<c-b>zz', { desc = 'Center cursor after moving screen' })
+-- map('n', '<c-f>', '<c-f>zz', { desc = 'Center cursor after moving screen' })
+-- map('n', '<c-b>', '<c-b>zz', { desc = 'Center cursor after moving screen' })
 -- map('n', '<c-d>', '<c-d>zz', { desc = 'Center cursor after moving screen' })
 -- map('n', '<c-u>', '<c-u>zz', { desc = 'Center cursor after moving screen' })
 -- map('n', '}', '}zz', { desc = 'Center cursor after moving screen' })
