@@ -80,6 +80,11 @@ map('t', 'jj', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+-- better default
+-- map('c', '%s/', '%sm/', { desc = 'Default magic regex' })
+-- map('n', '/', '/\\v', { desc = 'Default magic regex' })
+-- map('n', '?', '?\\v', { desc = 'Default magic regex' })
+
 --[[ COMMANDS ]]
 
 -- Save file with <C-s>
