@@ -45,7 +45,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>d_', hidden = true },
       { '<leader>f', group = '[F]ind' },
       { '<leader>f_', hidden = true },
-      { '<leader>g', group = '[G]itsign' },
+      { '<leader>h', group = 'Gitsign [H]unk' },
       { '<leader>h_', hidden = true },
       { '<leader>l', group = '[L]SP' },
       { '<leader>l_', hidden = true },
