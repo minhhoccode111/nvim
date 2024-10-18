@@ -57,10 +57,10 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
       map('n', '<leader>hb', function()
         gitsigns.blame_line { full = true }
       end, { desc = 'Gitsigns [B]lame Line' })
-      map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Gitsigns [d]iff this' })
+      map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Gitsigns [d]iff this (vs staged)' })
       map('n', '<leader>hD', function()
         gitsigns.diffthis '~'
-      end, { desc = 'Gitsigns [D]iff ~' })
+      end, { desc = 'Gitsigns [D]iff ~ (vs last commit)' })
       map('n', '<leader>tB', gitsigns.toggle_current_line_blame, { desc = '[T]oggle Gitsigns [B]lame Line' })
       map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle Gitsigns [D]eleted Line' })
     end,
