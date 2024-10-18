@@ -1,3 +1,19 @@
+-- format json rest.nvim
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'json' },
+  callback = function()
+    vim.api.nvim_set_option_value('formatprg', 'jq', { scope = 'local' })
+  end,
+})
+
+-- format html rest.nvim
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'html',
+  callback = function()
+    vim.bo.formatprg = 'tidy -q -indent'
+  end,
+})
+
 ---rest.nvim default configuration
 ---@class rest.Config
 vim.g.rest_nvim = {
