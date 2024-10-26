@@ -142,6 +142,9 @@ map('n', '<leader>|', '<cmd> vsp <cr>', { desc = '[|]Vertical Window' })
 -- Cycle through files in current buffer
 map('n', '<c-o>', '<cmd> bn <cr>', { desc = 'Next Buffer', silent = true })
 map('n', '<c-i>', '<cmd> bp <cr>', { desc = 'Prev Buffer', silent = true })
+-- the default ones but use Alt because i rarely use it, and for me `i` is back and `o` is forth
+map('n', '<A-i>', '<C-o>', { desc = 'Go to older position in jump list' })
+map('n', '<A-o>', '<C-i>', { desc = 'Go to newer position in jump list' })
 
 -- Pick buffer to close
 map('n', '<leader>xp', '<cmd>lua require("bufferline").close_with_pick()<cr>', { desc = '[X]Close [P]ick Buffer' })
