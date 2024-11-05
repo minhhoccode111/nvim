@@ -232,17 +232,32 @@ return { -- LSP Configuration & Plugins
       'markdownlint',
       'prettier',
       'prettierd',
-      -- 'isort',
-      -- 'black',
-      -- 'golines',
-      -- 'clang-format',
+      'isort',
+      'black',
       'csharpier',
       'trivy',
 
       -- debugger
-      'chrome-debug-adapter',
-      'delve',
       'netcoredbg',
+
+      'debugpy',
+      -- 'ast_grep',
+      'bashls',
+      'cssls',
+      'emmet_language_server',
+      'eslint_d',
+      'html',
+      'jq',
+      'lua_ls',
+      'omnisharp',
+      'pylint',
+      'pyright',
+      'pylsp',
+      'rustywind',
+      'tailwindcss',
+      'ts-standard',
+      'ts_ls',
+      'volar',
     })
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
