@@ -187,6 +187,7 @@ return { -- LSP Configuration & Plugins
       emmet_language_server = {},
 
       -- other
+      ts_ls = {},
       bashls = {},
       -- gopls = {},
       omnisharp = {},
@@ -194,6 +195,7 @@ return { -- LSP Configuration & Plugins
       -- pyright = {},
       -- ast_grep = {},
       -- csharp_ls = {},
+      quick_lint_js = {},
       -- rust_analyzer = {},
 
       -- example
@@ -245,7 +247,7 @@ return { -- LSP Configuration & Plugins
       'bashls',
       'cssls',
       'emmet_language_server',
-      'eslint_d',
+      -- 'eslint_d',
       'html',
       'jq',
       'lua_ls',
@@ -255,7 +257,7 @@ return { -- LSP Configuration & Plugins
       'pylsp',
       'rustywind',
       'tailwindcss',
-      'ts-standard',
+      -- 'ts-standard',
       'ts_ls',
       'volar',
     })
