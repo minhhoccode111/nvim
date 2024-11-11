@@ -7,7 +7,7 @@ return {
     local lint = require 'lint'
     lint.linters_by_ft = {
       -- other
-      cs = { 'trivy' },
+      -- cs = { 'trivy' },
       -- c = { 'cpplint' },
       -- text = { 'vale' },
       -- python = { 'pylint' },

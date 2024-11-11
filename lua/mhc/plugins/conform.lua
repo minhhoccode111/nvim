@@ -58,18 +58,18 @@ return {
       go = { 'golines' },
       cs = { 'csharpier' },
       -- c = { 'clang-format' },
-      python = { 'isort', 'black' },
+      python = { 'black' },
 
       -- web
-      typescript = { 'prettierd', 'prettier' },
-      javascript = { 'prettierd', 'prettier' },
-      javascriptreact = { 'prettierd', 'prettier' },
-      typescriptreact = { 'prettierd', 'prettier' },
+      typescript = { 'prettierd' },
+      javascript = { 'prettierd' },
+      javascriptreact = { 'prettierd' },
+      typescriptreact = { 'prettierd' },
 
-      css = { 'prettierd', 'prettier' },
-      json = { 'jq', 'prettierd', 'prettier' },
-      html = { 'prettierd', 'prettier' },
-      markdown = { 'markdownlint', 'prettierd', 'prettier' },
+      css = { 'prettierd' },
+      json = { 'jq', 'prettierd' },
+      html = { 'prettierd' },
+      markdown = { 'markdownlint', 'prettierd' },
     },
   },
   init = function()
