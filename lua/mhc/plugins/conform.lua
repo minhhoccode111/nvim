@@ -55,7 +55,7 @@ return {
 
       -- other
       lua = { 'stylua' },
-      go = { 'golines' },
+      -- go = { 'golines' },
       cs = { 'csharpier' },
       -- c = { 'clang-format' },
       python = { 'black' },
