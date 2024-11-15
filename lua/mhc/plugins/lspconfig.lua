@@ -195,7 +195,7 @@ return { -- LSP Configuration & Plugins
       -- pyright = {},
       -- ast_grep = {},
       -- csharp_ls = {},
-      quick_lint_js = {},
+      -- quick_lint_js = {},
       -- rust_analyzer = {},
 
       -- example
