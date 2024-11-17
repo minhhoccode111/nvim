@@ -85,8 +85,9 @@ return { -- LSP Configuration & Plugins
         map('<leader>lsw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols [W]orkspace ')
 
         -- Rename the variable under your cursor.
-        --  Most Language Servers support renaming across files, etc.
-        map('<leader>rn', vim.lsp.buf.rename, '[R]eplace Var [N]ame')
+        -- Most Language Servers support renaming across files, etc.
+        -- commented because we use IncRename instead
+        -- map('<leader>rn', vim.lsp.buf.rename, '[R]eplace Var [N]ame')
 
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.

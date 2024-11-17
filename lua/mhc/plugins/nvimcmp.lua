@@ -104,6 +104,7 @@ return {
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'codeium' }, -- AI
         { name = 'path' }, -- files' path
 
         -- nvim_cmp is like a framework and we need to make sure that
