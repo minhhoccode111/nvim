@@ -13,5 +13,8 @@ return {
         enable = true,
       },
     }
+
+    local map = vim.keymap.set
+    map('n', '<leader>C', '<cmd>Codeium Chat<cr>', { desc = 'Codeium [C]hat' })
   end,
 }
