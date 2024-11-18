@@ -41,6 +41,23 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
         end
       end, { desc = 'Gitsigns Prev[k] [H]unk' })
 
+      -- navigation but quicker
+      map('n', '<leader>J', function()
+        if vim.wo.diff then
+          vim.cmd.normal { '<leader>hj', bang = true }
+        else
+          gitsigns.nav_hunk 'next'
+        end
+      end, { desc = 'Gitsigns Next[j] [H]unk' })
+
+      map('n', '<leader>K', function()
+        if vim.wo.diff then
+          vim.cmd.normal { '<leader>hk', bang = true }
+        else
+          gitsigns.nav_hunk 'prev'
+        end
+      end, { desc = 'Gitsigns Prev[k] [H]unk' })
+
       -- setup keymaps
       map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'Gitsigns [S]tage [H]unk' })
       map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'Gitsigns [R]eset [H]unk' })
