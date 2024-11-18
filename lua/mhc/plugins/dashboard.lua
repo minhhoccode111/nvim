@@ -37,6 +37,7 @@ return {
           },
           { icon = '  ', desc = '[S]tatus Git Find         ', action = builtin.git_status, key = 's' },
           { icon = '  ', desc = '[C]onfiguration           ', action = 'edit ~/.config/nvim/init.lua', key = 'c' },
+          { icon = '󰗼  ', desc = '[Q]uit                    ', action = 'q', key = 'q' },
         },
         footer = { '', '', 'Memento mori' },
       },
