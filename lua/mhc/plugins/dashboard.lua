@@ -24,18 +24,18 @@ return {
       config = {
         header = vim.split(logo, '\n'),
         center = {
-          { icon = '  ', desc = '[N]ew file                ', action = 'enew', key = 'n' },
-          { icon = '  ', desc = 'Find [F]iles              ', action = builtin.fd, key = 'f' },
-          { icon = '  ', desc = 'Find [O]ld files          ', action = builtin.oldfiles, key = 'o' },
+          { icon = '󰙅  ', desc = '[N]eotree Toggle          ', action = 'Neotree toggle left', key = 'n' },
+          { icon = '  ', desc = '[F]iles Find              ', action = builtin.fd, key = 'f' },
+          { icon = '  ', desc = '[O]ld files Find          ', action = builtin.oldfiles, key = 'o' },
           {
             icon = '󰈞  ',
-            desc = 'Find [A]ll files          ',
+            desc = '[A]ll files Find          ',
             action = function()
               builtin.fd { hidden = true, no_ignore = true }
             end,
             key = 'a',
           },
-          { icon = '  ', desc = 'Find git [S]tatus         ', action = builtin.git_status, key = 's' },
+          { icon = '  ', desc = '[S]tatus Git Find         ', action = builtin.git_status, key = 's' },
           { icon = '  ', desc = '[C]onfiguration           ', action = 'edit ~/.config/nvim/init.lua', key = 'c' },
         },
         footer = { '', '', 'Memento mori' },
