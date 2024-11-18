@@ -92,8 +92,11 @@ map({ 'i', 'n' }, '<C-s>', '<cmd> w <cr>', { desc = 'Save file' })
 
 -- Replace regex string current file
 map('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[R]eplace [R]egex String' })
--- replace variable name
-map('n', '<leader>rn', ':IncRename ', { desc = '[R]eplace Var [N]ame' })
+-- Replace variable name using inc-rename.nvim
+-- map('n', '<leader>rn', ':IncRename ', { desc = '[R]eplace Var [N]ame' })
+map('n', '<leader>rn', function()
+  return ':IncRename ' .. vim.fn.expand '<cword>'
+end, { expr = true, desc = '[R]eplace Var [N]ame' })
 
 -- Source current file
 map('n', '<leader>S', '<cmd>so<cr>', { desc = '[S]ource File' })
