@@ -41,4 +41,49 @@ return {
     'sainnhe/everforest',
     priority = 1000,
   },
+
+  {
+    'morhetz/gruvbox',
+    priority = 1000,
+  },
+
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000,
+  },
+
+  {
+    'ayu-theme/ayu-vim',
+    priority = 1000,
+  },
+
+  {
+    'sainnhe/gruvbox-material',
+    priority = 1000,
+  },
+
+  {
+    'sainnhe/sonokai',
+    priority = 1000,
+  },
+
+  {
+    'Mofiqul/vscode.nvim',
+    priority = 1000,
+  },
+
+  {
+    'Mofiqul/dracula.nvim',
+    priority = 1000,
+  },
+
+  {
+    'joshdick/onedark.vim',
+    priority = 1000,
+  },
+
+  {
+    'cocopon/iceberg.vim',
+    priority = 1000,
+  },
 }
