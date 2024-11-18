@@ -24,7 +24,7 @@ return {
       config = {
         header = vim.split(logo, '\n'),
         center = {
-          { icon = '󰙅  ', desc = '[N]eotree Toggle          ', action = 'Neotree toggle left', key = 'n' },
+          { icon = '󰙅  ', desc = '[N]eotree Toggle          ', action = 'Neotree toggle float', key = 'n' },
           { icon = '  ', desc = '[F]iles Find              ', action = builtin.fd, key = 'f' },
           { icon = '  ', desc = '[O]ld files Find          ', action = builtin.oldfiles, key = 'o' },
           {
