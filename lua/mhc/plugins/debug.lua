@@ -93,47 +93,47 @@ return {
         current_frame = '',
         expanded = '',
       },
-      -- layouts = {
-      --   {
-      --     elements = {
-      --       {
-      --         id = 'scopes',
-      --         -- size = 0.25,
-      --         size = 1.0,
-      --       },
-      --       -- {
-      --       --   id = 'breakpoints',
-      --       --   -- size = 0.25,
-      --       --   size = 0.05,
-      --       -- },
-      --       -- {
-      --       --   id = 'stacks',
-      --       --   -- size = 0.25,
-      --       --   size = 0.05,
-      --       -- },
-      --       -- {
-      --       --   id = 'watches',
-      --       --   -- size = 0.25,
-      --       --   size = 0.05,
-      --       -- },
-      --     },
-      --     position = 'left',
-      --     -- size = 40,
-      --     size = 0.5,
-      --   },
-      --   {
-      --     elements = { {
-      --       id = 'repl',
-      --       size = 0.5,
-      --     }, {
-      --       id = 'console',
-      --       size = 0.5,
-      --     } },
-      --     position = 'bottom',
-      --     -- size = 10,
-      --     size = 0.1,
-      --   },
-      -- },
+      layouts = {
+        {
+          elements = {
+            {
+              id = 'scopes',
+              size = 0.25,
+              -- size = 1.0,
+            },
+            {
+              id = 'breakpoints',
+              size = 0.25,
+              -- size = 0.05,
+            },
+            {
+              id = 'stacks',
+              size = 0.25,
+              -- size = 0.05,
+            },
+            {
+              id = 'watches',
+              size = 0.25,
+              -- size = 0.05,
+            },
+          },
+          position = 'left',
+          size = 40,
+          -- size = 0.5,
+        },
+        {
+          elements = { {
+            id = 'repl',
+            size = 0.5,
+          }, {
+            id = 'console',
+            size = 0.5,
+          } },
+          position = 'bottom',
+          size = 10,
+          -- size = 0.1,
+        },
+      },
       mappings = {
         edit = 'e',
         expand = { '<CR>', '<2-LeftMouse>' },
