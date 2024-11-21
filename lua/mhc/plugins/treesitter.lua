@@ -31,6 +31,7 @@ return {
       'json',
       'http',
       'graphql',
+      'gitcommit', -- annoying error mesage
     },
 
     --[[ -- autotag for react
