@@ -14,7 +14,7 @@ return {
 ╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
     ]]
 
-    logo = string.rep('\n', 8) .. logo .. '\n\n\n'
+    logo = string.rep('\n', 3) .. logo .. string.rep('\n', 2)
 
     local builtin = require 'telescope.builtin'
 

@@ -22,7 +22,8 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
-    'leoluz/nvim-dap-go',
+    'leoluz/nvim-dap-go', -- golang
+    -- 'NicholasMata/nvim-dap-cs', -- csharp
   },
   config = function()
     local dap = require 'dap'
@@ -47,14 +48,15 @@ return {
       },
     }
 
+    local map = vim.keymap.set
     -- Basic debugging keymaps, feel free to change to your liking!
-    vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-    vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-    vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-    vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-    vim.keymap.set('n', '<F4>', dap.step_out, { desc = 'Debug: Step Back' })
-    vim.keymap.set('n', '<leader>Db', dap.toggle_breakpoint, { desc = '[D]ebug: [B]reakpoint Toggle' })
-    vim.keymap.set('n', '<leader>DB', function()
+    map('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
+    map('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
+    map('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
+    map('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
+    map('n', '<F4>', dap.step_out, { desc = 'Debug: Step Back' })
+    map('n', '<leader>Db', dap.toggle_breakpoint, { desc = '[D]ebug: [B]reakpoint Toggle' })
+    map('n', '<leader>DB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = '[D]ebug: [B]reakpoint Set' })
 
@@ -149,11 +151,19 @@ return {
     }
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
+    map('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    -- dap.defaults.fallback.terminal_win_cmd = '50vsplit new'
+    -- dap.defaults.fallback.focus_terminal = true
+    -- dap.defaults.fallback.external_terminal = {
+    --   command = '/usr/bin/alacritty',
+    --   args = { '-e' },
+    -- }
+    -- dap.defaults.fallback.force_external_terminal = true
 
     -- Install golang specific config
     require('dap-go').setup {
@@ -163,5 +173,33 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+
+    -- require('dap-cs').setup {}
+
+    -- Install csharp specific config
+    -- require('dap-cs').setup {
+    --   -- Additional dap configurations can be added.
+    --   -- dap_configurations accepts a list of tables where each entry
+    --   -- represents a dap configuration. For more details do:
+    --   -- :help dap-configuration
+    --   dap_configurations = {
+    --     {
+    --       -- Must be "coreclr" or it will be ignored by the plugin
+    --       type = 'coreclr',
+    --       name = 'Attach remote',
+    --       mode = 'remote',
+    --       request = 'attach',
+    --       console = 'integratedTerminal', -- use DAP console for program I/O
+    --       -- console = 'externalTerminal', -- use DAP console for program I/O
+    --       -- console = 'internalConsole', -- use DAP console for program I/O
+    --     },
+    --   },
+    --   netcoredbg = {
+    --     -- the path to the executable netcoredbg which will be used for debugging.
+    --     -- by default, this is the "netcoredbg" executable on your PATH.
+    --     -- path = 'NETCOREDBG',
+    --     path = 'netcoredbg',
+    --   },
+    -- }
   end,
 }
