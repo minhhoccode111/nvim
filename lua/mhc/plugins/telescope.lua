@@ -138,17 +138,22 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Shortcut for searching my /web dir
     map('n', '<leader>fW', function()
       builtin.fd { cwd = '~/web', hidden = true, no_ignore = false } -- so many node_modules
-    end, { desc = '[F]ind [w]eb dir' })
+    end, { desc = '[F]ind /[w]eb dir' })
 
     -- Shortcut for searching my /learn dir
     map('n', '<leader>fL', function()
       builtin.fd { cwd = '~/learn', hidden = true, no_ignore = true }
-    end, { desc = '[F]ind [l]earn dir' })
+    end, { desc = '[F]ind /[l]earn dir' })
 
     -- Shortcut for searching my /project dir
     map('n', '<leader>fP', function()
       builtin.fd { cwd = '~/project', hidden = true, no_ignore = false } -- so many node_modules
-    end, { desc = '[F]ind [p]roject dir' })
+    end, { desc = '[F]ind /[p]roject dir' })
+
+    -- Shortcut for searching my /dotfiles dir
+    map('n', '<leader>fD', function()
+      builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
+    end, { desc = '[F]ind /[d]otfiles dir' })
 
     -- -- Shortcut for searching my /Documents/current-obsidian dir
     -- map('n', '<leader>fO', function()
