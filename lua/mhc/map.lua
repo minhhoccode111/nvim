@@ -52,18 +52,13 @@ map({ 'i', 'n', 'v' }, '<C-a>', '<esc>ggVG', { desc = 'Select all' })
 map('x', '<leader>p', '"_dP', { desc = 'Paste without losing clipboard' })
 
 -- Keybinds to make split navigation easier.
---  Use ALT+<hjkl> to switch between windows
---  See `:help wincmd` for a list of all window commands
+-- Use ALT+<hjkl> to switch between windows
+-- See `:help wincmd` for a list of all window commands
+-- NOTE: not in use because we use tmux-navigator already
 -- map('n', '<c-h>', '<c-w><c-h>', { desc = 'Move focus to the left window' })
 -- map('n', '<c-l>', '<c-w><c-l>', { desc = 'Move focus to the right window' })
 -- map('n', '<c-j>', '<c-w><c-j>', { desc = 'Move focus to the lower window' })
 -- map('n', '<c-k>', '<c-w><c-k>', { desc = 'Move focus to the upper window' })
-
--- tmux navigator to also work with tmux instead of default only in neovim
-map('n', '<c-h>', '<cmd> TmuxNavigateLeft <cr>', { desc = 'Move focus to the left window' })
-map('n', '<c-l>', '<cmd> TmuxNavigateRight <cr>', { desc = 'Move focus to the right window' })
-map('n', '<c-j>', '<cmd> TmuxNavigateDown <cr>', { desc = 'Move focus to the lower window' })
-map('n', '<c-k>', '<cmd> TmuxNavigateUp <cr>', { desc = 'Move focus to the upper window' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
