@@ -7,31 +7,28 @@ return {
   build = ':TSUpdate',
   opts = {
     ensure_installed = {
-      -- Low level
       'bash',
       'c',
-      -- 'rust',
-
-      -- Default
+      'rust',
       'lua',
       'luadoc',
       'vim',
       'vimdoc',
-
       'markdown',
+      'markdown_inline',
       'html',
       'javascript',
       'typescript',
       'jsdoc',
       'css',
-
-      -- other rest.nvim
       'diff',
       'xml',
       'json',
       'http',
       'graphql',
-      'gitcommit', -- annoying error mesage
+      'gitcommit',
+      'c_sharp',
+      'dart',
     },
 
     --[[ -- autotag for react
