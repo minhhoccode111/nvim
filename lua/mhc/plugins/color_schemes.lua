@@ -14,7 +14,7 @@ return {
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.cmd.colorscheme 'randomhue'
       -- vim.cmd.colorscheme 'catppuccin-macchiato'
-      vim.cmd.colorscheme 'vscode'
+      vim.cmd.colorscheme 'catppuccin-mocha'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
