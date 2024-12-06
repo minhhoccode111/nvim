@@ -146,14 +146,13 @@ map('n', '<c-i>', '<cmd> bp <cr>', { desc = 'Prev Buffer', silent = true })
 map('n', '<A-[>', '<C-o>', { desc = 'Go to older position in jump list' })
 map('n', '<A-]>', '<C-i>', { desc = 'Go to newer position in jump list' })
 
--- Pick buffer to close
-map('n', '<leader>xp', '<cmd>lua require("bufferline").close_with_pick()<cr>', { desc = '[X]Close [P]ick Buffer' })
-
 -- Close current buffer
 map('n', '<leader>xb', '<cmd> bd <cr>', { desc = '[X]Close w/ :[b]d', silent = true })
-
+-- NOTE: move to bufferline plugin specific
+-- Pick buffer to close
+-- map('n', '<leader>xp', '<cmd>lua require("bufferline").close_with_pick()<cr>', { desc = '[X]Close [P]ick Buffer' })
 -- Close other buffers (bufferline plugin)
-map('n', '<leader>xo', '<cmd> BufferLineCloseOthers <cr>', { desc = '[X]Close [O]ther Buffers', silent = true })
+-- map('n', '<leader>xo', '<cmd> BufferLineCloseOthers <cr>', { desc = '[X]Close [O]ther Buffers', silent = true })
 
 -- Diagnostic keymaps
 map('n', '<leader>k', vim.diagnostic.goto_prev, { desc = '[D]iagnostic [k]Previous message' })
