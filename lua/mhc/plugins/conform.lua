@@ -37,13 +37,12 @@ return {
       local disable_filetypes = {
         -- c = true,
         -- cpp = true,
-        --
-        -- markdown = true,
         -- json = true,
+        -- markdown = true,
         -- md = true,
       }
       return {
-        timeout_ms = 1500,
+        -- timeout_ms = 1500,
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
@@ -74,6 +73,7 @@ return {
   },
   init = function()
     -- Initialize the format on save toggle state to true by default
-    vim.g.format_on_save_enabled = true
+    -- vim.g.format_on_save_enabled = true
+    vim.g.format_on_save_enabled = false
   end,
 }
