@@ -25,6 +25,7 @@ return {
   require 'mhc.plugins.neotree',
   require 'mhc.plugins.noice',
   require 'mhc.plugins.nvimcmp',
+  -- require 'mhc.plugins.oil', -- filesystem inside Nvim
   require 'mhc.plugins.other',
   require 'mhc.plugins.rest',
   require 'mhc.plugins.sleuth',
