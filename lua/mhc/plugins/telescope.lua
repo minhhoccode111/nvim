@@ -90,7 +90,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     map('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind [G]rep String' })
     map('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
     map('n', '<leader>fo', builtin.oldfiles, { desc = '[F]ind [O]ld (Opened) Files' })
-    map('n', '<leader>fb', builtin.buffers, { desc = '[F]ind Current [B]uffers' })
+    -- map('n', '<leader>fb', builtin.buffers, { desc = '[F]ind Current [B]uffers' })
     map('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
     map('n', '<leader>fc', builtin.git_commits, { desc = '[F]ind Git [c]ommits' })
     map('n', '<leader>fs', builtin.git_status, { desc = '[F]ind Git [S]tatus' })
@@ -132,35 +132,35 @@ return { -- Fuzzy Finder (files, lsp, etc)
       }
     end, { desc = '[F]ind [/] in Open Files' })
 
-    -- Shortcut for searching your Neovim configuration files
-    map('n', '<leader>fN', function()
-      builtin.fd { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[F]ind [N]eovim files' })
+    -- -- Shortcut for searching your Neovim configuration files
+    -- map('n', '<leader>fN', function()
+    --   builtin.fd { cwd = vim.fn.stdpath 'config' }
+    -- end, { desc = '[F]ind [N]eovim files' })
 
     -- -- Shortcut for searching my /cs dir
     -- map('n', '<leader>fC', function()
     --   builtin.fd { cwd = '~/cs', hidden = true, no_ignore = true }
     -- end, { desc = '[F]ind [C]S dir' })
 
-    -- Shortcut for searching my /web dir
-    map('n', '<leader>fW', function()
-      builtin.fd { cwd = '~/web', hidden = true, no_ignore = false } -- so many node_modules
-    end, { desc = '[F]ind /[w]eb dir' })
+    -- -- Shortcut for searching my /web dir
+    -- map('n', '<leader>fW', function()
+    --   builtin.fd { cwd = '~/web', hidden = true, no_ignore = false } -- so many node_modules
+    -- end, { desc = '[F]ind /[w]eb dir' })
 
-    -- Shortcut for searching my /learn dir
-    map('n', '<leader>fL', function()
-      builtin.fd { cwd = '~/learn', hidden = true, no_ignore = true }
-    end, { desc = '[F]ind /[l]earn dir' })
+    -- -- Shortcut for searching my /learn dir
+    -- map('n', '<leader>fL', function()
+    --   builtin.fd { cwd = '~/learn', hidden = true, no_ignore = true }
+    -- end, { desc = '[F]ind /[l]earn dir' })
 
-    -- Shortcut for searching my /project dir
-    map('n', '<leader>fP', function()
-      builtin.fd { cwd = '~/project', hidden = true, no_ignore = false } -- so many node_modules
-    end, { desc = '[F]ind /[p]roject dir' })
+    -- -- Shortcut for searching my /project dir
+    -- map('n', '<leader>fP', function()
+    --   builtin.fd { cwd = '~/project', hidden = true, no_ignore = false } -- so many node_modules
+    -- end, { desc = '[F]ind /[p]roject dir' })
 
-    -- Shortcut for searching my /dotfiles dir
-    map('n', '<leader>fD', function()
-      builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
-    end, { desc = '[F]ind /[d]otfiles dir' })
+    -- -- Shortcut for searching my /dotfiles dir
+    -- map('n', '<leader>fD', function()
+    --   builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
+    -- end, { desc = '[F]ind /[d]otfiles dir' })
 
     -- -- Shortcut for searching my /Documents/current-obsidian dir
     -- map('n', '<leader>fO', function()

@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- lazy.nvim
 return {
   'folke/noice.nvim',
@@ -17,7 +18,7 @@ return {
     }
 
     vim.notify = require 'notify'
-    vim.notify('You destroyed everything you could get your hands on. Now what?', 'error')
+    vim.notify 'Get good at your craft'
   end,
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

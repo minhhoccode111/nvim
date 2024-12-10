@@ -73,7 +73,7 @@ return {
   },
   init = function()
     -- Initialize the format on save toggle state to true by default
-    -- vim.g.format_on_save_enabled = true
-    vim.g.format_on_save_enabled = false
+    vim.g.format_on_save_enabled = true
+    -- vim.g.format_on_save_enabled = false
   end,
 }
