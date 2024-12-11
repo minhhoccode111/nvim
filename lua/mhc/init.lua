@@ -15,6 +15,7 @@ return {
   require 'mhc.plugins.debug',
   require 'mhc.plugins.dressing',
   require 'mhc.plugins.flutter',
+  -- require 'mhc.plugins.git_conflict',
   require 'mhc.plugins.gitsigns',
   require 'mhc.plugins.inc_rename',
   require 'mhc.plugins.indent_blankline',
