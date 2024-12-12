@@ -20,6 +20,9 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true -- false
 
+-- Add the g flag to search/replace by default
+vim.opt.gdefault = true
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -53,15 +56,23 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.breakindent = true
 
 -- Copy from Prime
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-
 vim.opt.smartindent = true
 
 -- Save undo history
 vim.opt.undofile = true
+
+-- TODO:
+-- Centralize backups, swapfiles and undo history
+-- vim.opt.backupdir = '~/.nvim/backups'
+-- vim.opt.directory = '~/.nvim/swaps'
+-- if vim.fn.exists '&undodir' == 1 then
+--   vim.opt.undodir = vim.fn.expand '~/.nvim/undo'
+-- end
+-- vim.opt.backupskip = '/tmp/*,/private/tmp/*'
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
