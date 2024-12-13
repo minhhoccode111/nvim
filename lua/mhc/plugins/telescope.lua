@@ -114,6 +114,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
       require('telescope').extensions.flutter.commands()
     end, { desc = '[F]ind [F]lutter Command to Run' })
 
+    -- flutter extension to choose commands to run
+    map('n', '<leader>;', function()
+      require('telescope').extensions.flutter.commands()
+    end, { desc = '[F]ind [F]lutter Command to Run' })
+
     -- Slightly advanced example of overriding default behavior and theme
     map('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
