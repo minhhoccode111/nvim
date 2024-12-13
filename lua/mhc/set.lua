@@ -65,15 +65,6 @@ vim.opt.smartindent = true
 -- Save undo history
 vim.opt.undofile = true
 
--- TODO:
--- Centralize backups, swapfiles and undo history
--- vim.opt.backupdir = '~/.nvim/backups'
--- vim.opt.directory = '~/.nvim/swaps'
--- if vim.fn.exists '&undodir' == 1 then
---   vim.opt.undodir = vim.fn.expand '~/.nvim/undo'
--- end
--- vim.opt.backupskip = '/tmp/*,/private/tmp/*'
-
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
