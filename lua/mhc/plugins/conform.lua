@@ -47,11 +47,6 @@ return {
       }
     end,
     formatters_by_ft = {
-      -- <leader>F to add like ';' to js, ts
-      -- Conform can also run multiple formatters sequentially. { 'something' }
-      -- You can use a sub-list to tell conform to run *until* a formatter
-      -- is found. { { 'something', 'somethingelse' } }
-
       -- other
       lua = { 'stylua' },
       -- go = { 'golines' },
@@ -68,7 +63,7 @@ return {
       css = { 'prettierd' },
       json = { 'jq', 'prettierd' },
       html = { 'prettierd' },
-      markdown = { 'markdownlint', 'prettierd' },
+      markdown = { 'prettierd' },
     },
   },
   init = function()
