@@ -64,5 +64,7 @@ return {
     map('n', '<leader>nf', '<cmd> Neotree toggle float<cr>', { desc = '[N]eotree [F]loat' })
     map('n', '<leader>nl', '<cmd> Neotree toggle left <cr>', { desc = '[N]eotree [L]eft' })
     map('n', '<leader>nr', '<cmd> Neotree toggle right <cr>', { desc = '[N]eotree [R]ight' })
+    -- display the filetree and reveal current file location
+    map('n', '<leader>nc', '<cmd> Neotree reveal <cr>', { desc = '[N]eotree Reveal [C]urrent File' })
   end,
 }
