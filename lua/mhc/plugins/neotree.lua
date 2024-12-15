@@ -1,4 +1,4 @@
--- print 'Hello, World! From neotree.lua'
+-- filetree in neovim
 
 return {
   -- File: lua/custom/plugins/filetree.lua
@@ -61,9 +61,8 @@ return {
     -- since we don't need a file tree that much so a little deep is ok
     -- since we spend half screen for editor (usually) so float is better
     map('n', '<c-n>', '<cmd> Neotree toggle float<cr>', { desc = '[N]eotree [F]loat' })
-    -- map('n', '<leader>nf', '<cmd> Neotree toggle float<cr>', { desc = '[N]eotree [F]loat' })
-    -- map('n', '<leader>nl', '<cmd> Neotree toggle left <cr>', { desc = '[N]eotree [L]eft' })
-    -- NOTE: open immediately instead of prefix n
-    map('n', '<leader>n', '<cmd> Neotree toggle left <cr>', { desc = '[N]eotree [L]eft' })
+    map('n', '<leader>nf', '<cmd> Neotree toggle float<cr>', { desc = '[N]eotree [F]loat' })
+    map('n', '<leader>nl', '<cmd> Neotree toggle left <cr>', { desc = '[N]eotree [L]eft' })
+    map('n', '<leader>nr', '<cmd> Neotree toggle right <cr>', { desc = '[N]eotree [R]ight' })
   end,
 }
