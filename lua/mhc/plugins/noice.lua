@@ -7,10 +7,18 @@ return {
     require('noice').setup {
       presets = { inc_rename = true }, -- preview rename variable plugin
       routes = {
+        -- Suppress LSP-related error messages
         {
           filter = {
             event = 'msg_show', -- Filter messages displayed in `msg_show` events
             find = 'LSP%[omnisharp%]: Error INVALID_SERVER_MESSAGE: nil', -- Pattern to match
+          },
+          opts = { skip = true }, -- Skip this message
+        },
+        {
+          filter = {
+            event = 'msg_show', -- Filter messages displayed in `msg_show` events
+            find = 'Error executing vim.schedule lua callback', -- Pattern to match the error
           },
           opts = { skip = true }, -- Skip this message
         },
