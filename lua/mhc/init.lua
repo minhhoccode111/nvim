@@ -7,7 +7,6 @@ return {
   require 'mhc.plugins.autotag',
   require 'mhc.plugins.bufferline',
   require 'mhc.plugins.codeium',
-  require 'mhc.plugins.color_schemes',
   require 'mhc.plugins.comment',
   require 'mhc.plugins.conform',
   require 'mhc.plugins.context',
@@ -34,6 +33,7 @@ return {
   require 'mhc.plugins.tailwind',
   require 'mhc.plugins.telescope',
   -- require 'mhc.plugins.termimal', -- no need after I added tmux
+  require 'mhc.plugins.themes',
   require 'mhc.plugins.tmux_navigator',
   require 'mhc.plugins.todo_comments',
   require 'mhc.plugins.treesitter',
