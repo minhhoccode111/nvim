@@ -54,8 +54,34 @@ return { -- Fuzzy Finder (files, lsp, etc)
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
-      --
+
       defaults = {
+        -- this set live_grep and grep_string include hidden files by default
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--hidden',
+          '--no-ignore',
+
+          '--glob',
+          '!.git/', -- exclude git dir
+
+          '--glob',
+          '!node_modules/', -- exclude js
+
+          '--glob',
+          '!obj/', -- exclude c#
+
+          '--glob',
+          '!bin/', -- exclude c#
+
+          -- '--glob', '!exclude_dir/', -- add more rules if needed
+        },
         mappings = {
           -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 
@@ -109,11 +135,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
       require('telescope').extensions.rest.select_env()
     end, { desc = '[F]ind [E]nv File Rest.nvim' })
 
-    -- live grep but with hidden file
-    map('n', '<leader>fG', function()
-      builtin.live_grep { hidden = true }
-    end, { desc = '[F]ind [G]rep String Include Hidden Files' })
-
     -- flutter extension to choose commands to run
     map('n', '<leader>fF', function()
       require('telescope').extensions.flutter.commands()
@@ -137,16 +158,20 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
     map('n', '<leader>f/', function()
       builtin.live_grep {
-        -- grep_open_files = true, -- prefer all files
-        hidden = true,
-        prompt_title = 'Live Grep in Open Files',
+        -- grep_open_files = true,
+        prompt_title = 'Live Grep',
       }
     end, { desc = '[F]ind [/] in Open Files' })
 
-    -- -- Shortcut for searching your Neovim configuration files
-    -- map('n', '<leader>fN', function()
-    --   builtin.fd { cwd = vim.fn.stdpath 'config' }
-    -- end, { desc = '[F]ind [N]eovim files' })
+    -- Shortcut for searching your Neovim configuration files
+    map('n', '<leader>fN', function()
+      builtin.fd { cwd = vim.fn.stdpath 'config' }
+    end, { desc = '[F]ind [N]eovim files' })
+
+    -- Shortcut for searching my /dotfiles dir
+    map('n', '<leader>fD', function()
+      builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
+    end, { desc = '[F]ind /[d]otfiles dir' })
 
     -- -- Shortcut for searching my /cs dir
     -- map('n', '<leader>fC', function()
@@ -167,11 +192,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- map('n', '<leader>fP', function()
     --   builtin.fd { cwd = '~/project', hidden = true, no_ignore = false } -- so many node_modules
     -- end, { desc = '[F]ind /[p]roject dir' })
-
-    -- -- Shortcut for searching my /dotfiles dir
-    -- map('n', '<leader>fD', function()
-    --   builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
-    -- end, { desc = '[F]ind /[d]otfiles dir' })
 
     -- -- Shortcut for searching my /Documents/current-obsidian dir
     -- map('n', '<leader>fO', function()
