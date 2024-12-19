@@ -109,6 +109,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
       require('telescope').extensions.rest.select_env()
     end, { desc = '[F]ind [E]nv File Rest.nvim' })
 
+    -- live grep but with hidden file
+    map('n', '<leader>fG', function()
+      builtin.live_grep { hidden = true }
+    end, { desc = '[F]ind [G]rep String Include Hidden Files' })
+
     -- flutter extension to choose commands to run
     map('n', '<leader>fF', function()
       require('telescope').extensions.flutter.commands()
@@ -132,7 +137,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
     map('n', '<leader>f/', function()
       builtin.live_grep {
-        grep_open_files = true,
+        -- grep_open_files = true, -- prefer all files
+        hidden = true,
         prompt_title = 'Live Grep in Open Files',
       }
     end, { desc = '[F]ind [/] in Open Files' })
