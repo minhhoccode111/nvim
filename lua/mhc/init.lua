@@ -10,7 +10,7 @@ return {
   require 'mhc.plugins.comment',
   require 'mhc.plugins.conform',
   require 'mhc.plugins.context',
-  -- require 'mhc.plugins.dashboard',
+  require 'mhc.plugins.dashboard',
   require 'mhc.plugins.debug',
   require 'mhc.plugins.dressing',
   require 'mhc.plugins.flutter',
