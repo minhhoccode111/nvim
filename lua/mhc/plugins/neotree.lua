@@ -37,6 +37,7 @@ return {
 
             ['z'] = 'none', -- since we want to center screen
             ['Q'] = 'close_all_nodes',
+            ['A'] = 'expand_all_nodes', -- like use 'tree' command in the terminal
 
             ['L'] = 'focus_preview',
             ['o'] = 'open',
