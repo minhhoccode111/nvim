@@ -121,19 +121,19 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     local highlights = {
       'Normal',
       'NormalNC', -- non current window, focus on neotree still effect the main window
-      'NormalFloat', -- For floating windows
-      'FloatBorder', -- Borders of floating windows, telescope will have effect
-      'LineNr',
-      'Folded',
-      'NonText',
-      'SpecialKey',
-      'VertSplit',
-      'SignColumn',
-      'EndOfBuffer',
-      'TablineFill', -- Tabline background
-      'WinSeparator', -- Window separators
-      'NeoTreeNormal', -- Neotree main window
-      'NeoTreeNormalNC', -- Neotree unfocused
+      -- 'NormalFloat', -- For floating windows
+      -- 'FloatBorder', -- Borders of floating windows, telescope will have effect
+      -- 'LineNr',
+      -- 'Folded',
+      -- 'NonText',
+      -- 'SpecialKey',
+      -- 'VertSplit',
+      -- 'SignColumn',
+      -- 'EndOfBuffer',
+      -- 'TablineFill', -- Tabline background
+      -- 'WinSeparator', -- Window separators
+      -- 'NeoTreeNormal', -- Neotree main window
+      -- 'NeoTreeNormalNC', -- Neotree unfocused
     }
     for _, name in pairs(highlights) do
       vim.cmd.highlight(name .. ' guibg=none ctermbg=none')
