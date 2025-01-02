@@ -120,6 +120,9 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function()
     local highlights = {
       'Normal',
+      'NormalNC', -- non current window, focus on neotree still effect the main window
+      'NormalFloat', -- For floating windows
+      'FloatBorder', -- Borders of floating windows, telescope will have effect
       'LineNr',
       'Folded',
       'NonText',
@@ -127,7 +130,10 @@ vim.api.nvim_create_autocmd('ColorScheme', {
       'VertSplit',
       'SignColumn',
       'EndOfBuffer',
-      'TablineFill', -- this is specific to how I like my tabline to look like
+      'TablineFill', -- Tabline background
+      'WinSeparator', -- Window separators
+      'NeoTreeNormal', -- Neotree main window
+      'NeoTreeNormalNC', -- Neotree unfocused
     }
     for _, name in pairs(highlights) do
       vim.cmd.highlight(name .. ' guibg=none ctermbg=none')
