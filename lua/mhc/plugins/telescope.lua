@@ -72,6 +72,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
           '!.git/', -- exclude git dir
 
           '--glob',
+          '!dist/', -- exclude js
+
+          '--glob',
+          '!build/', -- exclude js
+
+          '--glob',
           '!node_modules/', -- exclude js
 
           '--glob',
@@ -79,6 +85,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
           '--glob',
           '!bin/', -- exclude c#
+
+          '--glob',
+          '!*lock*', -- exclude lock files
+
+          '--glob',
+          '!*ca.crt*', -- exclude cert files
 
           -- '--glob', '!exclude_dir/', -- add more rules if needed
         },
