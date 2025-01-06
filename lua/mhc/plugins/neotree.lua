@@ -33,23 +33,27 @@ return {
           mappings = {
             ['l'] = 'set_root',
             ['h'] = 'navigate_up',
-            ['<a-h>'] = 'toggle_hidden',
 
-            ['z'] = 'none', -- since we want to center screen
+            ['_'] = 'open_split',
+            ['|'] = 'open_vsplit',
+
             ['Q'] = 'close_all_nodes',
             ['A'] = 'expand_all_nodes', -- like use 'tree' command in the terminal
 
+            -- ['H'] = 'toggle_hidden',
             ['L'] = 'focus_preview',
-            ['o'] = 'open',
+            ['w'] = 'open',
 
             ['/'] = 'none', -- to quick jumping with /
-            ['oc'] = 'none',
-            ['od'] = 'none',
-            ['og'] = 'none',
-            ['om'] = 'none',
-            ['on'] = 'none',
-            ['os'] = 'none',
-            ['ot'] = 'none',
+            ['z'] = 'none', -- since we want to center screen
+            -- ['o'] = 'open',
+            -- ['oc'] = 'none',
+            -- ['od'] = 'none',
+            -- ['og'] = 'none',
+            -- ['om'] = 'none',
+            -- ['on'] = 'none',
+            -- ['os'] = 'none',
+            -- ['ot'] = 'none',
           },
         },
       },
