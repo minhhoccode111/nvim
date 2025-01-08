@@ -36,6 +36,9 @@ vim.opt.guicursor = ''
 -- line wrap, combine with relative number to jump faster
 vim.opt.wrap = false
 
+-- Don't show startup message
+vim.opt.shortmess:append 'I'
+
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = true
 

@@ -26,7 +26,7 @@ return {
     }
 
     vim.notify = require 'notify'
-    vim.notify 'Think only about your art.'
+    vim.notify 'Trust the process'
   end,
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
