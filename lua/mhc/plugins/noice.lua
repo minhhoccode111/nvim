@@ -27,6 +27,12 @@ return {
 
     vim.notify = require 'notify'
     vim.notify 'Trust the process'
+
+    -- Keymap to notify the current file path
+    vim.keymap.set('n', '<leader>no', function()
+      local filepath = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.')
+      vim.notify(filepath, 'info', { title = 'Path' })
+    end, { desc = '[N][o]tify current file path' })
   end,
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -40,6 +46,8 @@ return {
         render = 'compact', -- oneline to take less space
         top_down = false, -- bottom for less distraction
         stages = 'static',
+        timeout = 5000,
+        fps = 60,
       },
     },
   },
