@@ -197,24 +197,6 @@ return {
         -- because we setup with this approach, we don't also manually set up servers directly via lspconfig as this will cause servers to setup more than once
         -- require('lspconfig')[server_name].setup(server)
 
-        -- web
-        html = {},
-        cssls = {},
-        tailwindcss = {},
-        emmet_language_server = {},
-
-        -- other
-        ts_ls = {},
-        bashls = {},
-        -- gopls = {},
-        omnisharp = {},
-        -- clangd = {},
-        -- pyright = {},
-        -- ast_grep = {},
-        -- csharp_ls = {},
-        -- quick_lint_js = {},
-        -- rust_analyzer = {},
-
         -- example
         lua_ls = {
           -- cmd = {...},
@@ -244,39 +226,29 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        -- Should be linters because errors occur if linters is set but not
-        -- installed
         'jq',
-        'stylua',
-        'markdownlint',
-        -- 'prettier',
-        'prettierd',
-        'isort',
-        'black',
-        'csharpier',
-        -- 'trivy',
 
-        -- debugger
-        'netcoredbg',
-
-        'debugpy',
-        -- 'ast_grep',
-        'bashls',
-        'cssls',
-        'emmet_language_server',
-        -- 'eslint_d',
-        'html',
-        'jq',
         'lua_ls',
-        'omnisharp',
-        -- 'pylint',
-        'pyright',
-        -- 'pylsp',
+        'stylua',
+
+        'emmet_language_server',
+        'html',
+
+        'cssls',
         'rustywind',
         'tailwindcss',
-        -- 'ts-standard',
+
+        'prettierd',
+        'eslint_d',
         'ts_ls',
-        'volar',
+
+        -- GO
+        'delve',
+        'gofumpt',
+        'goimports',
+        'golangci-lint',
+        'golines',
+        'gopls',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
