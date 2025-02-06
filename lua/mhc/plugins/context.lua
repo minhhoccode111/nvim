@@ -12,7 +12,7 @@ return {
 
     map('n', '<leader>tc', '<cmd> TSContextToggle <cr>', { desc = '[T]oggle [C]ontext Treesitter' })
 
-    map('n', '<leader>c', function()
+    map({ 'n', 'v', 'o' }, '<leader>c', function()
       require('treesitter-context').go_to_context(vim.v.count1)
     end, { desc = 'Jump to [C]ontext above', silent = true })
 
