@@ -44,7 +44,8 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        -- 'delve', -- golang
+        'delve', -- golang
+        'netcoredbg', -- dotnet
       },
     }
 
@@ -157,14 +158,6 @@ return {
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-    -- dap.defaults.fallback.terminal_win_cmd = '50vsplit new'
-    -- dap.defaults.fallback.focus_terminal = true
-    -- dap.defaults.fallback.external_terminal = {
-    --   command = '/usr/bin/alacritty',
-    --   args = { '-e' },
-    -- }
-    -- dap.defaults.fallback.force_external_terminal = true
-
     -- Install golang specific config
     require('dap-go').setup {
       delve = {
@@ -174,32 +167,26 @@ return {
       },
     }
 
-    -- require('dap-cs').setup {}
-
     -- Install csharp specific config
     -- require('dap-cs').setup {
-    --   -- Additional dap configurations can be added.
-    --   -- dap_configurations accepts a list of tables where each entry
-    --   -- represents a dap configuration. For more details do:
-    --   -- :help dap-configuration
-    --   dap_configurations = {
-    --     {
-    --       -- Must be "coreclr" or it will be ignored by the plugin
-    --       type = 'coreclr',
-    --       name = 'Attach remote',
-    --       mode = 'remote',
-    --       request = 'attach',
-    --       console = 'integratedTerminal', -- use DAP console for program I/O
-    --       -- console = 'externalTerminal', -- use DAP console for program I/O
-    --       -- console = 'internalConsole', -- use DAP console for program I/O
+    --   -- Set up the C# debugger
+    --   adapters = {
+    --     coreclr = {
+    --       type = 'executable',
+    --       command = 'netcoredbg',
+    --       args = { '--interpreter=vscode' }
     --     },
     --   },
-    --   netcoredbg = {
-    --     -- the path to the executable netcoredbg which will be used for debugging.
-    --     -- by default, this is the "netcoredbg" executable on your PATH.
-    --     -- path = 'NETCOREDBG',
-    --     path = 'netcoredbg',
-    --   },
+    --   configurations = {
+    --     {
+    --       type = "coreclr",
+    --       name = "launch - netcoredbg",
+    --       request = "launch",
+    --       program = function()
+    --         return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+    --       end,
+    --     },
+    --   }
     -- }
   end,
 }
