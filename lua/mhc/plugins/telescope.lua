@@ -142,14 +142,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
         hidden = true,
         follow = true,
         file_ignore_patterns = {
-          '.git',
-          'node_modules',
-          '.next',
-          'obj',
-          'bin',
-          -- 'build',
-          -- 'dist',
-          -- 'public'
+          '.git/',
+          'node_modules/',
+          '.next/',
+          'obj/',
+          'bin/',
+          'build/',
+          'dist/',
+          'public/',
         },
       }
     end, { desc = '[F]ind [A]ll files' })
