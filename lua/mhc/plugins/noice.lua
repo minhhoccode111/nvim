@@ -7,20 +7,35 @@ return {
     require('noice').setup {
       presets = { inc_rename = true }, -- preview rename variable plugin
       routes = {
-        -- Suppress LSP-related error messages
+        -- Suppress annoying LSP-related error messages
         {
           filter = {
-            event = 'msg_show', -- Filter messages displayed in `msg_show` events
-            find = 'LSP%[omnisharp%]: Error INVALID_SERVER_MESSAGE: nil', -- Pattern to match
+            event = 'msg_show',
+            find = 'LSP%[omnisharp%]: Error INVALID_SERVER_MESSAGE: nil',
           },
-          opts = { skip = true }, -- Skip this message
+          opts = { skip = true },
         },
         {
           filter = {
-            event = 'msg_show', -- Filter messages displayed in `msg_show` events
-            find = 'Error executing vim.schedule lua callback', -- Pattern to match the error
+            event = 'msg_show',
+            find = 'Error executing vim.schedule lua callback',
           },
-          opts = { skip = true }, -- Skip this message
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            event = 'msg_show',
+            find = 'vim.lsp.util',
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            event = 'notify',
+            kind = 'warn',
+            find = 'position_encoding param is required in vim.lsp.util.make_position_params',
+          },
+          opts = { skip = true },
         },
       },
     }
@@ -52,5 +67,3 @@ return {
     },
   },
 }
-
--- LSP[omnisharp]: Error INVALID_SERVER_MESSAGE: nil
