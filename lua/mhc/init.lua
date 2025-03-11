@@ -30,6 +30,7 @@ return {
   require 'mhc.plugins.other',
   require 'mhc.plugins.rest',
   require 'mhc.plugins.sleuth',
+  require 'mhc.plugins.tabnine',
   require 'mhc.plugins.tailwind',
   require 'mhc.plugins.telescope',
   -- require 'mhc.plugins.termimal', -- no need after I added tmux

@@ -109,7 +109,8 @@ return {
         },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'codeium' }, -- AI
+        { name = 'codeium' }, -- codeium client
+        { name = 'tabnine' }, -- tabnine client
         { name = 'path' }, -- files' path
 
         -- nvim_cmp is like a framework and we need to make sure that

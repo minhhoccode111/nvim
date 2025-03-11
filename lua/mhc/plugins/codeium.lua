@@ -1,4 +1,4 @@
--- AI support
+-- codeium client for neovim
 
 return {
   'Exafunction/codeium.nvim',
@@ -15,6 +15,6 @@ return {
     }
 
     local map = vim.keymap.set
-    map('n', '<leader>C', '<cmd>Codeium Chat<cr>', { desc = 'Codeium [C]hat' })
+    map('n', '<leader>Cc', '<cmd>Codeium Chat<cr>', { desc = '[C]hat [C]odeium' })
   end,
 }
