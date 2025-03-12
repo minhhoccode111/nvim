@@ -26,14 +26,14 @@ return {
   require 'mhc.plugins.noice',
   require 'mhc.plugins.nvimcmp',
   -- require 'mhc.plugins.obsidian',
-  -- require 'mhc.plugins.oil', -- filesystem inside Nvim
+  -- require 'mhc.plugins.oil',
   require 'mhc.plugins.other',
   require 'mhc.plugins.rest',
   require 'mhc.plugins.sleuth',
   -- require 'mhc.plugins.tabnine',
   require 'mhc.plugins.tailwind',
   require 'mhc.plugins.telescope',
-  -- require 'mhc.plugins.termimal', -- no need after I added tmux
+  -- require 'mhc.plugins.termimal',
   require 'mhc.plugins.themes',
   require 'mhc.plugins.tmux_navigator',
   require 'mhc.plugins.todo_comments',

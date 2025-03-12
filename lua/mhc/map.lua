@@ -132,8 +132,8 @@ map('n', '<a-->', '<c-w>-', { desc = 'Decrease Window Height' })
 map('n', '<a-=>', '<c-w>+', { desc = 'Increase Window Height' })
 
 -- Split window
-map('n', '<leader>_', '<cmd> sp <cr>', { desc = '[_]Horizon Window' })
-map('n', '<leader>|', '<cmd> vsp <cr>', { desc = '[|]Vertical Window' })
+map('n', '<leader>_', '<cmd> sp <cr>', { desc = '[_] Horizon Window' })
+map('n', '<leader>|', '<cmd> vsp <cr>', { desc = '[|] Vertical Window' })
 
 -- Extra terminal keymaps in term.lua
 -- Extra markdown keymaps in markdownpreview.lua
