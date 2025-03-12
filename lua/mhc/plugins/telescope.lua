@@ -117,7 +117,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     require('telescope').load_extension 'fzf'
     require('telescope').load_extension 'ui-select'
     require('telescope').load_extension 'rest'
-    require('telescope').load_extension 'flutter'
+    -- require('telescope').load_extension 'flutter'
 
     -- See `:help telescope.builtin`
     -- mine
@@ -158,16 +158,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
     map('n', '<leader>fe', function()
       require('telescope').extensions.rest.select_env()
     end, { desc = '[F]ind [E]nv File Rest.nvim' })
-
-    -- flutter extension to choose commands to run
-    map('n', '<leader>fF', function()
-      require('telescope').extensions.flutter.commands()
-    end, { desc = '[F]ind [F]lutter Command to Run' })
-
-    -- flutter extension to choose commands to run
-    map('n', '<leader>;', function()
-      require('telescope').extensions.flutter.commands()
-    end, { desc = '[F]ind [F]lutter Command to Run' })
 
     -- Slightly advanced example of overriding default behavior and theme
     map('n', '<leader>/', function()
