@@ -117,7 +117,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     require('telescope').load_extension 'fzf'
     require('telescope').load_extension 'ui-select'
     require('telescope').load_extension 'rest'
-    -- require('telescope').load_extension 'flutter'
+    require('telescope').load_extension 'flutter' -- NOTE: turn on the plugin in mhc/init.lua too
 
     -- See `:help telescope.builtin`
     -- mine
