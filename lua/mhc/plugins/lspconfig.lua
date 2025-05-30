@@ -85,7 +85,7 @@ return {
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('<leader>lI', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementation')
+          map('<leader>li', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementation')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
@@ -94,11 +94,11 @@ return {
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>lsd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols [D]ocument')
+          map('<leader>lSd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols [D]ocument')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>lsw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols [W]orkspace ')
+          map('<leader>lSw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols [W]orkspace ')
 
           -- Rename the variable under your cursor.
           -- Most Language Servers support renaming across files, etc.
@@ -116,7 +116,7 @@ return {
           map('<leader>lk', vim.lsp.buf.hover, '[K]eyword Documentation')
 
           -- functionality provides information about the signature of a function or method as you are typing its parameters
-          map('<leader>lS', vim.lsp.buf.signature_help, '[S]ignature Help')
+          map('<leader>ls', vim.lsp.buf.signature_help, '[S]ignature Help')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
