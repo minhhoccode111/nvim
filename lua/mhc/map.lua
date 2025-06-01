@@ -143,8 +143,10 @@ map('n', '<leader>|', '<cmd> vsp <cr>', { desc = '[|] Vertical Window' })
 map('n', '<c-o>', '<cmd> bn <cr>', { desc = 'Next Buffer', silent = true })
 map('n', '<c-i>', '<cmd> bp <cr>', { desc = 'Prev Buffer', silent = true })
 -- the default ones but use Alt because i rarely use it, and for me `i` is back and `o` is forth
-map('n', '<A-[>', '<C-o>', { desc = 'Go to older position in jump list' })
-map('n', '<A-]>', '<C-i>', { desc = 'Go to newer position in jump list' })
+-- map('n', '<A-[>', '<C-o>', { desc = 'Go to older position in jump list' })
+-- map('n', '<A-]>', '<C-i>', { desc = 'Go to newer position in jump list' })
+map('n', '<A-p>', '<C-o>', { desc = 'Go to previous position in jump list' })
+map('n', '<A-n>', '<C-i>', { desc = 'Go to next position in jump list' })
 
 -- Close current buffer
 map('n', '<leader>xb', '<cmd> bd <cr>', { desc = '[X]Close w/ :[b]d', silent = true })
