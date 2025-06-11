@@ -98,10 +98,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
           -- '--glob', '!exclude_dir/', -- add more rules if needed
         },
         mappings = {
-          -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-
-          -- In case we prefer <tab> for completion
-          -- i = { ['<tab>'] = require('telescope.actions').select_default },
+          i = {
+            ['<c-u>'] = false,
+            ['<c-enter>'] = 'to_fuzzy_refine',
+            ['<tab>'] = require('telescope.actions').select_default,
+          },
           -- n = { ['<tab>'] = require('telescope.actions').select_default },
         },
       },
