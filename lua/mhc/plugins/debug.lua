@@ -58,6 +58,8 @@ return {
     map('n', '<leader>DB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = '[D]ebug: [B]reakpoint Set' })
+    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+    map('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
@@ -149,12 +151,11 @@ return {
       },
     }
 
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    map('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
-
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    local dapgo = require 'dap-go'
 
     -- Install golang specific config
     require('dap-go').setup {
@@ -163,8 +164,40 @@ return {
       },
     }
 
-    local dapgo = require 'dap-go'
-    vim.keymap.set('n', '<leader>Dt', dapgo.debug_test, { desc = '[D]ebug Go [T]est' })
-    vim.keymap.set('n', '<leader>Dl', dapgo.debug_last_test, { desc = '[D]ebug [L]ast Go Test' })
+    -- TODO: move this to a dedicated file for Golang things :)
+    map('n', '<leader>Dt', dapgo.debug_test, { desc = '[D]ebug: Go [T]est' })
+    map('n', '<leader>Dl', dapgo.debug_last_test, { desc = '[D]ebug: [L]ast Go Test' })
+
+    dap.adapters.go = function(callback, _)
+      local port = 38697
+
+      -- Open a new tmux window to run `dlv dap`
+      vim.fn.jobstart({ 'tmux', 'new-window', 'dlv', 'dap', '-l', '127.0.0.1:' .. port }, { detach = true })
+
+      -- Give dlv time to boot
+      vim.defer_fn(function()
+        callback {
+          type = 'server',
+          host = '127.0.0.1',
+          port = port,
+        }
+      end, 500)
+    end
+
+    dap.configurations.go = {
+      {
+        type = 'go',
+        name = 'Debug (stdin + args)',
+        request = 'launch',
+        program = '${file}',
+        -- TODO: uncomment below for hard-coded arguments debugging
+        -- args = { 'arg1', 'arg2' }, -- specify args passed into the CLI program we debug, need to edit this lua config every time we debug a different case
+        -- or a vim function to promp for arguments when debugging (separated by a space ' ')
+        args = function()
+          local input = vim.fn.input 'Args: '
+          return vim.fn.split(input, ' ')
+        end,
+      },
+    }
   end,
 }
