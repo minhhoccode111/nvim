@@ -99,12 +99,12 @@ return {
           elements = {
             {
               id = 'scopes',
-              size = 0.8,
+              size = 0.7,
               -- size = 1.0,
             },
             {
               id = 'breakpoints',
-              size = 0.2,
+              size = 0.3,
               -- size = 0.05,
             },
             -- {
@@ -132,7 +132,7 @@ return {
           } },
           position = 'bottom',
           -- size = 10,
-          size = 0.2,
+          size = 0.3,
         },
       },
       mappings = {
