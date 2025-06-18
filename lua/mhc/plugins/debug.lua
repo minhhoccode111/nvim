@@ -23,7 +23,6 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go', -- golang
-    -- 'NicholasMata/nvim-dap-cs', -- csharp
   },
   config = function()
     local dap = require 'dap'
@@ -44,8 +43,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'delve', -- golang
-        'netcoredbg', -- dotnet
+        -- 'delve', -- golang -- use 'dlv' install using 'go install github.com/go-delve/delve/cmd/dlv@latest'
       },
     }
 
@@ -101,28 +99,28 @@ return {
           elements = {
             {
               id = 'scopes',
-              size = 0.25,
+              size = 0.8,
               -- size = 1.0,
             },
             {
               id = 'breakpoints',
-              size = 0.25,
+              size = 0.2,
               -- size = 0.05,
             },
-            {
-              id = 'stacks',
-              size = 0.25,
-              -- size = 0.05,
-            },
-            {
-              id = 'watches',
-              size = 0.25,
-              -- size = 0.05,
-            },
+            -- {
+            --   id = 'stacks',
+            --   size = 0.25,
+            --   -- size = 0.05,
+            -- },
+            -- {
+            --   id = 'watches',
+            --   size = 0.25,
+            --   -- size = 0.05,
+            -- },
           },
           position = 'left',
-          size = 40,
-          -- size = 0.5,
+          -- size = 40,
+          size = 0.46,
         },
         {
           elements = { {
@@ -133,8 +131,8 @@ return {
             size = 0.5,
           } },
           position = 'bottom',
-          size = 10,
-          -- size = 0.1,
+          -- size = 10,
+          size = 0.2,
         },
       },
       mappings = {
@@ -161,32 +159,12 @@ return {
     -- Install golang specific config
     require('dap-go').setup {
       delve = {
-        -- On Windows delve must be run attached or it crashes.
-        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
         detached = vim.fn.has 'win32' == 0,
       },
     }
 
-    -- Install csharp specific config
-    -- require('dap-cs').setup {
-    --   -- Set up the C# debugger
-    --   adapters = {
-    --     coreclr = {
-    --       type = 'executable',
-    --       command = 'netcoredbg',
-    --       args = { '--interpreter=vscode' }
-    --     },
-    --   },
-    --   configurations = {
-    --     {
-    --       type = "coreclr",
-    --       name = "launch - netcoredbg",
-    --       request = "launch",
-    --       program = function()
-    --         return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
-    --       end,
-    --     },
-    --   }
-    -- }
+    local dapgo = require 'dap-go'
+    vim.keymap.set('n', '<leader>Dt', dapgo.debug_test, { desc = '[D]ebug Go [T]est' })
+    vim.keymap.set('n', '<leader>Dl', dapgo.debug_last_test, { desc = '[D]ebug [L]ast Go Test' })
   end,
 }

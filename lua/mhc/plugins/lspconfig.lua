@@ -212,6 +212,20 @@ return {
             },
           },
         },
+        gopls = {
+          capabilities = capabilities,
+          cmd = { 'gopls' },
+          filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -243,7 +257,7 @@ return {
         'ts_ls',
 
         -- GO
-        'delve',
+        -- 'delve',
         'gofumpt',
         'goimports',
         'golangci-lint',

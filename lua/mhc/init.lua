@@ -16,6 +16,7 @@ return {
   require 'mhc.plugins.flutter', -- NOTE: turn on extension in telescope too
   -- require 'mhc.plugins.git_conflict',
   require 'mhc.plugins.gitsigns',
+  -- require 'mhc.plugins.gopher', -- TODO: add gopher.nvim plugin
   require 'mhc.plugins.inc_rename',
   require 'mhc.plugins.indent_blankline',
   require 'mhc.plugins.lint',
