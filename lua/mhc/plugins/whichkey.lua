@@ -20,13 +20,11 @@ return { -- Useful plugin to show you pending keybinds.
     require('which-key').setup()
 
     require('which-key').add {
-      { '<leader>D', group = '[D]ebug' },
-      { '<leader>D_', hidden = true },
       { '<leader>a', group = '[A]PIs' },
       { '<leader>a_', hidden = true },
       -- { '<leader>C', group = '[C]odeium' },
       -- { '<leader>C_', hidden = true },
-      { '<leader>d', group = '[D]iagnostic' },
+      { '<leader>d', group = '[D]iagnostic / [D]ebug' },
       { '<leader>d_', hidden = true },
       { '<leader>f', group = '[F]ind' },
       { '<leader>f_', hidden = true },
@@ -34,7 +32,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>h_', hidden = true },
       { '<leader>l', group = '[L]SP' },
       { '<leader>l_', hidden = true },
-      { '<leader>ls', group = '[L]SP [S]ymbols' },
+      { '<leader>ls', group = '[L]SP: [S]ymbols' },
       { '<leader>ls_', hidden = true },
       { '<leader>m', group = '[M]anagers' },
       { '<leader>m_', hidden = true },

@@ -1,5 +1,7 @@
 -- Autocompletion
 
+-- TODO: migrate with blink.nvim
+
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
