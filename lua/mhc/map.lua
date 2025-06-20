@@ -161,8 +161,8 @@ map('n', '<leader>k', vim.diagnostic.goto_prev, { desc = '[D]iagnostic: [k]Previ
 map('n', '<leader>j', vim.diagnostic.goto_next, { desc = '[D]iagnostic: [j]Next message' })
 -- map('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = '[D]iagnostic [P]revious message' })
 -- map('n', '<leader>dn', vim.diagnostic.goto_next, { desc = '[D]iagnostic [N]ext message' })
-map('n', '<leader>dk', vim.diagnostic.goto_prev, { desc = '[D]iagnostic: [k]Previous message' })
-map('n', '<leader>dj', vim.diagnostic.goto_next, { desc = '[D]iagnostic: [j]Next message' })
+-- map('n', '<leader>dk', vim.diagnostic.goto_prev, { desc = '[D]iagnostic: [k]Previous message' })
+-- map('n', '<leader>dj', vim.diagnostic.goto_next, { desc = '[D]iagnostic: [j]Next message' })
 map('n', '<leader>de', vim.diagnostic.open_float, { desc = '[D]iagnostic: [E]rror messages show' })
 map('n', '<leader>dq', vim.diagnostic.setloclist, { desc = '[D]iagnostic: [Q]uickfix list open' })
 

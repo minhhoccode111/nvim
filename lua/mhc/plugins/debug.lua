@@ -13,6 +13,7 @@ return {
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
 
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
@@ -62,6 +63,13 @@ return {
       desc = '[D]ebug: Step Out',
     },
     {
+      '<F4>',
+      function()
+        require('dap').step_back()
+      end,
+      desc = '[D]ebug: Step Back',
+    },
+    {
       '<leader>db',
       function()
         require('dap').toggle_breakpoint()
@@ -75,13 +83,35 @@ return {
       end,
       desc = '[D]ebug: Set [B]reakpoint',
     },
+    {
+      '<leader>dc',
+      function()
+        require('dap').run_to_cursor()
+      end,
+      desc = '[D]ebug: run to [C]ursor',
+    },
+    {
+      '<leader>d?',
+      function()
+        ---@diagnostic disable-next-line: missing-fields
+        require('dapui').eval(nil, { enter = true })
+      end,
+      desc = '[D]ebug: [?]Inspect current value',
+    },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<leader>dr',
       function()
         require('dapui').toggle()
       end,
-      desc = '[D]ebug: See last session [r]esult.',
+      desc = '[D]ebug: See last session [r]esult',
+    },
+    {
+      '<F7>',
+      function()
+        require('dapui').toggle()
+      end,
+      desc = '[D]ebug: See last session result',
     },
     -- TODO: move this to a dedicated file for Golang things :)
     {
@@ -102,6 +132,9 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+
+    ---@diagnostic disable-next-line: missing-fields
+    require('nvim-dap-virtual-text').setup {}
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -223,6 +256,10 @@ return {
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
+    -- dap.listeners.before.attach.dapui_config = dapui.open
+    -- dap.listeners.before.launch.dapui_config = dapui.open
+    -- dap.listeners.before.event_terminated.dapui_config = dapui.close
+    -- dap.listeners.before.event_exited.dapui_config = dapui.close
 
     -- Install golang specific config
     require('dap-go').setup {
