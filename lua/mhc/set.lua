@@ -118,32 +118,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- make neovim inherit the transparent background of terminal
-vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = function()
-    local highlights = {
-      'Normal',
-      'NormalNC', -- non current window, focus on neotree still effect the main window
-      -- 'NormalFloat', -- For floating windows
-      -- 'FloatBorder', -- Borders of floating windows, telescope will have effect
-      -- 'LineNr',
-      -- 'Folded',
-      -- 'NonText',
-      -- 'SpecialKey',
-      -- 'VertSplit',
-      -- 'SignColumn',
-      -- 'EndOfBuffer',
-      -- 'TablineFill', -- Tabline background
-      -- 'WinSeparator', -- Window separators
-      -- 'NeoTreeNormal', -- Neotree main window
-      -- 'NeoTreeNormalNC', -- Neotree unfocused
-    }
-    for _, name in pairs(highlights) do
-      vim.cmd.highlight(name .. ' guibg=none ctermbg=none')
-    end
-  end,
-})
-
 -- disable some default providers
 vim.g['loaded_node_provider'] = 0
 vim.g['loaded_python3_provider'] = 0

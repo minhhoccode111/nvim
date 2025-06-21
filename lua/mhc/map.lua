@@ -1,3 +1,4 @@
+---@diagnostic disable: deprecated
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
@@ -94,7 +95,7 @@ map('n', '<leader>rn', function()
 end, { expr = true, desc = '[R]eplace Var [N]ame' })
 
 -- Source current file
-map('n', '<leader>S', '<cmd>so<cr>', { desc = '[S]ource File' })
+map('n', '<leader>AS', '<cmd>so<cr>', { desc = '[A]ction: [S]ource File' })
 
 -- Toggle small things -- `!` stand for toggle action
 map('n', '<leader>tn', '<cmd>set nu!<cr>', { desc = '[T]oggle [N]umber Line' })

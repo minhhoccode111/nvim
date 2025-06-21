@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
--- lazy.nvim
+
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
@@ -31,6 +31,13 @@ return {
         },
         {
           filter = {
+            event = 'msg_show',
+            find = 'client.notify is deprecated',
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = {
             event = 'notify',
             kind = 'warn',
             find = 'position_encoding param is required in vim.lsp.util.make_position_params',
@@ -41,7 +48,7 @@ return {
     }
 
     vim.notify = require 'notify'
-    vim.notify 'GGWP'
+    vim.notify 'Welcome Minh! How are you doing today?'
 
     -- Keymap to notify the current file path
     vim.keymap.set('n', '<leader>no', function()

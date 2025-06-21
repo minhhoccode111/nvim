@@ -12,8 +12,7 @@ return {
   require 'mhc.plugins.conform',
   require 'mhc.plugins.context',
   -- require 'mhc.plugins.dashboard',
-  require 'mhc.plugins.debug',
-  require 'mhc.plugins.dressing',
+  require 'mhc.plugins.debugger',
   require 'mhc.plugins.flutter', -- NOTE: turn on extension in telescope too
   -- require 'mhc.plugins.git_conflict',
   require 'mhc.plugins.gitsigns',
@@ -26,16 +25,17 @@ return {
   require 'mhc.plugins.mini',
   require 'mhc.plugins.neotree',
   require 'mhc.plugins.noice',
-  -- require 'mhc.plugins.nvimcmp',
-  -- require 'mhc.plugins.obsidian',
-  -- require 'mhc.plugins.oil',
+  -- require 'mhc.plugins.nvimcmp', -- NOTE: migrated to blink.lua
+  -- require 'mhc.plugins.obsidian', -- NOTE: write note in plain text
+  -- require 'mhc.plugins.oil', -- NOTE: use yazi instead
   require 'mhc.plugins.other',
   require 'mhc.plugins.rest',
   require 'mhc.plugins.sleuth',
+  require 'mhc.plugins.snacks',
   -- require 'mhc.plugins.tabnine',
   require 'mhc.plugins.tailwind',
   require 'mhc.plugins.telescope',
-  -- require 'mhc.plugins.termimal',
+  -- require 'mhc.plugins.terminal',
   require 'mhc.plugins.themes',
   require 'mhc.plugins.tmux_navigator',
   require 'mhc.plugins.todo_comments',

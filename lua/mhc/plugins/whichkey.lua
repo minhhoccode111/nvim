@@ -20,6 +20,8 @@ return { -- Useful plugin to show you pending keybinds.
     require('which-key').setup()
 
     require('which-key').add {
+      { '<leader>A', group = '[A]ction' },
+      { '<leader>A_', hidden = true },
       { '<leader>a', group = '[A]PIs' },
       { '<leader>a_', hidden = true },
       -- { '<leader>C', group = '[C]odeium' },

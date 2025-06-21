@@ -21,7 +21,7 @@ return {
     }
 
     local map = vim.keymap.set
-    map('n', '<leader>C', '<cmd>Codeium Chat<cr>', { desc = '[C]odeium [C]hat' })
+    map('n', '<leader>AC', '<cmd>Codeium Chat<cr>', { desc = '[A]ction: [C]odeium [C]hat' })
 
     -- map('i', '<C-y>', function()
     --   require('codeium.virtual_text').complete()

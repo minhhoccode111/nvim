@@ -173,20 +173,20 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
     map('n', '<leader>f/', function()
       builtin.live_grep {
-        -- grep_open_files = true,
+        grep_open_files = true,
         prompt_title = 'Live Grep',
       }
     end, { desc = '[F]ind [/] in Open Files' })
 
-    -- Shortcut for searching your Neovim configuration files
-    map('n', '<leader>fN', function()
-      builtin.fd { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[F]ind [N]eovim files' })
+    -- -- Shortcut for searching your Neovim configuration files
+    -- map('n', '<leader>fN', function()
+    --   builtin.fd { cwd = vim.fn.stdpath 'config' }
+    -- end, { desc = '[F]ind [N]eovim files' })
 
-    -- Shortcut for searching my /dotfiles dir
-    map('n', '<leader>fD', function()
-      builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
-    end, { desc = '[F]ind /[d]otfiles dir' })
+    -- -- Shortcut for searching my /dotfiles dir
+    -- map('n', '<leader>fD', function()
+    --   builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
+    -- end, { desc = '[F]ind /[d]otfiles dir' })
 
     -- -- Shortcut for searching my /cs dir
     -- map('n', '<leader>fC', function()

@@ -42,6 +42,13 @@ return {
       desc = '[D]ebug: [S]tart/Continue',
     },
     {
+      '<leader>dx',
+      function()
+        require('dap').terminate()
+      end,
+      desc = '[D]ebug: e[X]it',
+    },
+    {
       '<F1>',
       function()
         require('dap').step_into()
@@ -106,13 +113,6 @@ return {
       end,
       desc = '[D]ebug: See last session [r]esult',
     },
-    {
-      '<F7>',
-      function()
-        require('dapui').toggle()
-      end,
-      desc = '[D]ebug: See last session result',
-    },
     -- TODO: move this to a dedicated file for Golang things :)
     {
       '<leader>dt',
@@ -149,7 +149,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        -- 'delve',
+        'delve',
       },
     }
 
@@ -193,23 +193,23 @@ return {
           elements = {
             {
               id = 'scopes',
-              size = 0.3,
-            },
-            {
-              id = 'breakpoints',
-              size = 0.2,
-            },
-            {
-              id = 'stacks',
-              size = 0.2,
+              size = 0.35,
             },
             {
               id = 'watches',
-              size = 0.3,
+              size = 0.30,
+            },
+            {
+              id = 'stacks',
+              size = 0.25,
+            },
+            {
+              id = 'breakpoints',
+              size = 0.10,
             },
           },
           position = 'left',
-          size = 0.47,
+          size = 0.45,
         },
         {
           elements = {
@@ -223,8 +223,7 @@ return {
             },
           },
           position = 'bottom',
-          -- size = 10,
-          size = 0.325,
+          size = 0.3,
         },
       },
       mappings = {

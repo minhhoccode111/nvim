@@ -5,12 +5,12 @@ return {
   lazy = false,
   keys = {
     {
-      '<leader>F',
+      '<leader>AF',
       function()
         require('conform').format { async = true, lsp_fallback = true }
       end,
       mode = '',
-      desc = '[F]ormat Code',
+      desc = '[A]ction: [F]ormat Code',
     },
     {
       '<leader>tf',

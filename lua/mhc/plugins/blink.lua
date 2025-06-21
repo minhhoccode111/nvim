@@ -104,7 +104,7 @@ return {
       },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        codeium = { name = 'codeium', module = 'blink.compat.source', score_offset = 3, async = true, max_items = 3 },
+        codeium = { name = 'codeium', module = 'blink.compat.source', score_offset = 3, async = true, max_items = 5 },
       },
     },
 
@@ -120,12 +120,6 @@ return {
     fuzzy = {
       implementation = 'lua',
       -- implementation = 'prefer_rust', -- change to 'rust' when it's stable :)
-
-      use_frecency = true,
-      use_proximity = true,
-      max_items = 50,
-      sorts = { 'score', 'label', 'kind' },
-      preselect = 'first_match',
     },
 
     -- Shows a signature help window while you type arguments for a function
