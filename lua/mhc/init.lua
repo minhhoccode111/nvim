@@ -29,13 +29,14 @@ return {
   -- require 'mhc.plugins.obsidian', -- NOTE: write note in plain text
   -- require 'mhc.plugins.oil', -- NOTE: use yazi instead
   require 'mhc.plugins.other',
+  require 'mhc.plugins.php',
   require 'mhc.plugins.rest',
   require 'mhc.plugins.sleuth',
   require 'mhc.plugins.snacks',
   -- require 'mhc.plugins.tabnine',
   require 'mhc.plugins.tailwind',
   require 'mhc.plugins.telescope',
-  -- require 'mhc.plugins.terminal',
+  require 'mhc.plugins.terminal',
   require 'mhc.plugins.themes',
   require 'mhc.plugins.tmux_navigator',
   require 'mhc.plugins.todo_comments',
