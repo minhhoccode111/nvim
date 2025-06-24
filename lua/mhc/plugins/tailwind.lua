@@ -2,7 +2,8 @@
 
 return {
   {
-    'NvChad/nvim-colorizer.lua',
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
     opts = {
       user_default_options = {
         tailwind = true,
@@ -11,18 +12,23 @@ return {
   },
 
   {
-    'hrsh7th/nvim-cmp',
+    'luckasRanarison/tailwind-tools.nvim',
+    name = 'tailwind-tools',
+    build = ':UpdateRemotePlugins',
     dependencies = {
-      {
-        'roobert/tailwindcss-colorizer-cmp.nvim',
-        config = true,
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-telescope/telescope.nvim',
+      'neovim/nvim-lspconfig',
+    },
+    opts = {
+      document_color = {
+        enabled = false,
+      },
+      keymaps = {
+        smart_increment = {
+          enabled = false,
+        },
       },
     },
-
-    opts = function(_, opts)
-      opts.formatting = {
-        format = require('tailwindcss-colorizer-cmp').formatter,
-      }
-    end,
   },
 }
