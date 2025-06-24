@@ -6,7 +6,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    indent = { enabled = true },
+    -- indent = { enabled = true },
     quickfile = { enabled = true },
   },
 }

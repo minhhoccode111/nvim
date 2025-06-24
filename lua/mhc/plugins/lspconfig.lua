@@ -247,6 +247,21 @@ return {
             },
           },
         },
+        intelephense = {
+          cmd = { 'intelephense', '--stdio' },
+          filetypes = { 'php' },
+          root_dir = require('lspconfig.util').root_pattern('composer.json', '.git'),
+          settings = {
+            intelephense = {
+              environment = {
+                phpVersion = '7.2.0', -- for my company, developing moodle 3.5.7
+              },
+              files = {
+                maxSize = 5000000,
+              },
+            },
+          },
+        },
       }
 
       -- You can add other tools here that you want Mason to install
