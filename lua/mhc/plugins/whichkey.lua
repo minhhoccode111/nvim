@@ -26,7 +26,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>a_', hidden = true },
       -- { '<leader>C', group = '[C]odeium' },
       -- { '<leader>C_', hidden = true },
-      { '<leader>d', group = '[D]iagnostic / [D]ebug' },
+      { '<leader>d', group = '[D]ebug' },
       { '<leader>d_', hidden = true },
       { '<leader>f', group = '[F]ind' },
       { '<leader>f_', hidden = true },

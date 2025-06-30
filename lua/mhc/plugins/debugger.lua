@@ -28,13 +28,6 @@ return {
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
     {
-      '<F5>',
-      function()
-        require('dap').continue()
-      end,
-      desc = '[D]ebug: Start/Continue',
-    },
-    {
       '<leader>ds',
       function()
         require('dap').continue()
@@ -49,32 +42,32 @@ return {
       desc = '[D]ebug: e[X]it',
     },
     {
-      '<F1>',
+      '<A-i>',
       function()
         require('dap').step_into()
       end,
-      desc = '[D]ebug: Step Into',
+      desc = '[D]ebug: Step [I]nto',
     },
     {
-      '<F2>',
+      '<A-o>',
       function()
         require('dap').step_over()
       end,
-      desc = '[D]ebug: Step Over',
+      desc = '[D]ebug: Step [O]ver',
     },
     {
-      '<F3>',
+      '<A-u>',
       function()
         require('dap').step_out()
       end,
-      desc = '[D]ebug: Step Out',
+      desc = '[D]ebug: Step [U]p (Out)',
     },
     {
-      '<F4>',
+      '<A-b>',
       function()
         require('dap').step_back()
       end,
-      desc = '[D]ebug: Step Back',
+      desc = '[D]ebug: Step [B]ack',
     },
     {
       '<leader>db',
@@ -98,12 +91,12 @@ return {
       desc = '[D]ebug: run to [C]ursor',
     },
     {
-      '<leader>d?',
+      '<leader>di',
       function()
         ---@diagnostic disable-next-line: missing-fields
         require('dapui').eval(nil, { enter = true })
       end,
-      desc = '[D]ebug: [?]Inspect current value',
+      desc = '[D]ebug: [I]nspect Value',
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
