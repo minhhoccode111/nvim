@@ -5,7 +5,7 @@ require 'mhc.ui'
 return {
   require 'mhc.plugins.autopairs',
   require 'mhc.plugins.autotag',
-  require 'mhc.plugins.blink',
+  -- require 'mhc.plugins.blink',
   require 'mhc.plugins.bufferline',
   require 'mhc.plugins.codeium',
   require 'mhc.plugins.comment',
@@ -25,7 +25,7 @@ return {
   require 'mhc.plugins.mini',
   require 'mhc.plugins.neotree',
   require 'mhc.plugins.noice',
-  -- require 'mhc.plugins.nvimcmp', -- NOTE: migrated to blink.lua
+  require 'mhc.plugins.nvimcmp', -- NOTE: migrated to blink.lua
   -- require 'mhc.plugins.obsidian', -- NOTE: write note in plain text
   -- require 'mhc.plugins.oil', -- NOTE: use yazi instead
   require 'mhc.plugins.other',
