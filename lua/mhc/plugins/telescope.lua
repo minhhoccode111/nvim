@@ -209,9 +209,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- end, { desc = '[F]ind /[p]roject dir' })
 
     -- -- Shortcut for searching my /Documents/current-obsidian dir
-    -- map('n', '<leader>fO', function()
-    --   builtin.fd { cwd = '~/Documents/current-obsidian/', hidden = true, no_ignore = true }
-    -- end, { desc = '[F]ind [o]bsidian dir' })
+    map('n', '<leader>fO', function()
+      builtin.fd { cwd = '~/Documents/current-obsidian/', hidden = true, no_ignore = true }
+    end, { desc = '[F]ind [o]bsidian dir' })
 
     -- prompt user to add a path to local variables
     local current_cwd = nil
