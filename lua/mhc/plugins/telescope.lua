@@ -16,7 +16,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
       -- `build` is used to run some command when the plugin is installed/updated.
       -- This is only run then, not every time Neovim starts up.
-      build = 'make',
+      build = "make CFLAGS='-O3 -Wall -fpic -std=gnu99 -shared'",
 
       -- `cond` is a condition used to determine whether this plugin should be
       -- installed and loaded.
