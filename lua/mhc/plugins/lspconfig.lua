@@ -268,24 +268,24 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'jq',
+        -- 'jq',
 
         'lua_ls',
         'stylua',
 
-        'emmet_language_server',
-        'html',
+        -- 'emmet_language_server',
+        -- 'html',
 
-        'cssls',
-        'rustywind',
-        'tailwindcss',
+        -- 'cssls',
+        -- 'rustywind',
+        -- 'tailwindcss',
 
-        'prettierd',
-        'eslint_d',
-        'ts_ls',
+        -- 'prettierd',
+        -- 'eslint_d',
+        -- 'ts_ls',
 
         -- GO
-        -- 'delve',
+        'delve',
         'gofumpt',
         'goimports',
         'golangci-lint',

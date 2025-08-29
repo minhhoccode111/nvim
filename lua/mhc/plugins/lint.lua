@@ -11,7 +11,7 @@ return {
       -- c = { 'cpplint' },
       -- text = { 'vale' },
       -- python = { 'pylint' },
-      bash = { 'shellcheck' },
+      -- bash = { 'shellcheck' },
       -- lua = { 'luacheck' },
       -- go = { 'golangci-lint' },
 
@@ -19,7 +19,7 @@ return {
       -- css = { 'stylelint' },
       -- html = { 'htmlhint' },
       -- json = { 'jsonlint' },
-      markdown = { 'markdownlint' },
+      -- markdown = { 'markdownlint' },
       -- javascript = { 'quick_lint_js' },
       -- typescript = { 'ts-standard' },
     }

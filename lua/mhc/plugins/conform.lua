@@ -47,14 +47,14 @@ return {
       }
     end,
     formatters_by_ft = {
-      -- other
-      lua = { 'stylua' },
-      -- go = { 'golines' },
-      cs = { 'csharpier' },
-      -- c = { 'clang-format' },
+      c = { 'clang-format' },
+      bash = { 'shfmt' },
       python = { 'black' },
 
-      -- web
+      lua = { 'stylua' },
+      go = { 'golines' },
+      cs = { 'csharpier' },
+
       typescript = { 'prettierd' },
       javascript = { 'prettierd' },
       javascriptreact = { 'prettierd' },
