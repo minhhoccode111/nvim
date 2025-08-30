@@ -44,6 +44,15 @@ return {
           },
           opts = { skip = true },
         },
+        {
+          filter = {
+            any = {
+              { event = 'msg_show', find = 'client%.supports_method is deprecated' },
+              { event = 'notify', find = 'client%.supports_method is deprecated' },
+            },
+          },
+          opts = { skip = true },
+        },
       },
     }
 
@@ -55,6 +64,10 @@ return {
       local filepath = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.')
       vim.notify(filepath, 'info', { title = 'Path' })
     end, { desc = '[N][o]tify current file path' })
+
+    vim.keymap.set('n', '<leader>nd', function()
+      require('notify').dismiss { silent = true, pending = true }
+    end, { desc = '[N]otify [D]ismiss all' })
   end,
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
