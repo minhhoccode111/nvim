@@ -83,8 +83,8 @@ map('t', 'jj', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 --[[ COMMANDS ]]
 
--- Save file with <C-s>
-map({ 'i', 'n' }, '<C-s>', '<cmd> w <cr>', { desc = 'Save file' })
+-- Save file with <C-s>, NOTE: the '!' is hotfix for ts/js error on ubuntu
+map({ 'i', 'n' }, '<C-s>', '<cmd> w! <cr>', { desc = 'Save file' })
 
 -- Replace regex string current file
 map('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[R]eplace [R]egex String' })
