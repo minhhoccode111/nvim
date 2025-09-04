@@ -3,6 +3,7 @@ require 'mhc.map'
 require 'mhc.ui'
 
 return {
+  require 'mhc.plugins.augment',
   require 'mhc.plugins.autopairs',
   require 'mhc.plugins.autotag',
   -- require 'mhc.plugins.blink',
