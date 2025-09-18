@@ -121,6 +121,31 @@ return {
       end,
       desc = '[D]ebug: [L]ast Test Go',
     },
+    -- Flutter debugging keymaps
+    {
+      '<leader>dfd',
+      function()
+        -- Start Flutter app with debugger attached
+        vim.cmd 'FlutterRun --start-paused'
+      end,
+      desc = '[D]ebug: [F]lutter [D]ebug Start',
+    },
+    {
+      '<leader>dfr',
+      function()
+        -- Hot restart Flutter app
+        vim.cmd 'FlutterRestart'
+      end,
+      desc = '[D]ebug: [F]lutter [R]estart',
+    },
+    {
+      '<leader>dfh',
+      function()
+        -- Hot reload Flutter app
+        vim.cmd 'FlutterReload'
+      end,
+      desc = '[D]ebug: [F]lutter [H]ot Reload',
+    },
   },
   config = function()
     local dap = require 'dap'
@@ -142,7 +167,42 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'delve',
+        'delve', -- Go
+        'dart-debug-adapter', -- Flutter/Dart
+      },
+    }
+
+    -- Flutter/Dart DAP configuration
+    dap.adapters.dart = {
+      type = 'executable',
+      command = 'dart',
+      args = { 'debug_adapter' },
+    }
+
+    dap.adapters.flutter = {
+      type = 'executable',
+      command = 'flutter',
+      args = { 'debug_adapter' },
+    }
+
+    dap.configurations.dart = {
+      {
+        type = 'dart',
+        request = 'launch',
+        name = 'Launch Dart',
+        dartSdkPath = os.getenv 'HOME' .. '/fvm/default/bin/cache/dart-sdk/',
+        flutterSdkPath = os.getenv 'HOME' .. '/fvm/default/',
+        program = '${workspaceFolder}/lib/main.dart',
+        cwd = '${workspaceFolder}',
+      },
+      {
+        type = 'flutter',
+        request = 'launch',
+        name = 'Launch Flutter',
+        dartSdkPath = os.getenv 'HOME' .. '/fvm/default/bin/cache/dart-sdk/',
+        flutterSdkPath = os.getenv 'HOME' .. '/fvm/default/',
+        program = '${workspaceFolder}/lib/main.dart',
+        cwd = '${workspaceFolder}',
       },
     }
 
