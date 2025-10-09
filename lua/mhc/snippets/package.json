@@ -1,0 +1,11 @@
+{
+  "name": "mhc-custom-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "go",
+        "path": "./go.json"
+      }
+    ]
+  }
+}
