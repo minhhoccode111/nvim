@@ -23,7 +23,7 @@ return {
         {
           'rafamadriz/friendly-snippets',
           config = function()
-            require('luasnip.loaders.from_vscode').lazy_load({ paths = { '/home/mhc/.config/nvim/lua/mhc/snippets' } })
+            require('luasnip.loaders.from_vscode').lazy_load()
           end,
         },
       },
