@@ -37,7 +37,14 @@ return {
   config = function()
     local map = vim.keymap.set
 
-    map('n', '<leader>ar', '<cmd>Rest run<cr>', { desc = '[A]PIs [R]un' })
-    map('n', '<leader>al', '<cmd>Rest run last<cr>', { desc = '[A]PIs Run [L]ast' })
+    map('n', '<leader>ar', '<cmd>Rest run<cr>', { desc = '[A]PIs [R]un Under Cursor' })
+    map('n', '<leader>aa', function()
+      local name = vim.fn.input 'Run API name: '
+      if name ~= '' then
+        vim.cmd('Rest run ' .. name)
+      else
+        print 'Cancelled'
+      end
+    end, { desc = '[A]PIs Run By N[a]me' })
   end,
 }
