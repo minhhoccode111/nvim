@@ -1,5 +1,0 @@
--- setup for gopher
-
-return {
-  --
-}
