@@ -164,8 +164,12 @@ map('n', '<leader>xb', '<cmd> bd <cr>', { desc = '[X]Close w/ :[b]d', silent = t
 -- map('n', '<leader>dj', vim.diagnostic.goto_next, { desc = '[D]iagnostic: [j]Next message' })
 -- map('n', '<leader>de', vim.diagnostic.open_float, { desc = '[D]iagnostic: [E]rror messages show' })
 -- map('n', '<leader>dq', vim.diagnostic.setloclist, { desc = '[D]iagnostic: [Q]uickfix list open' })
-map('n', '<leader>k', vim.diagnostic.goto_prev, { desc = '[D]iagnostic: [k]Previous message' })
-map('n', '<leader>j', vim.diagnostic.goto_next, { desc = '[D]iagnostic: [j]Next message' })
+map('n', '<leader>k', function()
+  vim.diagnostic.jump { count = -1 }
+end, { desc = '[D]iagnostic: [k]Previous message' })
+map('n', '<leader>j', function()
+  vim.diagnostic.jump { count = 1 }
+end, { desc = '[D]iagnostic: [j]Next message' })
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = '[D]iagnostic: [E]rror messages show' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = '[D]iagnostic: [Q]uickfix list open' })
 
