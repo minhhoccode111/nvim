@@ -250,15 +250,17 @@ return {
         intelephense = {
           cmd = { 'intelephense', '--stdio' },
           filetypes = { 'php' },
-          root_dir = require('lspconfig.util').root_pattern('composer.json', '.git'),
+          root_dir = function(fname)
+            return require('lspconfig.util').root_pattern('config.php', 'version.php')(fname) or vim.fn.getcwd()
+          end,
+          init_options = {
+            indexWorkspace = true,
+            storagePath = '/tmp/intelephense',
+          },
           settings = {
             intelephense = {
-              environment = {
-                phpVersion = '7.2.0', -- for my company, developing moodle 3.5.7
-              },
-              files = {
-                maxSize = 5000000,
-              },
+              environment = { phpVersion = '8.3.0' },
+              files = { maxSize = 10000000 },
             },
           },
         },
