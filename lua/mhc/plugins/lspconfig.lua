@@ -259,7 +259,8 @@ return {
           },
           settings = {
             intelephense = {
-              environment = { phpVersion = '8.3.0' },
+              -- environment = { phpVersion = '7.2.0' }, -- moodle 3.5
+              environment = { phpVersion = '8.3.0' }, -- moodle 4.5
               files = { maxSize = 10000000 },
             },
           },

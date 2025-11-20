@@ -6,7 +6,7 @@ return {
   config = function()
     local lint = require 'lint'
     lint.linters_by_ft = {
-      php = { 'phpcs' },
+      -- php = { 'phpcs' },
       -- other
       -- cs = { 'trivy' },
       -- c = { 'cpplint' },
@@ -25,22 +25,22 @@ return {
       -- typescript = { 'ts-standard' },
     }
 
-    -- linter to work with phpcs (install using composer, not mason)
-    -- and moodle 4.5 coding standard
-    local phpcs = lint.linters.phpcs
-    phpcs.cmd = vim.fn.expand '~/.config/composer/vendor/bin/phpcs'
-    phpcs.args = {
-      '--standard=moodle',
-      '--extensions=php',
-      '--report=json',
-      '-',
-    }
+    -- -- linter to work with phpcs (install using composer, not mason)
+    -- -- and moodle 4.5 coding standard
+    -- local phpcs = lint.linters.phpcs
+    -- phpcs.cmd = vim.fn.expand '~/.config/composer/vendor/bin/phpcs'
+    -- phpcs.args = {
+    --   '--standard=moodle',
+    --   '--extensions=php',
+    --   '--report=json',
+    --   '-',
+    -- }
 
-    local phpcbf = require('lint').linters.phpcbf or {}
-    phpcbf.cmd = vim.fn.expand '~/.config/composer/vendor/bin/phpcbf'
-    phpcbf.args = { '--standard=moodle', '-' }
-    phpcbf.stdin = true
-    lint.linters.phpcbf = phpcbf
+    -- local phpcbf = require('lint').linters.phpcbf or {}
+    -- phpcbf.cmd = vim.fn.expand '~/.config/composer/vendor/bin/phpcbf'
+    -- phpcbf.args = { '--standard=moodle', '-' }
+    -- phpcbf.stdin = true
+    -- lint.linters.phpcbf = phpcbf
 
     -- To allow other plugins to add linters to require('lint').linters_by_ft,
     -- instead set linters_by_ft like this:
