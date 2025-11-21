@@ -8,11 +8,11 @@ return {
     opts = {
       library = {
         -- Load luvit types when the `vim.uv` word is found
-        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        -- { path = 'luvit-meta/library', words = { 'vim%.uv' } },
       },
     },
   },
-  { 'Bilal2453/luvit-meta', lazy = true },
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -66,7 +66,8 @@ return {
           -- In this case, we create a function that lets us more easily define mappings specific
           -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = '[L]SP: ' .. desc })
+            mode = mode or 'n'
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = '[L]SP: ' .. desc })
           end
 
           -- Jump to the definition of the word under your cursor.
@@ -158,15 +159,13 @@ return {
             })
           end
 
-          -- The following autocommand is used to enable inlay hints in your
+          -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
-          if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+          if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map('<leader>lh', function()
-              -- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-              ---@diagnostic disable-next-line: missing-parameter
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, 'Toggle Inlay [H]ints')
           end
         end,
@@ -259,9 +258,32 @@ return {
           },
           settings = {
             intelephense = {
-              -- environment = { phpVersion = '7.2.0' }, -- moodle 3.5
-              environment = { phpVersion = '8.3.0' }, -- moodle 4.5
-              files = { maxSize = 10000000 },
+              environment = {
+                -- phpVersion = '7.2.0', -- Moodle 3.5
+                phpVersion = '8.3.0', -- Moodle 4.5
+                includePaths = { vim.fn.getcwd() },
+              },
+              files = {
+                maxSize = 10000000,
+              },
+              stubs = {
+                'apache', 'bcmath', 'bz2', 'calendar', 'Core', 'ctype', 'curl',
+                'date', 'dba', 'dom', 'enchant', 'exif', 'FFI', 'fileinfo',
+                'filter', 'ftp', 'gd', 'gettext', 'hash', 'iconv', 'imap',
+                'intl', 'json', 'ldap', 'libxml', 'mbstring', 'meta', 'mysqli',
+                'oci8', 'odbc', 'openssl', 'pcntl', 'pcre', 'PDO', 'pdo_mysql',
+                'Phar', 'posix', 'pspell', 'readline', 'redis', 'Reflection',
+                'session', 'shmop', 'SimpleXML', 'snmp', 'soap', 'sockets',
+                'sodium', 'SPL', 'standard', 'superglobals', 'sysvmsg',
+                'sysvsem', 'sysvshm', 'tidy', 'tokenizer', 'xml', 'xmlreader',
+                'xmlwriter', 'xsl', 'zip', 'zlib',
+
+                vim.fn.expand '~/.moodle-stubs.php',
+              },
+
+              completion = {
+                fullyQualifyGlobalConstantsAndFunctions = false,
+              },
             },
           },
         },
