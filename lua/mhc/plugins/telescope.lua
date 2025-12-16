@@ -126,7 +126,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local map = vim.keymap.set
     map('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
     map('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
-    map('n', '<leader>ff', builtin.fd, { desc = '[F]ind [F]iles' })
+    map('n', '<leader>ff', function()
+      builtin.fd {
+        follow = true,
+        file_ignore_patterns = {
+          'frontend', -- ignore nested frontend project
+        },
+      }
+    end, { desc = '[F]ind [F]iles' })
     map('n', '<leader>fS', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
     map('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind Current [W]ord' })
     map('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind [G]rep String' })

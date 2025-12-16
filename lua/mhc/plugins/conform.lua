@@ -48,6 +48,7 @@ return {
     end,
     formatters_by_ft = {
       c = { 'clang-format' },
+      java = { 'google-java-format' },
       bash = { 'shfmt' },
       python = { 'black' },
 
