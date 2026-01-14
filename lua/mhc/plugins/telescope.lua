@@ -156,6 +156,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         file_ignore_patterns = {
           '.git/',
           'node_modules/',
+          'frontend/',
           '.next/',
           'obj/',
           'bin/',
