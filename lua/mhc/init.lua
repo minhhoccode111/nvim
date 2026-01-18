@@ -22,6 +22,7 @@ return {
   require 'mhc.plugins.lint',
   require 'mhc.plugins.lspconfig',
   require 'mhc.plugins.markdown_preview',
+  require 'mhc.plugins.markdown_render',
   require 'mhc.plugins.mini',
   require 'mhc.plugins.neotree',
   require 'mhc.plugins.noice',
