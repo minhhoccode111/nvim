@@ -149,6 +149,12 @@ map('n', '<c-i>', '<cmd> bp <cr>', { desc = 'Prev Buffer', silent = true })
 map('n', '<A-p>', '<C-o>', { desc = 'Go to previous position in jump list' })
 map('n', '<A-n>', '<C-i>', { desc = 'Go to next position in jump list' })
 
+-- Print current filepath
+map('n', '<leader>no', function()
+  local filepath = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.')
+  print(filepath)
+end, { desc = '[N][o] current file path' })
+
 -- Close current buffer
 map('n', '<leader>xb', '<cmd> bd <cr>', { desc = '[X]Close w/ :[b]d', silent = true })
 -- NOTE: move to bufferline plugin specific

@@ -31,14 +31,15 @@ return {
     'saadparwaiz1/cmp_luasnip',
 
     -- Adds other completion capabilities.
-    --  nvim-cmp does not ship with all sources by default. They are split
-    --  into multiple repos for maintenance purposes.
+    -- nvim-cmp does not ship with all sources by default. They are split
+    -- into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
+
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
 
@@ -112,6 +113,7 @@ return {
         { name = 'codeium' }, -- codeium client
         -- { name = 'tabnine' }, -- tabnine client
         { name = 'path' }, -- files' path
+        { name = 'buffer' }, -- files' path
 
         -- nvim_cmp is like a framework and we need to make sure that
         -- we add those to the sources for nvim_cmp to make sure that
@@ -119,5 +121,13 @@ return {
         -- Example like an AI code completion etc.
       },
     }
+
+    -- Setup vim-dadbod
+    cmp.setup.filetype({ 'sql' }, {
+      sources = {
+        { name = 'vim-dadbod-completion' },
+        { name = 'buffer' },
+      },
+    })
   end,
 }
