@@ -152,6 +152,7 @@ map('n', '<A-n>', '<C-i>', { desc = 'Go to next position in jump list' })
 -- Print current filepath
 map('n', '<leader>no', function()
   local filepath = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.')
+  vim.fn.setreg('+', filepath) -- '+' is the system clipboard register
   print(filepath)
 end, { desc = '[N][o] current file path' })
 

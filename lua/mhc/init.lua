@@ -33,6 +33,7 @@ return {
   require 'mhc.plugins.other',
   require 'mhc.plugins.php',
   require 'mhc.plugins.rest',
+  require 'mhc.plugins.roslyn',
   require 'mhc.plugins.sleuth',
   require 'mhc.plugins.snacks',
   -- require 'mhc.plugins.tabnine',
