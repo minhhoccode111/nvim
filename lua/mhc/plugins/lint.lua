@@ -9,8 +9,8 @@ return {
       -- php = { 'phpcs' },
       -- other
       -- cs = { 'trivy' },
-      c = { 'cpplint' },
-      java = { 'checkstyle' },
+      -- c = { 'cpplint' },
+      -- java = { 'checkstyle' },
       -- text = { 'vale' },
       -- python = { 'pylint' },
       -- bash = { 'shellcheck' },

@@ -17,7 +17,17 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'williamboman/mason.nvim', config = true },
+      {
+        'williamboman/mason.nvim',
+        config = true,
+        -- roslyn for dotnet lsp
+        opts = {
+          registries = {
+            'github:mason-org/mason-registry',
+            'github:Crashdummyy/mason-registry',
+          },
+        },
+      },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -73,27 +83,39 @@ return {
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('<leader>ld', require('telescope.builtin').lsp_definitions, 'Goto [D]efinition')
+          map('<leader>ld', function()
+            require('telescope.builtin').lsp_definitions()
+          end, 'Goto [D]efinition')
 
           -- Find references for the word under your cursor.
-          map('<leader>lr', require('telescope.builtin').lsp_references, 'Goto [R]eferences')
+          map('<leader>lr', function()
+            require('telescope.builtin').lsp_references()
+          end, 'Goto [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('<leader>li', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementation')
+          map('<leader>li', function()
+            require('telescope.builtin').lsp_implementations()
+          end, 'Goto [I]mplementation')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('<leader>lt', require('telescope.builtin').lsp_type_definitions, '[T]ype Definition')
+          map('<leader>lt', function()
+            require('telescope.builtin').lsp_type_definitions()
+          end, '[T]ype Definition')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>lSd', require('telescope.builtin').lsp_document_symbols, '[S]ymbols [D]ocument')
+          map('<leader>lSd', function()
+            require('telescope.builtin').lsp_document_symbols()
+          end, '[S]ymbols [D]ocument')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>lSw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[S]ymbols [W]orkspace ')
+          map('<leader>lSw', function()
+            require('telescope.builtin').lsp_dynamic_workspace_symbols()
+          end, '[S]ymbols [W]orkspace ')
 
           -- Rename the variable under your cursor.
           -- Most Language Servers support renaming across files, etc.
@@ -215,6 +237,10 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+      -- roslyn for C#
+      vim.lsp.config('roslyn', {})
+
       local servers = {
         -- Example toggle this on will install clangD on the next installation
         -- and automatically attach in C files, assume that we already
@@ -246,47 +272,47 @@ return {
             },
           },
         },
-        intelephense = {
-          cmd = { 'intelephense', '--stdio' },
-          filetypes = { 'php' },
-          root_dir = function(fname)
-            return require('lspconfig.util').root_pattern('config.php', 'version.php')(fname) or vim.fn.getcwd()
-          end,
-          init_options = {
-            indexWorkspace = true,
-            storagePath = '/tmp/intelephense',
-          },
-          settings = {
-            intelephense = {
-              environment = {
-                -- phpVersion = '7.2.0', -- Moodle 3.5
-                phpVersion = '8.3.0', -- Moodle 4.5
-                includePaths = { vim.fn.getcwd() },
-              },
-              files = {
-                maxSize = 10000000,
-              },
-              stubs = {
-                'apache', 'bcmath', 'bz2', 'calendar', 'Core', 'ctype', 'curl',
-                'date', 'dba', 'dom', 'enchant', 'exif', 'FFI', 'fileinfo',
-                'filter', 'ftp', 'gd', 'gettext', 'hash', 'iconv', 'imap',
-                'intl', 'json', 'ldap', 'libxml', 'mbstring', 'meta', 'mysqli',
-                'oci8', 'odbc', 'openssl', 'pcntl', 'pcre', 'PDO', 'pdo_mysql',
-                'Phar', 'posix', 'pspell', 'readline', 'redis', 'Reflection',
-                'session', 'shmop', 'SimpleXML', 'snmp', 'soap', 'sockets',
-                'sodium', 'SPL', 'standard', 'superglobals', 'sysvmsg',
-                'sysvsem', 'sysvshm', 'tidy', 'tokenizer', 'xml', 'xmlreader',
-                'xmlwriter', 'xsl', 'zip', 'zlib',
-
-                vim.fn.expand '~/.moodle-stubs.php',
-              },
-
-              completion = {
-                fullyQualifyGlobalConstantsAndFunctions = false,
-              },
-            },
-          },
-        },
+        -- intelephense = {
+        --   cmd = { 'intelephense', '--stdio' },
+        --   filetypes = { 'php' },
+        --   root_dir = function(fname)
+        --     return require('lspconfig.util').root_pattern('config.php', 'version.php')(fname) or vim.fn.getcwd()
+        --   end,
+        --   init_options = {
+        --     indexWorkspace = true,
+        --     storagePath = '/tmp/intelephense',
+        --   },
+        --   settings = {
+        --     intelephense = {
+        --       environment = {
+        --         -- phpVersion = '7.2.0', -- Moodle 3.5
+        --         phpVersion = '8.3.0', -- Moodle 4.5
+        --         includePaths = { vim.fn.getcwd() },
+        --       },
+        --       files = {
+        --         maxSize = 10000000,
+        --       },
+        --       stubs = {
+        --         'apache', 'bcmath', 'bz2', 'calendar', 'Core', 'ctype', 'curl',
+        --         'date', 'dba', 'dom', 'enchant', 'exif', 'FFI', 'fileinfo',
+        --         'filter', 'ftp', 'gd', 'gettext', 'hash', 'iconv', 'imap',
+        --         'intl', 'json', 'ldap', 'libxml', 'mbstring', 'meta', 'mysqli',
+        --         'oci8', 'odbc', 'openssl', 'pcntl', 'pcre', 'PDO', 'pdo_mysql',
+        --         'Phar', 'posix', 'pspell', 'readline', 'redis', 'Reflection',
+        --         'session', 'shmop', 'SimpleXML', 'snmp', 'soap', 'sockets',
+        --         'sodium', 'SPL', 'standard', 'superglobals', 'sysvmsg',
+        --         'sysvsem', 'sysvshm', 'tidy', 'tokenizer', 'xml', 'xmlreader',
+        --         'xmlwriter', 'xsl', 'zip', 'zlib',
+        --
+        --         vim.fn.expand '~/.moodle-stubs.php',
+        --       },
+        --
+        --       completion = {
+        --         fullyQualifyGlobalConstantsAndFunctions = false,
+        --       },
+        --     },
+        --   },
+        -- },
       }
 
       -- You can add other tools here that you want Mason to install
@@ -332,14 +358,6 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
-        },
-      }
-
-      -- roslyn for dotnet lsp
-      require('mason').setup {
-        registries = {
-          'github:mason-org/mason-registry',
-          'github:Crashdummyy/mason-registry',
         },
       }
     end,
