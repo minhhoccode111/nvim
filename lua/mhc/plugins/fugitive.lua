@@ -1,0 +1,32 @@
+return {
+  'tpope/vim-fugitive',
+  -- Commands reference (no keymaps set — add your own):
+  --
+  -- :Git / :G             → interactive status buffer (stage/unstage/commit files)
+  --   inside status buffer:
+  --     s                 → stage file/hunk under cursor
+  --     u                 → unstage file/hunk under cursor
+  --     =                 → toggle inline diff for file under cursor
+  --     cc                → commit staged changes (opens commit message buffer)
+  --     ca                → amend last commit
+  --     X                 → discard changes under cursor
+  --     dd                → :Gdiffsplit on file under cursor
+  --
+  -- :Gdiffsplit           → diff current file vs index (staged), side by side
+  -- :Gdiffsplit HEAD      → diff current file vs last commit
+  -- :Gdiffsplit HEAD~     → diff current file vs commit before last
+  --   (equivalent to gitsigns: <leader>hd and <leader>hD)
+  --
+  -- :Git blame            → full blame split; press Enter on a line to jump to that commit
+  --   (equivalent to gitsigns: <leader>hb)
+  --
+  -- :Git log              → browse commit history
+  -- :Git log --follow %   → history of current file
+  --   (equivalent to telescope: <leader>fc)
+  --
+  -- :GBrowse              → open current file/line on GitHub or GitLab in browser
+  --
+  -- :Git push             → push (any git subcommand works after :Git)
+  -- :Git pull
+  -- :Git rebase -i HEAD~3
+}

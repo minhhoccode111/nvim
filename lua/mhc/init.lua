@@ -16,6 +16,7 @@ return {
   require 'mhc.plugins.debugger',
   require 'mhc.plugins.flutter', -- NOTE: turn on extension in telescope too
   -- require 'mhc.plugins.git_conflict',
+  require 'mhc.plugins.fugitive',
   require 'mhc.plugins.gitsigns',
   require 'mhc.plugins.go',
   require 'mhc.plugins.inc_rename',
