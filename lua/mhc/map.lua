@@ -156,6 +156,12 @@ map('n', '<leader>no', function()
   print(filepath)
 end, { desc = '[N][o] current file path' })
 
+map('n', '<leader>nO', function()
+  local filepath = vim.fn.expand '%:p'
+  vim.fn.setreg('+', filepath)
+  print(filepath)
+end, { desc = '[N][O] current file absolute path' })
+
 -- Close current buffer
 map('n', '<leader>xb', '<cmd> bd <cr>', { desc = '[X]Close w/ :[b]d', silent = true })
 -- NOTE: move to bufferline plugin specific
