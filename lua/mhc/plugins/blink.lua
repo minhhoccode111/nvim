@@ -91,10 +91,19 @@ return {
         'buffer',
         -- 'codeium',
       },
+      per_filetype = {
+        sql = { 'dadbod', 'lsp', 'snippets', 'buffer' },
+        mysql = { 'dadbod', 'lsp', 'snippets', 'buffer' },
+        plsql = { 'dadbod', 'lsp', 'snippets', 'buffer' },
+      },
       providers = {
         lazydev = {
           module = 'lazydev.integrations.blink',
           score_offset = 100,
+        },
+        dadbod = {
+          name = 'dadbod',
+          module = 'vim_dadbod_completion.blink',
         },
         -- codeium = {
         --   name = 'codeium',
