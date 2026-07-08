@@ -108,7 +108,7 @@ end, { desc = '[T]oggle [D]iagnostic Warning' })
 
 -- toggle gj, gk movement
 local isMovementEnabled = false
-map('n', '<leader>tm', function()
+map('n', '<leader>tM', function()
   if isMovementEnabled then
     isMovementEnabled = false
     nomap({ 'n', 'v' }, 'j', { desc = 'Disable keymap for j' })
@@ -119,6 +119,11 @@ map('n', '<leader>tm', function()
     map({ 'n', 'v' }, 'k', 'gk', { desc = 'Enable keymap for k' })
   end
 end, { desc = '[T]oggle [M]ovement gj, gk' })
+
+-- toggle render-markdown
+map('n', '<leader>tm', function()
+  require('render-markdown').toggle()
+end, { desc = '[T]oggle render-[M]arkdown' })
 
 -- Close window
 map('n', '<leader>xx', '<cmd> q <cr>', { desc = '[X]Close w/ :q' })
