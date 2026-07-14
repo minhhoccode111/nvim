@@ -53,7 +53,7 @@ return {
       python = { 'black' },
 
       lua = { 'stylua' },
-      go = { 'goimports', 'golines' },
+      go = { 'goimports' },
       cs = { 'csharpier' },
 
       typescript = { 'prettierd' },
