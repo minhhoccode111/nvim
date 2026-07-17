@@ -115,6 +115,21 @@ return { -- Fuzzy Finder (files, lsp, etc)
     }
 
     -- Enable Telescope extensions if they are installed
+    pcall(function()
+      local utils = require('telescope.previewers.utils')
+      utils.ts_highlighter = function(bufnr, ft)
+        local ok, lang = pcall(vim.treesitter.language.get_lang, ft)
+        if not ok then
+          return false
+        end
+        local ok2, parser = pcall(vim.treesitter.get_parser, bufnr, lang)
+        if not ok2 then
+          return false
+        end
+        vim.treesitter.highlighter.new(parser)
+        return true
+      end
+    end)
     require('telescope').load_extension 'fzf'
     require('telescope').load_extension 'ui-select'
     require('telescope').load_extension 'rest'
