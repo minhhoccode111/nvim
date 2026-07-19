@@ -116,7 +116,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Enable Telescope extensions if they are installed
     pcall(function()
-      local utils = require('telescope.previewers.utils')
+      local utils = require 'telescope.previewers.utils'
       utils.ts_highlighter = function(bufnr, ft)
         local ok, lang = pcall(vim.treesitter.language.get_lang, ft)
         if not ok then
@@ -133,7 +133,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     require('telescope').load_extension 'fzf'
     require('telescope').load_extension 'ui-select'
     require('telescope').load_extension 'rest'
-    require('telescope').load_extension 'flutter' -- NOTE: turn on the plugin in mhc/init.lua too
+    -- require('telescope').load_extension 'flutter' -- NOTE: turn on the plugin in mhc/init.lua too
 
     -- See `:help telescope.builtin`
     -- mine

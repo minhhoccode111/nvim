@@ -6,16 +6,6 @@ return {
   version = '1.*',
   build = 'cargo build --release',
   dependencies = {
-    -- {
-    --   'Exafunction/codeium.nvim',
-    --   dependencies = {
-    --     'nvim-lua/plenary.nvim',
-    --     'hrsh7th/nvim-cmp',
-    --   },
-    --   config = function()
-    --     require('codeium').setup {}
-    --   end,
-    -- },
     -- blink.compat for compatibility
     { 'saghen/blink.compat', opts = { enable_events = true } },
     {
@@ -60,12 +50,6 @@ return {
       ['<C-o>'] = { 'snippet_forward', 'fallback' },
       ['<C-i>'] = { 'snippet_backward', 'fallback' },
       ['<C-e>'] = { 'hide', 'fallback' },
-
-      -- ['<A-y>'] = {
-      --   function(cmp)
-      --     cmp.show { providers = { 'codeium' } }
-      --   end,
-      -- },
     },
 
     appearance = {
@@ -89,7 +73,6 @@ return {
         'snippets',
         'path',
         'buffer',
-        -- 'codeium',
       },
       per_filetype = {
         sql = { 'dadbod', 'lsp', 'snippets', 'buffer' },
@@ -105,12 +88,6 @@ return {
           name = 'dadbod',
           module = 'vim_dadbod_completion.blink',
         },
-        -- codeium = {
-        --   name = 'codeium',
-        --   module = 'blink.compat.source',
-        --   async = true,
-        --   score_offset = 50,
-        -- },
       },
     },
 
