@@ -1,5 +1,3 @@
--- print 'Hello, World! From autopair.lua'
-
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',

@@ -1,5 +1,3 @@
--- Autocompletion
-
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -110,8 +108,7 @@ return {
         },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'codeium' }, -- codeium client
-        -- { name = 'tabnine' }, -- tabnine client
+        -- { name = 'codeium' }, -- codeium client
         { name = 'path' }, -- files' path
         { name = 'buffer' }, -- files' path
 
@@ -123,7 +120,7 @@ return {
     }
 
     -- Setup vim-dadbod
-    cmp.setup.filetype({ 'sql' }, {
+    cmp.setup.filetype({ 'sql', 'mysql', 'plsql' }, {
       sources = {
         { name = 'vim-dadbod-completion' },
         { name = 'buffer' },

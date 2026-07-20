@@ -1,40 +1,39 @@
--- format json rest.nvim
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'json' },
-  callback = function()
-    vim.api.nvim_set_option_value('formatprg', 'jq', { scope = 'local' })
-  end,
-})
-
--- format html rest.nvim
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'html',
-  callback = function()
-    vim.bo.formatprg = 'tidy -q -indent'
-  end,
-})
-
----rest.nvim default configuration
----@class rest.Config
-vim.g.rest_nvim = {
-  ---@class rest.Config.UI
-  ui = {
-    ---@type boolean Whether to set winbar to result panes
-    winbar = true,
-    ---@class rest.Config.UI.Keybinds
-    keybinds = {
-      ---@type string Mapping for cycle to previous result pane
-      prev = 'I',
-      ---@type string Mapping for cycle to next result pane
-      next = 'O',
-    },
-  },
-}
-
+-- REQUIRED SYSTEM DEPS (install before opening nvim or the luarocks build will fail):
+--   1. npm install -g tree-sitter-cli
+--   2. luarocks install luarocks-build-treesitter-parser
+-- rest.nvim depends on tree-sitter-http, which is built from source via LuaRocks.
+-- It needs the `tree-sitter` CLI to compile the parser grammar, and the
+-- luarocks-build-treesitter-parser build backend to be globally accessible.
 return {
   'rest-nvim/rest.nvim',
 
+  init = function()
+    vim.g.rest_nvim = {
+      ui = {
+        winbar = true,
+        keybinds = {
+          prev = 'I',
+          next = 'O',
+        },
+      },
+    }
+  end,
+
   config = function()
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'json' },
+      callback = function()
+        vim.api.nvim_set_option_value('formatprg', 'jq', { scope = 'local' })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'html',
+      callback = function()
+        vim.bo.formatprg = 'tidy -q -indent'
+      end,
+    })
+
     local map = vim.keymap.set
 
     map('n', '<leader>ar', '<cmd>Rest run<cr>', { desc = '[A]PIs [R]un Under Cursor' })

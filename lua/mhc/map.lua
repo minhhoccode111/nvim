@@ -47,7 +47,7 @@ map('n', 'O', 'o<esc>', { desc = 'New line above' })
 -- map('i', '<c-j>', '<esc>o', { desc = 'New line in Insert mode' })
 
 -- Select all with <C-a>
-map({ 'i', 'n', 'v' }, '<C-a>', '<esc>ggVG', { desc = 'Select all' })
+-- map({ 'i', 'n', 'v' }, '<C-a>', '<esc>ggVG', { desc = 'Select all' })
 
 -- Paste over selected text without losing current clipboard
 map('x', '<leader>p', '"_dP', { desc = 'Paste without losing clipboard' })
