@@ -167,10 +167,9 @@ map('n', '<leader>nO', function()
   print(filepath)
 end, { desc = '[N][O] current file absolute path' })
 
--- Close current buffer
-map('n', '<leader>xb', '<cmd> bd <cr>', { desc = '[X]Close w/ :[b]d', silent = true })
--- NOTE: move to bufferline plugin specific
--- Pick buffer to close
+-- Close current buffer (now handled by mini.bufremove in mini.lua)
+-- map('n', '<leader>xb', '<cmd> bd <cr>', { desc = '[X]Close w/ :[b]d', silent = true })
+-- NOTE: buffer close/pick keymaps moved to mini.lua (mini.bufremove)
 -- map('n', '<leader>xp', '<cmd>lua require("bufferline").close_with_pick()<cr>', { desc = '[X]Close [P]ick Buffer' })
 -- Close other buffers (bufferline plugin)
 -- map('n', '<leader>xo', '<cmd> BufferLineCloseOthers <cr>', { desc = '[X]Close [O]ther Buffers', silent = true })
