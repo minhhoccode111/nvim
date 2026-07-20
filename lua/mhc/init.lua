@@ -36,6 +36,8 @@ return {
   require 'mhc.plugins.sleuth',
   -- require 'mhc.plugins.snacks',
   require 'mhc.plugins.supermaven',
+  require 'mhc.plugins.snacks',
+  -- require 'mhc.plugins.tabnine',
   require 'mhc.plugins.tailwind',
   require 'mhc.plugins.telescope',
   require 'mhc.plugins.terminal',
