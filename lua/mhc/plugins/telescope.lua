@@ -1,25 +1,11 @@
--- NOTE: Plugins can specify dependencies.
---
--- The dependencies are proper plugin specifications as well - anything
--- you do for a plugin at the top level, you can do for a dependency.
---
--- Use the `dependencies` key to specify the dependencies of a particular plugin
-
-return { -- Fuzzy Finder (files, lsp, etc)
+return {
   'nvim-telescope/telescope.nvim',
-  event = 'VimEnter',
-  branch = '0.1.x',
+  version = '*',
   dependencies = {
-    'nvim-lua/plenary.nvim',
-    { -- If encountering errors, see telescope-fzf-native README for installation instructions
+    { 'nvim-lua/plenary.nvim' },
+    {
       'nvim-telescope/telescope-fzf-native.nvim',
-
-      -- `build` is used to run some command when the plugin is installed/updated.
-      -- This is only run then, not every time Neovim starts up.
       build = "make CFLAGS='-O3 -Wall -fpic -std=gnu99 -shared'",
-
-      -- `cond` is a condition used to determine whether this plugin should be
-      -- installed and loaded.
       cond = function()
         return vim.fn.executable 'make' == 1
       end,
@@ -30,31 +16,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
-    -- Telescope is a fuzzy finder that comes with a lot of different things that
-    -- it can fuzzy find! It's more than just a "file finder", it can search
-    -- many different aspects of Neovim, your workspace, LSP, and more!
-    --
-    -- The easiest way to use Telescope, is to start by doing something like:
-    --  :Telescope help_tags
-    --
-    -- After running this command, a window will open up and you're able to
-    -- type in the prompt window. You'll see a list of `help_tags` options and
-    -- a corresponding preview of the help.
-    --
-    -- Two important keymaps to use while in Telescope are:
-    --  - Insert mode: <c-/>
-    --  - Normal mode: ?
-    --
-    -- This opens a window that shows you all of the keymaps for the current
-    -- Telescope picker. This is really useful to discover what Telescope can
-    -- do as well as how to actually do it!
+    local actions = require 'telescope.actions'
 
-    -- [[ Configure Telescope ]]
-    -- See `:help telescope` and `:help telescope.setup()`
     require('telescope').setup {
-      -- You can put your default mappings / updates / etc. in here
-      --  All the info you're looking for is in `:help telescope.setup()`
-
       defaults = {
         -- this set live_grep and grep_string include hidden files by default
         vimgrep_arguments = {
@@ -101,7 +65,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
           i = {
             ['<c-u>'] = false,
             ['<c-enter>'] = 'to_fuzzy_refine',
-            ['<tab>'] = require('telescope.actions').select_default,
+            ['<tab>'] = actions.select_default,
           },
           -- n = { ['<tab>'] = require('telescope.actions').select_default },
         },
@@ -116,6 +80,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Enable Telescope extensions if they are installed
     pcall(function()
+      ---@type any
       local utils = require 'telescope.previewers.utils'
       utils.ts_highlighter = function(bufnr, ft)
         local ok, lang = pcall(vim.treesitter.language.get_lang, ft)
@@ -126,10 +91,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
         if not ok2 then
           return false
         end
-        vim.treesitter.highlighter.new(parser)
+        vim.treesitter.highlighter.new(parser --[[@as vim.treesitter.LanguageTree]])
         return true
       end
     end)
+
     require('telescope').load_extension 'fzf'
     require('telescope').load_extension 'ui-select'
     require('telescope').load_extension 'rest'
@@ -205,35 +171,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
       }
     end, { desc = '[F]ind [/] in Open Files' })
 
-    -- -- Shortcut for searching your Neovim configuration files
-    -- map('n', '<leader>fN', function()
-    --   builtin.fd { cwd = vim.fn.stdpath 'config' }
-    -- end, { desc = '[F]ind [N]eovim files' })
+    -- Shortcut for searching your Neovim configuration files
+    map('n', '<leader>fN', function()
+      builtin.fd { cwd = vim.fn.stdpath 'config' }
+    end, { desc = '[F]ind [N]eovim files' })
 
-    -- -- Shortcut for searching my /dotfiles dir
-    -- map('n', '<leader>fD', function()
-    --   builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
-    -- end, { desc = '[F]ind /[d]otfiles dir' })
-
-    -- -- Shortcut for searching my /cs dir
-    -- map('n', '<leader>fC', function()
-    --   builtin.fd { cwd = '~/cs', hidden = true, no_ignore = true }
-    -- end, { desc = '[F]ind [C]S dir' })
-
-    -- -- Shortcut for searching my /web dir
-    -- map('n', '<leader>fW', function()
-    --   builtin.fd { cwd = '~/web', hidden = true, no_ignore = false } -- so many node_modules
-    -- end, { desc = '[F]ind /[w]eb dir' })
-
-    -- -- Shortcut for searching my /learn dir
-    -- map('n', '<leader>fL', function()
-    --   builtin.fd { cwd = '~/learn', hidden = true, no_ignore = true }
-    -- end, { desc = '[F]ind /[l]earn dir' })
-
-    -- -- Shortcut for searching my /project dir
-    -- map('n', '<leader>fP', function()
-    --   builtin.fd { cwd = '~/project', hidden = true, no_ignore = false } -- so many node_modules
-    -- end, { desc = '[F]ind /[p]roject dir' })
+    -- Shortcut for searching my /dotfiles dir
+    map('n', '<leader>fD', function()
+      builtin.fd { cwd = '~/dotfiles', hidden = false, no_ignore = false }
+    end, { desc = '[F]ind /[d]otfiles dir' })
 
     -- -- Shortcut for searching my /Documents/current-obsidian dir
     map('n', '<leader>fO', function()
