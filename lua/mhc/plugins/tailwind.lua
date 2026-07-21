@@ -1,5 +1,3 @@
--- something about tailwind
-
 return {
   'catgoose/nvim-colorizer.lua',
   event = 'BufReadPre',

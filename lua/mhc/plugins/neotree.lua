@@ -1,13 +1,10 @@
--- filetree in neovim
-
 return {
-  -- File: lua/custom/plugins/filetree.lua
   'nvim-neo-tree/neo-tree.nvim',
 
   version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+    'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
   },
   config = function()
@@ -15,7 +12,7 @@ return {
       event_handlers = {
         {
           event = 'neo_tree_buffer_enter',
-          handler = function(arg)
+          handler = function()
             vim.cmd [[
           setlocal relativenumber
         ]]
@@ -37,8 +34,10 @@ return {
             '.env.test',
             '.env.production',
             '.env.development',
+            '.env.local',
             '.env.dev',
             '.env.prod',
+            '.env.example',
           },
         },
         window = {
@@ -71,17 +70,12 @@ return {
       },
     }
 
-    -- My setting neotree keymaps, see :help neotree
-    -- local command = require 'neo-tree.command'
     local map = vim.keymap.set
 
-    -- since we don't need a file tree that much so a little deep is ok
-    -- since we spend half screen for editor (usually) so float is better
     map('n', '<c-n>', '<cmd> Neotree toggle float<cr>', { desc = '[N]eotree [F]loat' })
     map('n', '<leader>nf', '<cmd> Neotree toggle float<cr>', { desc = '[N]eotree [F]loat' })
     map('n', '<leader>nl', '<cmd> Neotree toggle left <cr>', { desc = '[N]eotree [L]eft' })
     map('n', '<leader>nr', '<cmd> Neotree toggle right <cr>', { desc = '[N]eotree [R]ight' })
-    -- display the filetree and reveal current file location
     map('n', '<leader>nc', '<cmd> Neotree reveal <cr>', { desc = '[N]eotree Reveal [C]urrent File' })
   end,
 }

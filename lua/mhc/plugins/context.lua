@@ -1,5 +1,3 @@
--- context for code
-
 return {
   'nvim-treesitter/nvim-treesitter-context',
   config = function()

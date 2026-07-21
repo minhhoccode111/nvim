@@ -1,5 +1,4 @@
 return {
-  -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -33,7 +32,7 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      'j-hui/fidget.nvim',
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {

@@ -1,5 +1,3 @@
--- improve default vim.ui interfaces
-
 return {
   'folke/snacks.nvim',
   priority = 1000,

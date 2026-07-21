@@ -1,5 +1,3 @@
--- display greet when start
-
 return {
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
@@ -43,5 +41,5 @@ return {
       },
     }
   end,
-  dependencies = { { 'nvim-tree/nvim-web-devicons' } },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
 }

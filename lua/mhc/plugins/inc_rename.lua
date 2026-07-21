@@ -1,5 +1,3 @@
--- preview rename
-
 return {
   'smjonas/inc-rename.nvim',
   config = function()

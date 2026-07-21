@@ -1,5 +1,3 @@
--- resolve conflict in git
-
 return {
   'akinsho/git-conflict.nvim',
   version = '*',

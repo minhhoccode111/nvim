@@ -1,9 +1,4 @@
--- Here is a more advanced example where we pass configuration
--- options to `gitsigns.nvim`. This is equivalent to the following Lua:
---    require('gitsigns').setup({ ... })
---
--- See `:help gitsigns` to understand what the configuration keys do
-return { -- Adds git related signs to the gutter, as well as utilities for managing changes
+return {
   'lewis6991/gitsigns.nvim',
   opts = {
     signs = {
@@ -68,7 +63,7 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
         gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
       end, { desc = 'Gitsigns [R]eset [H]unk' })
       map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'Gitsigns [S]tage [H]unk Buffer' })
-      map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'Gitsigns [U]ndo Stage [H]unk' })
+      map('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'Gitsigns [U]ndo Stage [H]unk' })
       map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'Gitsigns [R]eset [H]unk Buffer' })
       map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'Gitsigns [P]review [H]unk' })
       map('n', '<leader>hb', function()
@@ -79,7 +74,7 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
         gitsigns.diffthis '~'
       end, { desc = 'Gitsigns [D]iff ~ (vs last commit)' })
       map('n', '<leader>tB', gitsigns.toggle_current_line_blame, { desc = '[T]oggle Gitsigns [B]lame Line' })
-      map('n', '<leader>tD', gitsigns.toggle_deleted, { desc = '[T]oggle Gitsigns [D]eleted Line' })
+      map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle Gitsigns [D]eleted Line' })
     end,
   },
 }
