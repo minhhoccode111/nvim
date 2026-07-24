@@ -4,8 +4,8 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true }, -- disable expensive features on large files
-    quickfile = { enabled = true }, -- fast file rendering before plugins load
-    scroll = { enabled = true }, -- smooth scrolling / scrollbar animator
+    -- quickfile = { enabled = true },   -- fast file rendering before plugins load
+    -- scroll = { enabled = true },      -- smooth scrolling / scrollbar animator
     -- input = { enabled = true },       -- prettier vim.ui.input prompts
     -- notifier = { enabled = true },    -- pretty vim.notify messages
     -- statuscolumn = { enabled = true },-- richer fold/sign/line-number column
