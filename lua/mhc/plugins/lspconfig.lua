@@ -141,6 +141,22 @@ return {
           },
         },
         gopls = {},
+        emmet_language_server = {
+          filetypes = {
+            'html',
+            'templ',
+            'css',
+            'scss',
+            'less',
+            'javascript',
+            'typescript',
+            'javascriptreact',
+            'typescriptreact',
+            'xml',
+            'svelte',
+          },
+        },
+        templ = {},
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})

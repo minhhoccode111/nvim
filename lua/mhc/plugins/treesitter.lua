@@ -22,6 +22,7 @@ return {
       'http',
       'gitcommit',
       'svelte',
+      'templ',
     }
 
     vim.api.nvim_create_autocmd('FileType', {
