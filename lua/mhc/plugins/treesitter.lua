@@ -5,9 +5,9 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
-    require('nvim-treesitter.config').setup {}
+    require('nvim-treesitter').setup()
 
-    local ensure_installed = {
+    require('nvim-treesitter').install {
       'bash',
       'go',
       'lua',
@@ -23,7 +23,6 @@ return {
       'gitcommit',
       'svelte',
     }
-    require('nvim-treesitter').install(ensure_installed)
 
     vim.api.nvim_create_autocmd('FileType', {
       pattern = '*',
@@ -35,9 +34,10 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = '*',
       callback = function(args)
-        pcall(function()
+        local lang = vim.bo[args.buf].filetype
+        if lang and vim.treesitter.query.get(lang, 'indents') then
           vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end)
+        end
       end,
     })
 
