@@ -35,6 +35,7 @@ return {
       json = { 'prettierd' },
       html = { 'prettierd' },
       markdown = { 'prettierd' },
+      templ = { 'rustywind' },
     },
   },
   init = function()
