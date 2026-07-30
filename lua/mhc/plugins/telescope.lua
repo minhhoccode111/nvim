@@ -118,9 +118,9 @@ return {
     map('n', '<leader>fS', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
     map('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind Current [W]ord' })
     map('n', '<leader>fg', function()
-      builtin.grep_string {
-        search = vim.fn.input 'rg > ',
-      }
+      local input = vim.fn.input 'rg > '
+      if input == '' then return end
+      builtin.grep_string { search = input }
     end, { desc = '[F]ind [G]rep String' })
     map('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
     map('n', '<leader>fo', builtin.oldfiles, { desc = '[F]ind [O]ld (Opened) Files' })

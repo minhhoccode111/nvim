@@ -100,21 +100,21 @@ return {
       end
     end, { desc = '[X]Close Buffers to [R]ight' })
 
-    ----------------------------------------
-    -- mini.hipatterns — Highlight patterns (replaces todo-comments.nvim)
-    require('mini.hipatterns').setup {
-      highlighters = {
-        fixme = { pattern = 'FIXME', group = 'DiagnosticError' },
-        todo = { pattern = 'TODO', group = 'DiagnosticWarn' },
-        hack = { pattern = 'HACK', group = 'DiagnosticWarn' },
-        warn = { pattern = 'WARN', group = 'DiagnosticWarn' },
-        perf = { pattern = 'PERF', group = 'DiagnosticHint' },
-        note = { pattern = 'NOTE', group = 'DiagnosticInfo' },
-        test = { pattern = 'TEST', group = 'DiagnosticHint' },
-        bug = { pattern = 'BUG', group = 'DiagnosticError' },
-        fix = { pattern = 'FIX', group = 'DiagnosticError' },
-      },
-    }
+    -- ----------------------------------------
+    -- -- mini.hipatterns — Highlight patterns (replaces todo-comments.nvim)
+    -- require('mini.hipatterns').setup {
+    --   highlighters = {
+    --     fixme = { pattern = 'FIXME', group = 'DiagnosticError' },
+    --     todo = { pattern = 'TODO', group = 'DiagnosticWarn' },
+    --     hack = { pattern = 'HACK', group = 'DiagnosticWarn' },
+    --     warn = { pattern = 'WARN', group = 'DiagnosticWarn' },
+    --     perf = { pattern = 'PERF', group = 'DiagnosticHint' },
+    --     note = { pattern = 'NOTE', group = 'DiagnosticInfo' },
+    --     test = { pattern = 'TEST', group = 'DiagnosticHint' },
+    --     bug = { pattern = 'BUG', group = 'DiagnosticError' },
+    --     fix = { pattern = 'FIX', group = 'DiagnosticError' },
+    --   },
+    -- }
 
     ----------------------------------------
     -- mini.statusline — Minimal statusline

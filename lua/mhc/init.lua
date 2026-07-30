@@ -13,7 +13,6 @@ return {
   -- require 'mhc.plugins.supermaven',
   -- require 'mhc.plugins.tabnine',
   -- require 'mhc.plugins.terminal',
-  -- require 'mhc.plugins.todo_comments', -- replaced by mini.hipatterns
   require 'mhc.plugins.autopairs',
   require 'mhc.plugins.autotag',
   require 'mhc.plugins.bufferline',
@@ -41,6 +40,7 @@ return {
   require 'mhc.plugins.telescope',
   require 'mhc.plugins.themes',
   require 'mhc.plugins.tmux_navigator',
+  require 'mhc.plugins.todo_comments', -- replaced by mini.hipatterns
   require 'mhc.plugins.treesitter',
   require 'mhc.plugins.whichkey',
 }

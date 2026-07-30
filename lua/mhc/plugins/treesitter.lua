@@ -57,8 +57,8 @@ return {
       ['if'] = '@function.inner',
       ['ac'] = '@class.outer',
       ['ic'] = '@class.inner',
-      ['al'] = '@loop.outer',
-      ['il'] = '@loop.inner',
+      ['aL'] = '@loop.outer',
+      ['iL'] = '@loop.inner',
       ['aa'] = '@parameter.outer',
       ['ia'] = '@parameter.inner',
     }
