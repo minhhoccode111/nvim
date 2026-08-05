@@ -31,74 +31,74 @@ return {
       },
     }
 
-    ----------------------------------------
-    -- mini.bufremove — Safe buffer deletion (replaces :bd)
-    require('mini.bufremove').setup()
+    -- ----------------------------------------
+    -- -- mini.bufremove — Safe buffer deletion (replaces :bd)
+    -- require('mini.bufremove').setup()
 
-    -- Buffer management keymaps
-    map('n', '<leader>xb', function()
-      require('mini.bufremove').delete()
-    end, { desc = '[X]Close [B]uffer' })
+    -- -- Buffer management keymaps
+    -- map('n', '<leader>xb', function()
+    --   require('mini.bufremove').delete()
+    -- end, { desc = '[X]Close [B]uffer' })
 
-    map('n', '<leader>xp', function()
-      local current = vim.api.nvim_get_current_buf()
-      local buffers = vim.fn.getbufinfo { buflisted = 1 }
-      local items = {}
-      for _, buf in ipairs(buffers) do
-        if buf.bufnr ~= current then
-          table.insert(items, buf)
-        end
-      end
-      if #items == 0 then
-        vim.notify('No other buffers to close', vim.log.levels.WARN)
-        return
-      end
-      vim.ui.select(items, {
-        prompt = 'Pick buffer to close:',
-        format_item = function(item)
-          return (item.name and item.name ~= '' and vim.fn.fnamemodify(item.name, ':t')) or '[No Name]'
-        end,
-      }, function(choice)
-        if choice then
-          require('mini.bufremove').delete(choice.bufnr)
-        end
-      end)
-    end, { desc = '[X]Close [P]ick Buffer' })
+    -- map('n', '<leader>xp', function()
+    --   local current = vim.api.nvim_get_current_buf()
+    --   local buffers = vim.fn.getbufinfo { buflisted = 1 }
+    --   local items = {}
+    --   for _, buf in ipairs(buffers) do
+    --     if buf.bufnr ~= current then
+    --       table.insert(items, buf)
+    --     end
+    --   end
+    --   if #items == 0 then
+    --     vim.notify('No other buffers to close', vim.log.levels.WARN)
+    --     return
+    --   end
+    --   vim.ui.select(items, {
+    --     prompt = 'Pick buffer to close:',
+    --     format_item = function(item)
+    --       return (item.name and item.name ~= '' and vim.fn.fnamemodify(item.name, ':t')) or '[No Name]'
+    --     end,
+    --   }, function(choice)
+    --     if choice then
+    --       require('mini.bufremove').delete(choice.bufnr)
+    --     end
+    --   end)
+    -- end, { desc = '[X]Close [P]ick Buffer' })
 
-    map('n', '<leader>xo', function()
-      local current = vim.api.nvim_get_current_buf()
-      local buffers = vim.fn.getbufinfo { buflisted = 1 }
-      for _, buf in ipairs(buffers) do
-        if buf.bufnr ~= current then
-          pcall(require('mini.bufremove').delete, buf.bufnr, false)
-        end
-      end
-    end, { desc = '[X]Close [O]ther Buffers' })
+    -- map('n', '<leader>xo', function()
+    --   local current = vim.api.nvim_get_current_buf()
+    --   local buffers = vim.fn.getbufinfo { buflisted = 1 }
+    --   for _, buf in ipairs(buffers) do
+    --     if buf.bufnr ~= current then
+    --       pcall(require('mini.bufremove').delete, buf.bufnr, false)
+    --     end
+    --   end
+    -- end, { desc = '[X]Close [O]ther Buffers' })
 
-    map('n', '<leader>xl', function()
-      local current = vim.api.nvim_get_current_buf()
-      local buffers = vim.fn.getbufinfo { buflisted = 1 }
-      for _, buf in ipairs(buffers) do
-        if buf.bufnr == current then
-          break
-        end
-        pcall(require('mini.bufremove').delete, buf.bufnr, false)
-      end
-    end, { desc = '[X]Close Buffers to [L]eft' })
+    -- map('n', '<leader>xl', function()
+    --   local current = vim.api.nvim_get_current_buf()
+    --   local buffers = vim.fn.getbufinfo { buflisted = 1 }
+    --   for _, buf in ipairs(buffers) do
+    --     if buf.bufnr == current then
+    --       break
+    --     end
+    --     pcall(require('mini.bufremove').delete, buf.bufnr, false)
+    --   end
+    -- end, { desc = '[X]Close Buffers to [L]eft' })
 
-    map('n', '<leader>xr', function()
-      local current = vim.api.nvim_get_current_buf()
-      local buffers = vim.fn.getbufinfo { buflisted = 1 }
-      local found = false
-      for _, buf in ipairs(buffers) do
-        if found then
-          pcall(require('mini.bufremove').delete, buf.bufnr, false)
-        end
-        if buf.bufnr == current then
-          found = true
-        end
-      end
-    end, { desc = '[X]Close Buffers to [R]ight' })
+    -- map('n', '<leader>xr', function()
+    --   local current = vim.api.nvim_get_current_buf()
+    --   local buffers = vim.fn.getbufinfo { buflisted = 1 }
+    --   local found = false
+    --   for _, buf in ipairs(buffers) do
+    --     if found then
+    --       pcall(require('mini.bufremove').delete, buf.bufnr, false)
+    --     end
+    --     if buf.bufnr == current then
+    --       found = true
+    --     end
+    --   end
+    -- end, { desc = '[X]Close Buffers to [R]ight' })
 
     -- ----------------------------------------
     -- -- mini.hipatterns — Highlight patterns (replaces todo-comments.nvim)
