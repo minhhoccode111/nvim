@@ -53,10 +53,10 @@ return {
 
     local select_textobject = require('nvim-treesitter-textobjects.select').select_textobject
     local select_keys = {
-      ['af'] = '@function.outer',
-      ['if'] = '@function.inner',
-      ['ac'] = '@class.outer',
-      ['ic'] = '@class.inner',
+      -- ['af'] = '@function.outer',
+      -- ['if'] = '@function.inner',
+      -- ['ac'] = '@class.outer',
+      -- ['ic'] = '@class.inner',
       ['aL'] = '@loop.outer',
       ['iL'] = '@loop.inner',
       ['aa'] = '@parameter.outer',
@@ -68,30 +68,30 @@ return {
       end, { desc = 'TS: ' .. query })
     end
 
-    local move = require 'nvim-treesitter-textobjects.move'
-    vim.keymap.set('n', ']f', function()
-      move.goto_next_start '@function.outer'
-    end, { desc = 'TS: Next function start' })
-    vim.keymap.set('n', ']c', function()
-      move.goto_next_start '@class.outer'
-    end, { desc = 'TS: Next class start' })
-    vim.keymap.set('n', ']F', function()
-      move.goto_next_end '@function.outer'
-    end, { desc = 'TS: Next function end' })
-    vim.keymap.set('n', ']C', function()
-      move.goto_next_end '@class.outer'
-    end, { desc = 'TS: Next class end' })
-    vim.keymap.set('n', '[f', function()
-      move.goto_previous_start '@function.outer'
-    end, { desc = 'TS: Prev function start' })
-    vim.keymap.set('n', '[c', function()
-      move.goto_previous_start '@class.outer'
-    end, { desc = 'TS: Prev class start' })
-    vim.keymap.set('n', '[F', function()
-      move.goto_previous_end '@function.outer'
-    end, { desc = 'TS: Prev function end' })
-    vim.keymap.set('n', '[C', function()
-      move.goto_previous_end '@class.outer'
-    end, { desc = 'TS: Prev class end' })
+    -- local move = require 'nvim-treesitter-textobjects.move'
+    -- vim.keymap.set('n', ']f', function()
+    --   move.goto_next_start '@function.outer'
+    -- end, { desc = 'TS: Next function start' })
+    -- vim.keymap.set('n', ']c', function()
+    --   move.goto_next_start '@class.outer'
+    -- end, { desc = 'TS: Next class start' })
+    -- vim.keymap.set('n', ']F', function()
+    --   move.goto_next_end '@function.outer'
+    -- end, { desc = 'TS: Next function end' })
+    -- vim.keymap.set('n', ']C', function()
+    --   move.goto_next_end '@class.outer'
+    -- end, { desc = 'TS: Next class end' })
+    -- vim.keymap.set('n', '[f', function()
+    --   move.goto_previous_start '@function.outer'
+    -- end, { desc = 'TS: Prev function start' })
+    -- vim.keymap.set('n', '[c', function()
+    --   move.goto_previous_start '@class.outer'
+    -- end, { desc = 'TS: Prev class start' })
+    -- vim.keymap.set('n', '[F', function()
+    --   move.goto_previous_end '@function.outer'
+    -- end, { desc = 'TS: Prev function end' })
+    -- vim.keymap.set('n', '[C', function()
+    --   move.goto_previous_end '@class.outer'
+    -- end, { desc = 'TS: Prev class end' })
   end,
 }
