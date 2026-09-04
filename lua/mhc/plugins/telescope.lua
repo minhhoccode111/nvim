@@ -83,12 +83,9 @@ return {
       ---@type any
       local utils = require 'telescope.previewers.utils'
       utils.ts_highlighter = function(bufnr, ft)
-        local ok, lang = pcall(vim.treesitter.language.get_lang, ft)
-        if not ok then
-          return false
-        end
-        local ok2, parser = pcall(vim.treesitter.get_parser, bufnr, lang)
-        if not ok2 then
+        -- nvim 0.11+ get_parser returns nil, err instead of raising
+        local ok, parser = pcall(vim.treesitter.get_parser, bufnr, ft)
+        if not ok or not parser then
           return false
         end
         vim.treesitter.highlighter.new(parser --[[@as vim.treesitter.LanguageTree]])
