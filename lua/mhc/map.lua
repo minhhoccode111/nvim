@@ -61,6 +61,13 @@ map('x', '<leader>p', '"_dP', { desc = 'Paste without losing clipboard' })
 -- map('n', '<c-j>', '<c-w><c-j>', { desc = 'Move focus to the lower window' })
 -- map('n', '<c-k>', '<c-w><c-k>', { desc = 'Move focus to the upper window' })
 
+-- Native multi-cursor: clear all cursors (default <C-l> clashes with tmux-navigator)
+-- Builtin <C-l> clear is n-mode-only, so call the extmark API directly for n/i/x.
+-- See :help mcursor-clear
+map({ 'n', 'i', 'x' }, '<C-q>', function()
+  vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_create_namespace('nvim.multicursor'), 0, -1)
+end, { desc = 'Multi-cursor: clear all cursors' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
