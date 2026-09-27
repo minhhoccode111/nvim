@@ -8,7 +8,7 @@ return {
 
     local map = vim.keymap.set
 
-    map('n', '<leader>tc', '<cmd> TSContextToggle <cr>', { desc = '[T]oggle [C]ontext Treesitter' })
+    map('n', '<leader>tc', '<cmd> TSContext toggle <cr>', { desc = '[T]oggle [C]ontext Treesitter' })
 
     map({ 'n', 'v', 'o' }, '<leader>c', function()
       require('treesitter-context').go_to_context(vim.v.count1)
