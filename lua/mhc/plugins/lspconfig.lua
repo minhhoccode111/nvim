@@ -182,6 +182,17 @@ return {
           vim.lsp.enable(server_name)
         end
       end
+
+      -- htmx-lsp never answers hover, which hangs `vim.lsp.buf.hover` (it waits for
+      -- every hover client). Svelte never uses htmx, so keep it out of svelte buffers.
+      local htmx = vim.lsp.config['htmx']
+      if htmx and htmx.filetypes then
+        vim.lsp.config('htmx', {
+          filetypes = vim.tbl_filter(function(ft)
+            return ft ~= 'svelte'
+          end, htmx.filetypes),
+        })
+      end
     end,
   },
 }
