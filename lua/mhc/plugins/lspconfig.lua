@@ -50,6 +50,11 @@ return {
             require('telescope.builtin').lsp_references()
           end, 'Goto [R]eferences')
 
+          -- `:LspRestart` from nvim-lspconfig no longer exists: the plugin skips
+          -- defining its commands when Neovim provides `:lsp` (0.13+). The built-in
+          -- `:lsp restart` restarts the clients attached to the current buffer.
+          map('<leader>lR', '<cmd>lsp restart<CR>', '[R]estart')
+
           map('<leader>li', function()
             require('telescope.builtin').lsp_implementations()
           end, 'Goto [I]mplementation')
@@ -140,7 +145,28 @@ return {
             },
           },
         },
-        gopls = {},
+        gopls = {
+          -- Neovim advertises didChangeWatchedFiles.dynamicRegistration only on
+          -- macOS and Windows (see the TODO in runtime/lua/vim/lsp/protocol.lua,
+          -- refs neovim#27807). On Linux that leaves gopls with no file watchers,
+          -- so it never hears about files created or changed outside Neovim
+          -- unless a buffer for them is open. Diagnostics that depend on those
+          -- files stay broken until :LspRestart, which is why restarting "fixes"
+          -- the LSP.
+          --
+          -- Advertising the capability makes gopls register its watchers and
+          -- Neovim send workspace/didChangeWatchedFiles. Scoped to gopls so the
+          -- other servers do not put inotify watches over their whole workspace.
+          --
+          -- Caveat: the Linux watcher walks directories that already exist. A
+          -- brand new directory with a file inside it can still be missed until
+          -- the next restart.
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = { dynamicRegistration = true },
+            },
+          },
+        },
         emmet_language_server = {
           filetypes = {
             'html',
