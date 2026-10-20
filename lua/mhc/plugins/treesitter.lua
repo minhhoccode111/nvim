@@ -9,7 +9,9 @@ return {
 
     require('nvim-treesitter').install {
       'bash',
+      'c_sharp',
       'go',
+      'razor',
       'lua',
       'markdown',
       'html',

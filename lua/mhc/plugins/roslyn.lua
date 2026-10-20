@@ -1,10 +1,11 @@
 return {
   'seblyng/roslyn.nvim',
-  ft = { 'cs' },
+  ft = { 'cs', 'razor' },
   opts = {
     broad_search = true,
   },
-  config = function()
+  config = function(_, opts)
+    require('roslyn').setup(opts)
     vim.lsp.config('roslyn', {
       settings = {
         ['csharp|inlay_hints'] = {
@@ -17,6 +18,10 @@ return {
         ['csharp|code_lens'] = {
           dotnet_enable_references_code_lens = true,
           dotnet_enable_tests_code_lens = true,
+        },
+        ['csharp|background_analysis'] = {
+          dotnet_analyzer_diagnostics_scope = 'fullSolution',
+          dotnet_compiler_diagnostics_scope = 'fullSolution',
         },
       },
     })
