@@ -25,6 +25,8 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      c = { 'clang-format' },
+      cpp = { 'clang-format' },
       cs = { 'csharpier' },
       go = { 'gofumpt', 'goimports', 'golines' },
       typescript = { 'prettierd' },

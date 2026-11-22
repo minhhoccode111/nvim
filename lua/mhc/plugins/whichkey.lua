@@ -9,6 +9,8 @@ return {
       { '<leader>A_', hidden = true },
       { '<leader>a', group = '[A]PIs' },
       { '<leader>a_', hidden = true },
+      { '<leader>b', group = '[B]uild' },
+      { '<leader>b_', hidden = true },
       -- { '<leader>C', group = '[C]odeium' },
       -- { '<leader>C_', hidden = true },
       { '<leader>d', group = '[D]ebug' },

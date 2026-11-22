@@ -145,6 +145,7 @@ return {
             },
           },
         },
+        clangd = {},
         gopls = {
           -- Neovim advertises didChangeWatchedFiles.dynamicRegistration only on
           -- macOS and Windows (see the TODO in runtime/lua/vim/lsp/protocol.lua,
@@ -187,6 +188,7 @@ return {
 
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        'clang-format',
         'csharpier',
         'stylua',
         'delve',
