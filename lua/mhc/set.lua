@@ -1,4 +1,4 @@
-vim.filetype.add({ extension = { templ = 'templ' } })
+vim.filetype.add({ extension = { templ = 'templ', week = 'markdown' } })
 
 -- Set <space> as the leader key
 -- See `:help mapleader`

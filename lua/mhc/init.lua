@@ -21,6 +21,7 @@ return {
   require 'mhc.plugins.comment',
   require 'mhc.plugins.conform',
   require 'mhc.plugins.context',
+  require 'mhc.plugins.copilot',
   require 'mhc.plugins.dadbod',
   require 'mhc.plugins.debugger',
   require 'mhc.plugins.fugitive',

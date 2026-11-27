@@ -69,9 +69,6 @@ return {
         ['<C-y>'] = cmp.mapping.confirm { select = true },
         -- Accept with <c-m>, <c-j>, and <enter>
         -- ['<enter>'] = cmp.mapping.confirm { select = true },
-        -- In cases you don't want to press Ctrl key
-        ['<tab>'] = cmp.mapping.confirm { select = true },
-
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
         --  completions whenever it has completion options available.
@@ -126,5 +123,13 @@ return {
         { name = 'buffer' },
       },
     })
+
+    cmp.event:on('menu_opened', function()
+      vim.b.copilot_suggestion_hidden = true
+    end)
+
+    cmp.event:on('menu_closed', function()
+      vim.b.copilot_suggestion_hidden = false
+    end)
   end,
 }
