@@ -1,7 +1,7 @@
 require 'mhc.autoread'
 require 'mhc.set'
 require 'mhc.map'
-require 'mhc.cpp'
+require 'mhc.build'
 require 'mhc.ui'
 
 return {

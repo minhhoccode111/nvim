@@ -21,6 +21,14 @@ local function current_source()
   return src
 end
 
+local function has_main(src)
+  local f = io.open(src, 'r')
+  if not f then return false end
+  local text = f:read('*a')
+  f:close()
+  return text:match('int%s+main%s*%(') ~= nil or text:match('main%s*%(') ~= nil
+end
+
 local function binary(src)
   return vim.fn.fnamemodify(src, ':h') .. '/out'
 end
@@ -87,14 +95,15 @@ function M.run()
   if not src then
     return
   end
+  if not has_main(src) then
+    vim.notify('C++: no main() in file, cannot run', vim.log.levels.WARN)
+    return
+  end
   if not save() then
     return
   end
   local cmd = shell_command(compile_args(src)) .. ' && ' .. vim.fn.shellescape(binary(src))
   open_terminal(cmd, vim.fn.fnamemodify(src, ':h'))
 end
-
-vim.keymap.set('n', '<leader>bb', M.build, { desc = '[B]uild: current C++ file' })
-vim.keymap.set('n', '<leader>br', M.run, { desc = '[B]uild: [R]un current C++ file' })
 
 return M
